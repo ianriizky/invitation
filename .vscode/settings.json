@@ -1,7 +1,15 @@
 {
+    "[blade]": {
+        "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+    },
     "[php]": {
         "editor.defaultFormatter": "open-southeners.laravel-pint"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "blade.php": "html"
+    },
+    "html.suggest.html5": true
 }
