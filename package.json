@@ -97,5 +97,8 @@
   "prisma": {
     "schema": "database/schema.prisma",
     "seed": "node database/seeders/index.js"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,mjs,njk"
   }
 }
