@@ -6,12 +6,12 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "ginfuru.better-nunjucks",
     "github.vscode-github-actions",
     "github.vscode-pull-request-github",
-    "guapibai.nunjucks-prettier",
+    "okitavera.vscode-nunjucks-formatter",
     "Orta.vscode-jest",
     "Prisma.prisma",
-    "rohit-gohri.format-code-action",
-    "ronnidc.nunjucks"
+    "rohit-gohri.format-code-action"
   ]
 }

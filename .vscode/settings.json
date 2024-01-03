@@ -1,13 +1,14 @@
 {
   "[nunjucks]": {
-    "editor.defaultFormatter": "guapibai.nunjucks-prettier"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   },
   "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "nunjucks": "html"
+  },
   "eslint.probe": ["javascript"],
-  "jest.autoRun": "off"
+  "jest.autoRun": "off",
+  "nunjucksFormat.spaceclose": true
 }
