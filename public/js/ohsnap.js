@@ -19,48 +19,53 @@
  *    fade-duration: duration of the fade in/out of the alerts. Default 'fast'
  */
 function ohSnap(text, options) {
-  var defaultOptions = {
-    color: null, // color is  CSS class `alert-color`
-    icon: null, // class of the icon to show before the alert text
-    duration: "2000", // duration of the notification in ms
-    "container-id": "ohsnap", // id of the alert container
-    "fade-duration": "fast", // duration of the fade in/out of the alerts. fast, slow or integer in ms
-  };
+    var defaultOptions = {
+        color: null, // color is  CSS class `alert-color`
+        icon: null, // class of the icon to show before the alert text
+        duration: "2000", // duration of the notification in ms
+        "container-id": "ohsnap", // id of the alert container
+        "fade-duration": "fast", // duration of the fade in/out of the alerts. fast, slow or integer in ms
+    };
 
-  options =
-    typeof options == "object"
-      ? $.extend(defaultOptions, options)
-      : defaultOptions;
+    options =
+        typeof options == "object"
+            ? $.extend(defaultOptions, options)
+            : defaultOptions;
 
-  var $container = $("#" + options["container-id"]),
-    icon_markup = "",
-    color_markup = "";
+    var $container = $("#" + options["container-id"]),
+        icon_markup = "",
+        color_markup = "";
 
-  if (options.icon) {
-    icon_markup = "<span class='" + options.icon + "'></span> ";
-  }
+    if (options.icon) {
+        icon_markup = "<span class='" + options.icon + "'></span> ";
+    }
 
-  if (options.color) {
-    color_markup = "alert-" + options.color;
-  }
+    if (options.color) {
+        color_markup = "alert-" + options.color;
+    }
 
-  // Generate the HTML
-  var html = $(
-    '<div class="alert ' + color_markup + '">' + icon_markup + text + "</div>",
-  ).fadeIn(options["fade-duration"]);
+    // Generate the HTML
+    var html = $(
+        '<div class="alert ' +
+            color_markup +
+            '">' +
+            icon_markup +
+            text +
+            "</div>"
+    ).fadeIn(options["fade-duration"]);
 
-  // Append the label to the container
-  $container.append(html);
+    // Append the label to the container
+    $container.append(html);
 
-  // Remove the notification on click
-  html.on("click", function () {
-    ohSnapX($(this));
-  });
+    // Remove the notification on click
+    html.on("click", function () {
+        ohSnapX($(this));
+    });
 
-  // After 'duration' seconds, the animation fades out
-  setTimeout(function () {
-    ohSnapX(html);
-  }, options.duration);
+    // After 'duration' seconds, the animation fades out
+    setTimeout(function () {
+        ohSnapX(html);
+    }, options.duration);
 }
 
 /* Removes a toast from the page
@@ -71,22 +76,22 @@ function ohSnap(text, options) {
  *      duration: duration of the alert fade out - 'fast', 'slow' or time in ms. Default 'fast'
  */
 function ohSnapX(element, options) {
-  defaultOptions = {
-    duration: "fast",
-  };
+    defaultOptions = {
+        duration: "fast",
+    };
 
-  options =
-    typeof options == "object"
-      ? $.extend(defaultOptions, options)
-      : defaultOptions;
+    options =
+        typeof options == "object"
+            ? $.extend(defaultOptions, options)
+            : defaultOptions;
 
-  if (typeof element !== "undefined") {
-    element.fadeOut(options.duration, function () {
-      $(this).remove();
-    });
-  } else {
-    $(".alert").fadeOut(options.duration, function () {
-      $(this).remove();
-    });
-  }
+    if (typeof element !== "undefined") {
+        element.fadeOut(options.duration, function () {
+            $(this).remove();
+        });
+    } else {
+        $(".alert").fadeOut(options.duration, function () {
+            $(this).remove();
+        });
+    }
 }

@@ -1,15 +1,13 @@
 {
-    "[blade]": {
-        "editor.defaultFormatter": "shufo.vscode-blade-formatter"
-    },
-    "[php]": {
-        "editor.defaultFormatter": "open-southeners.laravel-pint"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "emmet.includeLanguages": {
-        "blade": "html",
-        "blade.php": "html"
-    },
-    "html.suggest.html5": true
+  "[nunjucks]": {
+    "editor.defaultFormatter": "guapibai.nunjucks-prettier"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.probe": ["javascript"],
+  "jest.autoRun": "off"
 }

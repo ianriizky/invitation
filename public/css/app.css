@@ -25,13 +25,11 @@ body {
     padding: 0;
 }
 
-
 /* width */
 
 ::-webkit-scrollbar {
     width: 10px;
 }
-
 
 /* Track */
 
@@ -39,14 +37,12 @@ body {
     border-radius: 10px;
 }
 
-
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
     background: #c9c9c9;
     border-radius: 10px;
 }
-
 
 /* Handle on hover */
 
@@ -99,7 +95,6 @@ canvas {
     vertical-align: bottom;
 }
 
-
 /* ---- particles.js container ---- */
 
 #particles-js {
@@ -111,7 +106,6 @@ canvas {
     background-position: 50% 50%;
     background-image: url("../img/main-img.jpg");
 }
-
 
 /* ---- stats.js ---- */
 
@@ -201,11 +195,11 @@ a.bar-icon:hover {
     height: 40px;
 }
 
-.icon-date.active>.img-off {
+.icon-date.active > .img-off {
     display: none;
 }
 
-.icon-date.active>.img-active {
+.icon-date.active > .img-active {
     display: block;
 }
 
@@ -215,11 +209,11 @@ a.bar-icon:hover {
     height: 40px;
 }
 
-.icon-love.active>.img-off {
+.icon-love.active > .img-off {
     display: none;
 }
 
-.icon-love.active>.img-active {
+.icon-love.active > .img-active {
     display: block;
 }
 
@@ -229,39 +223,39 @@ a.bar-icon:hover {
     height: 40px;
 }
 
-.icon-location.active>.img-off {
+.icon-location.active > .img-off {
     display: none;
 }
 
-.icon-location.active>.img-active {
+.icon-location.active > .img-active {
     display: block;
 }
 
-.icon-insta.active {
+.icon-instagram.active {
     background-color: #d7af9f;
     width: 40px;
     height: 40px;
 }
 
-.icon-insta.active>.img-off {
+.icon-instagram.active > .img-off {
     display: none;
 }
 
-.icon-insta.active>.img-active {
+.icon-instagram.active > .img-active {
     display: block;
 }
 
-.icon-doa.active {
+.icon-message.active {
     background-color: #d7af9f;
     width: 40px;
     height: 40px;
 }
 
-.icon-doa.active>.img-off {
+.icon-message.active > .img-off {
     display: none;
 }
 
-.icon-doa.active>.img-active {
+.icon-message.active > .img-active {
     display: block;
 }
 
@@ -269,7 +263,7 @@ a.bar-icon:hover {
     filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
 }
 
-.the-wedding-title {
+.wedding-title {
     font-size: 120px;
     font-weight: 600;
     margin-bottom: 11rem;
@@ -308,7 +302,7 @@ a.bar-icon:hover {
 }
 
 .content-doa {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -521,7 +515,7 @@ a.btn-white:hover {
 }
 
 .name-doa {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -530,7 +524,7 @@ a.btn-white:hover {
 }
 
 .location-name {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -611,7 +605,7 @@ a.btn-white:hover {
 }
 
 .font-digital {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -646,7 +640,7 @@ span.w3-button:hover {
 }
 
 .bank-name {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 500;
     letter-spacing: normal;
@@ -671,7 +665,7 @@ span.w3-button:hover {
 }
 
 .modal-h {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
@@ -711,7 +705,7 @@ span.w3-button:hover {
 }
 
 .doa-value {
-    font-family: "Work Sans";
+    font-family: "Forum";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -823,7 +817,6 @@ span.w3-button:hover {
         transform: translateY(-5px);
     }
 }
-
 
 /* @keyframes flickerAnimation {
     0% {
@@ -982,7 +975,6 @@ span.w3-button:hover {
     transition: all 0.3s ease;
 }
 
-
 /* Countdown CSS */
 
 .container {
@@ -1021,7 +1013,7 @@ li span {
     padding: 0 0.5rem;
 }
 
-.pembatas-number {
+.number-separator {
     font-size: 30px;
     padding: 55px 0;
 }
@@ -1035,12 +1027,17 @@ li span {
     margin: auto;
     width: 100px;
     height: 100px;
-    background: linear-gradient( 159.44deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 35.72%, rgba(255, 255, 255, 0) 91.89%);
+    background: linear-gradient(
+        159.44deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.4) 35.72%,
+        rgba(255, 255, 255, 0) 91.89%
+    );
     box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
-.buka-udangan {
+.wedding-open {
     display: none;
 }
 
@@ -1079,9 +1076,7 @@ li span {
     accent-color: #cd7d60;
 }
 
-
 /* ALERTS */
-
 
 /* inspired by Twitter Bootstrap */
 
@@ -1112,38 +1107,36 @@ li span {
 
 .alert-red {
     color: white;
-    background-color: #DA4453;
+    background-color: #da4453;
 }
 
 .alert-green {
     color: white;
-    background-color: #37BC9B;
+    background-color: #37bc9b;
 }
 
 .alert-blue {
     color: white;
-    background-color: #4A89DC;
+    background-color: #4a89dc;
 }
 
 .alert-yellow {
     color: white;
-    background-color: #F6BB42;
+    background-color: #f6bb42;
 }
 
 .alert-orange {
     color: white;
-    background-color: #E9573F;
+    background-color: #e9573f;
 }
-
 
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1440px) {
-    .the-wedding-title {
+    .wedding-title {
         line-height: 100px;
     }
 }
-
 
 /* Extra large devices (laptops and desktops, 1200px and down) */
 
@@ -1199,11 +1192,16 @@ li span {
         margin: auto;
         width: 50px;
         height: 50px;
-        background: linear-gradient( 159.44deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 35.72%, rgba(255, 255, 255, 0) 91.89%);
+        background: linear-gradient(
+            159.44deg,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.4) 35.72%,
+            rgba(255, 255, 255, 0) 91.89%
+        );
         box-shadow: 0px 4px 24px -1px rgb(0 0 0 / 10%);
         border-radius: 10px;
     }
-    .pembatas-number {
+    .number-separator {
         font-size: 10px;
         padding: 30px 0;
     }
@@ -1267,7 +1265,6 @@ li span {
     }
 }
 
-
 /* Large devices (tabs, 992px and down) */
 
 @media only screen and (max-width: 992px) {
@@ -1290,23 +1287,23 @@ li span {
     }
     .alert-red {
         color: white;
-        background-color: #DA4453;
+        background-color: #da4453;
     }
     .alert-green {
         color: white;
-        background-color: #37BC9B;
+        background-color: #37bc9b;
     }
     .alert-blue {
         color: white;
-        background-color: #4A89DC;
+        background-color: #4a89dc;
     }
     .alert-yellow {
         color: white;
-        background-color: #F6BB42;
+        background-color: #f6bb42;
     }
     .alert-orange {
         color: white;
-        background-color: #E9573F;
+        background-color: #e9573f;
     }
     .mobile-separator {
         visibility: hidden;
@@ -1337,9 +1334,9 @@ li span {
         z-index: 2;
         padding: 10px;
     }
-    .buka-udangan {
+    .wedding-open {
         display: block;
-        font-family: "Work Sans";
+        font-family: "Forum";
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -1353,7 +1350,7 @@ li span {
         margin-bottom: 30px;
         cursor: pointer;
     }
-    .buka-udangan:hover {
+    .wedding-open:hover {
         background: #fff;
         color: #575757;
         transition: all 0.3s ease;
@@ -1365,13 +1362,13 @@ li span {
         width: 100%;
         margin-top: -180px;
     }
-    .the-wedding-title {
+    .wedding-title {
         font-size: 120px;
         font-weight: 600;
         margin-bottom: 6rem;
     }
     .modal-h {
-        font-family: "Work Sans";
+        font-family: "Forum";
         font-style: normal;
         font-weight: 700;
         font-size: 15px;
@@ -1394,7 +1391,12 @@ li span {
         margin: auto;
         width: 100px;
         height: 100px;
-        background: linear-gradient( 159.44deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 35.72%, rgba(255, 255, 255, 0) 91.89%);
+        background: linear-gradient(
+            159.44deg,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.4) 35.72%,
+            rgba(255, 255, 255, 0) 91.89%
+        );
         box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
@@ -1412,7 +1414,7 @@ li span {
     .font-countdown {
         font-size: 14px;
     }
-    .pembatas-number {
+    .number-separator {
         font-size: 40px;
         padding: 55px 0;
     }
@@ -1480,7 +1482,6 @@ li span {
     }
 }
 
-
 /* Medium devices (landscape tablets, 768px and down) */
 
 @media only screen and (max-width: 768px) {
@@ -1500,7 +1501,6 @@ li span {
         width: 100%;
     }
 }
-
 
 /* Small devices (portrait tablets and large phones, 600px and down) */
 
@@ -1534,7 +1534,7 @@ li span {
     .end-content {
         margin-top: -220px;
     }
-    .the-wedding-title {
+    .wedding-title {
         font-size: 6rem;
         font-weight: 600;
         margin-bottom: 6rem;
@@ -1575,11 +1575,16 @@ li span {
         margin: auto;
         width: 50px;
         height: 50px;
-        background: linear-gradient( 159.44deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 35.72%, rgba(255, 255, 255, 0) 91.89%);
+        background: linear-gradient(
+            159.44deg,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.4) 35.72%,
+            rgba(255, 255, 255, 0) 91.89%
+        );
         box-shadow: 0px 4px 24px -1px rgb(0 0 0 / 10%);
         border-radius: 10px;
     }
-    .pembatas-number {
+    .number-separator {
         font-size: 30px;
         padding: 30px 0;
     }
@@ -1614,15 +1619,14 @@ li span {
     }
 }
 
-
 /* Small devices (iphone mini, 430px and down) */
 
 @media only screen and (max-width: 430px) {
-    .pembatas-number {
+    .number-separator {
         font-size: 30px !important;
         padding: 22px 0 !important;
     }
-    .the-wedding-title {
+    .wedding-title {
         font-size: 5rem;
         font-weight: 600;
         margin-bottom: 6rem;
