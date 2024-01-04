@@ -2,10 +2,10 @@ import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 
 /**
- * @typedef {import("../models/index.js").prisma.User} User
- * @typedef {import("../models/index.js").prisma.Prisma.UserDelegate} Model
+ * @typedef {import("../models/index.js").prisma.Guest} Guest
+ * @typedef {import("../models/index.js").prisma.Prisma.GuestDelegate} Model
  */
-export class UserRepository {
+export class GuestRepository {
   /** @type {Model} */
   model;
 
@@ -13,7 +13,7 @@ export class UserRepository {
    * @param {Model} [model]
    */
   constructor(model) {
-    this.model = model || defaultModel.user;
+    this.model = model || defaultModel.guest;
   }
 
   /**
