@@ -8,6 +8,10 @@ export class AkadController extends Controller {
    */
   // eslint-disable-next-line no-unused-vars
   async show(req, res, next) {
-    return res.render("akad.njk");
+    const viewData = {
+      date: "2024-02-10",
+    };
+
+    return res.render("akad.njk", { viewData });
   }
 }
