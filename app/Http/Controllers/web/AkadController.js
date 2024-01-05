@@ -1,3 +1,4 @@
+import config from "../../../../config/app.js";
 import { Controller } from "../Controller.js";
 
 export class AkadController extends Controller {
@@ -12,6 +13,9 @@ export class AkadController extends Controller {
       date: "2024-01-06",
     };
 
-    return res.render("akad.njk", { viewData });
+    return res.render("web/akad/show.njk", {
+      appUrl: config.url,
+      viewData,
+    });
   }
 }

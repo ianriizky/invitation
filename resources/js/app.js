@@ -30,10 +30,9 @@ $(function () {
   });
 
   $.ajax({
-    // create an ajax request to display.php
     type: "GET",
     url: "./php/display.php",
-    dataType: "html", // expect html to be returned
+    dataType: "html",
     success: function (response) {
       $(".block-data-doa").append(response);
     },
@@ -43,6 +42,7 @@ $(function () {
 
   $(document).on("click", "#submit", function (event) {
     event.preventDefault();
+
     var kehadiran;
     if ($("#hadir").prop("checked")) kehadiran = "hadir";
     if ($("#mungkin-hadir").prop("checked")) kehadiran = "mungkin-hadir";
@@ -76,16 +76,14 @@ $(function () {
           submit: "insert",
         },
         success: function (data) {
-          //alert(data.trim());
           if (data == "success") {
             ohSnap("Terima Kasih atas doa dan ucapannya", {
               color: "green",
             });
             $.ajax({
-              //create an ajax request to display.php
               type: "GET",
               url: "./php/display.php",
-              dataType: "html", //expect html to be returned
+              dataType: "html",
               success: function (response) {
                 $(".block-data-doa").empty();
                 $(".block-data-doa").append(response);
@@ -103,7 +101,6 @@ $(function () {
               },
             });
           }
-          // window.location.reload();
         },
       });
     }
@@ -111,7 +108,6 @@ $(function () {
   });
 
   let mql = window.matchMedia("(min-width: 992px)");
-  // console.log(mql)
 
   if (mql.matches == false) {
     $("#id02").hide();
@@ -120,29 +116,24 @@ $(function () {
   }
 });
 
-$("#click-date").on("click", function () {
-  let linkDate = document.getElementById("date-id");
-  linkDate.scrollIntoView();
+$("#date-button").on("click", function () {
+  document.getElementById("date-id").scrollIntoView();
 });
 
-$("#click-love").on("click", function () {
-  let linkDate = document.getElementById("love-id");
-  linkDate.scrollIntoView();
+$("#bride-button").on("click", function () {
+  document.getElementById("bride-id").scrollIntoView();
 });
 
-$("#click-maps").on("click", function () {
-  let linkDate = document.getElementById("maps-id");
-  linkDate.scrollIntoView();
+$(".maps-button").on("click", function () {
+  document.getElementById("maps-id").scrollIntoView();
 });
 
-$("#click-instagram").on("click", function () {
-  let linkDate = document.getElementById("instagram-id");
-  linkDate.scrollIntoView();
+$("#instagram-button").on("click", function () {
+  document.getElementById("instagram-id").scrollIntoView();
 });
 
-$("#click-doa").on("click", function () {
-  let linkDate = document.getElementById("doa-id");
-  linkDate.scrollIntoView();
+$("#message-button").on("click", function () {
+  document.getElementById("message-id").scrollIntoView();
 });
 
 $("#pay").on("click", function () {
@@ -265,19 +256,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   ScrollTrigger.create({
-    trigger: "#love-id",
+    trigger: "#bride-id",
     scroller: "#mobile-scroll",
     onEnter: function () {
-      changeBackground(".icon-love", "active");
+      changeBackground(".icon-bride", "active");
     },
     onEnterBack: function () {
-      changeBackground(".icon-love", "active");
+      changeBackground(".icon-bride", "active");
     },
     onLeave: function () {
-      changeBackground(".icon-love", "");
+      changeBackground(".icon-bride", "");
     },
     onLeaveBack: function () {
-      changeBackground(".icon-love", "");
+      changeBackground(".icon-bride", "");
     },
   });
 
@@ -316,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   ScrollTrigger.create({
-    trigger: "#doa-id",
+    trigger: "#message-id",
     scroller: "#mobile-scroll",
     onEnter: function () {
       changeBackground(".icon-message", "active");
@@ -333,6 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// eslint-disable-next-line no-undef
 particlesJS("particles-js", {
   particles: {
     number: { value: 160, density: { enable: true, value_area: 800 } },
