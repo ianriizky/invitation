@@ -15,6 +15,7 @@ export class AkadController extends Controller {
 
     return res.render("web/akad/show.njk", {
       appUrl: config.url,
+      csrfToken: req.csrfToken(),
       viewData,
     });
   }
