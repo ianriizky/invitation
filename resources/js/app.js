@@ -2,7 +2,6 @@ import countdown from "./countdown.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import $ from "jquery";
-import "oh-snap-notifications";
 import "particles.js";
 import "slick-carousel";
 
@@ -53,6 +52,7 @@ $(function () {
     var lokasi = $("#lokasi").val();
     var ucapan = $("#ucapan").val();
 
+    /* eslint-disable no-undef */
     if (nama == "") {
       ohSnap("Nama harus diisi", { color: "red" });
     } else if (lokasi == "") {
@@ -107,6 +107,7 @@ $(function () {
         },
       });
     }
+    /* eslint-enable */
   });
 
   let mql = window.matchMedia("(min-width: 992px)");
