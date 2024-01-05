@@ -1,4 +1,4 @@
-import coundown from "./countdown.js";
+import countdown from "./countdown.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import $ from "jquery";
@@ -12,7 +12,7 @@ import "slick-carousel";
 // eslint-disable-next-line no-undef
 const data = viewData;
 
-coundown(new Date(data.date));
+countdown(new Date(data.date));
 
 $(function () {
   const queryString = window.location;
