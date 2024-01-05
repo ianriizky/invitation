@@ -8,8 +8,8 @@ const node_env = process.env.NODE_ENV;
 
 export default {
   port,
-  timezone: process.env.TIMEZONE || "Asia/Jakarta",
-  url: process.env.URL || `http://localhost:${port}`,
+  timezone: process.env.APP_TIMEZONE || "Asia/Jakarta",
+  url: process.env.APP_URL || `http://localhost:${port}`,
   name: process.env.APP_NAME || "Invitation Web Page",
   key: process.env.APP_KEY,
   /** @type {import("../app/supports/Encrypter.js").CipherType} */
