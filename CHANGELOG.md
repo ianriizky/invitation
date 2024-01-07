@@ -4,7 +4,11 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.1...develop)
 
-## [0.1.0](https://github.com/ianriizky/invitation/releases/tag/0.1.1) - 2024-01-07
+## [0.1.2](https://github.com/ianriizky/invitation/releases/tag/0.1.1) - 2024-01-07
+
+- fix: add API_KEY on github actions env by [@ianriizky](https://github.com/ianriizky) in [#560cdf4](https://github.com/ianriizky/invitation/commit/560cdf4c01a80212870d5a3c5c5c22620183c925).
+
+## [0.1.1](https://github.com/ianriizky/invitation/releases/tag/0.1.1) - 2024-01-07
 
 - fix: undetected filename by [@ianriizky](https://github.com/ianriizky) in [#4677ee0](https://github.com/ianriizky/invitation/commit/4677ee0e3746eadb02a3221af5938b167e8a6174) and [#cf63e9c](https://github.com/ianriizky/invitation/commit/cf63e9ce2a62250a8a7189925a81432c483755e2).
 
