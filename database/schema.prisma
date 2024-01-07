@@ -15,6 +15,7 @@ model Guest {
 
   name                String  @db.VarChar(255)
   domicile            String  @db.VarChar(255)
+  phone_number        String? @db.VarChar(255)
   description         String? @db.Text
   number_of_attendees Int     @default(1) @db.UnsignedInt
 
