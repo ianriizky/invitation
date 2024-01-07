@@ -2,7 +2,7 @@ import { loadEnv } from "../app/supports/helpers.js";
 
 loadEnv();
 
-const port = process.env.PORT || "3000";
+const port = Number(process.env.PORT || "3000");
 /** @type {"production" | "development" | "testing"} */
 const node_env = process.env.NODE_ENV;
 
@@ -10,7 +10,7 @@ export default {
   port,
   timezone: process.env.APP_TIMEZONE || "Asia/Jakarta",
   url: `${process.env.APP_URL || "http://localhost"}${
-    port == 8080 ? "" : `:${port}`
+    [80, 443].includes(port) ? "" : `:${port}`
   }`,
   name: process.env.APP_NAME || "Invitation Web Page",
   key: process.env.APP_KEY,
