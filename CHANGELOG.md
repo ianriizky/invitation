@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.1...develop)
+
+## [0.1.0](https://github.com/ianriizky/invitation/releases/tag/0.1.1) - 2024-01-07
+
+- fix: undetected filename by [@ianriizky](https://github.com/ianriizky) in [#4677ee0](https://github.com/ianriizky/invitation/commit/4677ee0e3746eadb02a3221af5938b167e8a6174) and [#cf63e9c](https://github.com/ianriizky/invitation/commit/cf63e9ce2a62250a8a7189925a81432c483755e2).
 
 ## [0.1.0](https://github.com/ianriizky/invitation/releases/tag/0.1.0) - 2024-01-07
 
