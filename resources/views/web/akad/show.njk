@@ -34,6 +34,12 @@
             </div>
           </div>
 
+          <a target="_self" class="music-control add-shadow off" style="cursor: pointer;">
+            <img src="{{ appUrl }}/img/icon-sound.svg" class="sound-on" alt="icon-sound">
+            <img src="{{ appUrl }}/img/icon-sound-off.svg" class="sound-off" alt="icon-sound-off">
+          </a>
+          <audio id="background_music" loop="loop" src="{{ appUrl }}/music.mp3"></audio>
+
           <div id="pay" class="float">
             <a id="pay-button" href="#" target="_self" class="pay-btn add-shadow">
               <img src="{{ appUrl }}/img/icon-pay.svg" alt="icon-pay" />
