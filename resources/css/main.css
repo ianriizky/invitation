@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @font-face {
   font-family: "Signature";
   src: url("../font/tropical_summer_signature-webfont.woff2") format("woff2");
@@ -8,7 +8,7 @@ html,
 body {
   font-family: sans-serif;
   background-color: #ffffff !important;
-  font-family: "Work Sans";
+  font-family: "Lora";
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -146,7 +146,7 @@ canvas {
 }
 
 .wrapper-bar {
-  background: #fff;
+  background: #ffffff;
   padding: 10px;
   border-radius: 100px;
   display: inline-block;
@@ -179,7 +179,7 @@ canvas {
 }
 
 a.bar-icon:hover {
-  background: #e4d3cd;
+  background: #a5cbcc;
   width: 40px;
   height: 40px;
   transition: all 0.3s ease;
@@ -190,7 +190,7 @@ a.bar-icon:hover {
 }
 
 .icon-date.active {
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   width: 40px;
   height: 40px;
 }
@@ -204,7 +204,7 @@ a.bar-icon:hover {
 }
 
 .icon-bride.active {
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   width: 40px;
   height: 40px;
 }
@@ -218,7 +218,7 @@ a.bar-icon:hover {
 }
 
 .icon-location.active {
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   width: 40px;
   height: 40px;
 }
@@ -232,7 +232,7 @@ a.bar-icon:hover {
 }
 
 .icon-instagram.active {
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   width: 40px;
   height: 40px;
 }
@@ -246,7 +246,7 @@ a.bar-icon:hover {
 }
 
 .icon-message.active {
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   width: 40px;
   height: 40px;
 }
@@ -271,7 +271,7 @@ a.bar-icon:hover {
 
 .mobile-separator {
   max-height: 100vh;
-  background-color: #fdfbf7;
+  background-color: #f3f5f5;
   width: 60%;
   overflow: hidden;
   overflow-y: scroll;
@@ -328,7 +328,7 @@ a.bar-icon:hover {
   min-height: 500px;
   margin-top: -300px;
   padding-bottom: 100px;
-  background-color: #d7af9f;
+  background-color: #7d9a9b;
   z-index: -1;
   text-align: center;
   align-items: center;
@@ -447,19 +447,19 @@ a.save-date {
   font-size: 24px;
   line-height: 28px;
   letter-spacing: 0.15em;
-  color: #575757;
+  color: #7d9a9b;
   font-weight: 700;
   border-radius: 10px;
   border: none;
   filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.13));
   text-decoration: none;
-  background: #fff;
+  background: #ffffff;
   z-index: 4;
 }
 
 a.save-date:hover {
-  background: #e4d3cd;
-  color: #fff;
+  background: #a5cbcc;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -471,18 +471,18 @@ a.btn-white {
   font-size: 14px;
   line-height: 28px;
   letter-spacing: 0.15em;
-  color: #575757;
+  color: #7d9a9b;
   font-weight: 700;
   border-radius: 10px;
   border: none;
   filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.13));
   text-decoration: none;
-  background: #fff;
+  background: #ffffff;
 }
 
 a.btn-white:hover {
-  background: #e4d3cd;
-  color: #fff;
+  background: #a5cbcc;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -535,7 +535,7 @@ a.btn-white:hover {
 .hadir {
   background: #ddbbae;
   border-radius: 200px;
-  color: #fff;
+  color: #ffffff;
   padding: 3px 10px;
   font-size: 12px;
   font-weight: 600;
@@ -545,7 +545,7 @@ a.btn-white:hover {
 .m-hadir {
   background: #e4d3cd;
   border-radius: 200px;
-  color: #fff;
+  color: #ffffff;
   padding: 3px 10px;
   font-size: 12px;
   font-weight: 600;
@@ -555,7 +555,7 @@ a.btn-white:hover {
 .t-hadir {
   background: #c9c9c9;
   border-radius: 200px;
-  color: #fff;
+  color: #ffffff;
   padding: 3px 10px;
   font-size: 12px;
   font-weight: 600;
@@ -577,7 +577,7 @@ a.btn-white:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
   font-size: 12px;
 }
 
@@ -692,7 +692,7 @@ span.w3-button:hover {
   text-align: center;
   border-radius: 50%;
   padding-top: 10px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .music-control:hover {
@@ -766,10 +766,10 @@ span.w3-button:hover {
 
 .btn-send {
   width: 100%;
-  background: #ddbbae;
-  border: 4px solid #ddbbad;
+  background: #7d9a9b;
+  border: 4px solid #7d9a9a;
   border-radius: 10px;
-  color: #fff;
+  color: #ffffff;
   padding: 16px 0;
   font-size: 14px;
   font-weight: 700;
@@ -778,9 +778,9 @@ span.w3-button:hover {
 }
 
 .btn-send:hover {
-  background: #575757;
-  border: 4px solid #575757;
-  color: #fff;
+  background: #698182;
+  border: 4px solid #698182;
+  color: #ffffff;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -886,7 +886,7 @@ span.w3-button:hover {
   font-weight: 400;
   line-height: 21px;
   width: 370px;
-  color: #fff;
+  color: #ffffff;
   letter-spacing: normal;
 }
 
@@ -952,7 +952,7 @@ span.w3-button:hover {
 }
 
 .location {
-  color: #fff;
+  color: #ffffff;
   border-radius: 200px;
   text-decoration: none;
   border: 2px solid #ffffff;
@@ -961,17 +961,17 @@ span.w3-button:hover {
 
 .location:hover {
   background: #e4d3cd;
-  color: #fff;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
 .btn-instagram-white {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .btn-instagram-white:hover {
-  color: #e4d3cd;
+  color: #a5cbcc;
   transition: all 0.3s ease;
 }
 
@@ -1165,13 +1165,13 @@ li span {
     font-size: 24px;
     line-height: 28px;
     letter-spacing: 0.15em;
-    color: #575757;
+    color: #7d9a9b;
     font-weight: 700;
     border-radius: 10px;
     border: none;
     filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.13));
     text-decoration: none;
-    background: #fff;
+    background: #ffffff;
   }
   h1 {
     font-size: calc(1.5rem * var(--smaller));
@@ -1225,7 +1225,7 @@ li span {
     font-weight: 400;
     line-height: 21px;
     width: 300px;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: normal;
   }
   .title-section {
@@ -1351,7 +1351,7 @@ li span {
     cursor: pointer;
   }
   .wedding-open:hover {
-    background: #fff;
+    background: #ffffff;
     color: #575757;
     transition: all 0.3s ease;
   }
@@ -1430,7 +1430,7 @@ li span {
     font-weight: 400;
     line-height: 21px;
     width: 400px;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: normal;
   }
   .top-location {
@@ -1456,29 +1456,29 @@ li span {
     display: block;
   }
   a.bar-icon:hover {
-    background: #d7af9f;
+    background: #7d9a9b;
   }
   a.save-date:hover {
-    background: #fff;
-    color: #575757;
+    background: #ffffff;
+    color: #a5cbcc;
   }
   a.btn-white:hover {
-    color: #575757;
-    background: #fff;
+    background: #ffffff;
+    color: #a5cbcc;
   }
   #pay-button:hover {
-    background-color: #fff;
+    background-color: #ffffff;
   }
   .music-control:hover {
-    background-color: #fff;
+    background-color: #ffffff;
   }
   .btn-instagram-white:hover {
-    color: #fff;
+    color: #ffffff;
   }
   .btn-send:hover {
-    background: #d7af9f;
-    border: 4px solid #d7af9f;
-    color: #fff;
+    background: #7d9a9b;
+    border: 4px solid #7d9a9b;
+    color: #ffffff;
   }
 }
 
@@ -1597,7 +1597,7 @@ li span {
     font-weight: 400;
     line-height: 21px;
     width: 320px;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: normal;
   }
   .img-down {
@@ -1661,7 +1661,7 @@ li span {
     font-weight: 400;
     line-height: 21px;
     width: 260px;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: normal;
   }
   .dilanjut-dengan {
