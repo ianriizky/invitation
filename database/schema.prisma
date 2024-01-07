@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Guest {
+  id String @id @default(uuid()) @db.Char(36)
+
+  name                String  @db.VarChar(255)
+  domicile            String  @db.VarChar(255)
+  phone_number        String? @db.VarChar(255)
+  description         String? @db.Text
+  number_of_attendees Int     @default(1) @db.UnsignedInt
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  messages Message[]
+
+  @@map("guests")
+}
+
+model Message {
+  id       String @id @default(uuid()) @db.Char(36)
+  guest_id String @db.Char(36)
+
+  name            String         @db.VarChar(255)
+  description     String         @db.Text
+  presence_status PresenceStatus
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  guest Guest @relation(fields: [guest_id], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+enum PresenceStatus {
+  yes
+  no
+  maybe
+}

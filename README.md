@@ -8,21 +8,22 @@ Share your happiest day to all of your friends through the power of web 😁.
 
 ## Table of Contents
 
--   [Invitation Web Page](#invitation-web-page)
-    -   [Table of Contents](#table-of-contents)
-    -   [Requirement](#requirement)
-    -   [Instalation](#instalation)
-    -   [Running in Development Environment](#running-in-development-environment)
-    -   [Testing](#testing)
-    -   [Changelog](#changelog)
-    -   [Contributing](#contributing)
-    -   [License](#license)
-    -   [Credits](#credits)
+- [Invitation Web Page](#invitation-web-page)
+  - [Table of Contents](#table-of-contents)
+  - [Requirement](#requirement)
+  - [Instalation](#instalation)
+  - [Preparing The Database](#preparing-the-database)
+  - [Running in Development Environment](#running-in-development-environment)
+  - [Testing](#testing)
+  - [Changelog](#changelog)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Credits](#credits)
 
 ## Requirement
 
--   PHP ^8.3
--   MySQL ^8.2.0
+- Node.js ^20.10.0
+- MySQL ^8.2.0
 
 ## Instalation
 
@@ -30,23 +31,38 @@ You can install the project by clone it via GitHub :
 
 ```bash
 git clone https://github.com/ianriizky/invitation.git
-composer install
-cp .env.example .env
-php artisan migrate
+npm install
+npm run key:generate # Generate a new APP_KEY and put it into .env file (use flag "-- --show" to only display the key into the terminal).
 ```
+
+## Preparing The Database
+
+Create the database environment by yourself using this way below.
+
+- MySQL (<https://dev.mysql.com/doc/refman/8.0/en/creating-database.html>). Use DATABASE_URL as the database configuration.
+
+Then run migrations and seeder by execute the command below.
+
+```bash
+npm run migrate:dev
+# or
+npm run migrate:reset -- --skip-seed # Add flag "--skip-seed" to run the migration without seeding and flag "--source_path=YOUR_ENV_PATH" to change the default .env path value.
+```
+
+> Note: This is a development command and should never be used in a production environment. Please use `npm run migrate:deploy` for testing an production environment. Read [prisma migrate documentation][prisma-migrate-documentation-url] for further information.
 
 ## Running in Development Environment
 
 You can run this application lively by running this script :
 
 ```bash
-php artisan serve
+npm run dev
 ```
 
 ## Testing
 
 ```bash
-composer test
+npm run test
 ```
 
 ## Changelog
@@ -67,9 +83,10 @@ The MIT License (MIT). Please see [License File][license-url] for more informati
 | ------ | -------------------------------------------------------- |
 | Author | [Septianata Rizky Pratama](https://github.com/ianriizky) |
 
-[build-status-image]: https://github.com/ianriizky/invitation/actions/workflows/tests.yml/badge.svg
-[build-status-url]: https://github.com/ianriizky/invitation/actions/workflows/tests.yml
+[build-status-image]: https://github.com/ianriizky/invitation/actions/workflows/nodejs-ci.yml/badge.svg
+[build-status-url]: https://github.com/ianriizky/invitation/actions/workflows/nodejs-ci.yml
 [coverage-status-image]: https://codecov.io/gh/ianriizky/invitation/branch/main/graph/badge.svg
 [coverage-status-url]: https://codecov.io/gh/ianriizky/invitation
 [license-image]: https://badgen.net/github/license/ianriizky/invitation
 [license-url]: LICENSE.md
+[prisma-migrate-documentation-url]: https://www.prisma.io/docs/orm/prisma-migrate

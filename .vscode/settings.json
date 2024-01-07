@@ -1,7 +1,14 @@
 {
-    "[php]": {
-        "editor.defaultFormatter": "open-southeners.laravel-pint"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+  "[nunjucks]": {
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  },
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "nunjucks": "html"
+  },
+  "eslint.probe": ["javascript"],
+  "jest.autoRun": "off",
+  "nunjucksFormat.spaceclose": true
 }
