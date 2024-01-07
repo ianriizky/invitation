@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.4...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.5...develop)
+
+## [0.1.5](https://github.com/ianriizky/invitation/releases/tag/0.1.5) - 2024-01-07
+
+- fix: set url config value based on the port by [@ianriizky](https://github.com/ianriizky) in [#a6dd702](https://github.com/ianriizky/invitation/commit/a6dd702f508375476c61c63d866ab4fe1aae5225).
 
 ## [0.1.4](https://github.com/ianriizky/invitation/releases/tag/0.1.4) - 2024-01-07
 
