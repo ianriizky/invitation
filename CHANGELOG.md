@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.3...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.4...develop)
+
+## [0.1.4](https://github.com/ianriizky/invitation/releases/tag/0.1.4) - 2024-01-07
+
+- chore: change APP_PORT env name into PORT and enable port 80 on config by [@ianriizky](https://github.com/ianriizky) in [#f9d658b](https://github.com/ianriizky/invitation/commit/f9d658b29e99a390a38dd372c02061034e6ba5d6).
 
 ## [0.1.3](https://github.com/ianriizky/invitation/releases/tag/0.1.3) - 2024-01-07
 
