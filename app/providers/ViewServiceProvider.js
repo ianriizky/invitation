@@ -1,3 +1,4 @@
+import config from "../../config/app.js";
 import nunjucks from "nunjucks";
 
 export class ViewServiceProvider {
@@ -40,5 +41,9 @@ export class ViewServiceProvider {
         return nunjucks.runtime.markSafe(jsonString);
       },
     );
+
+    view.addGlobal("url", config.url).addGlobal("url_port", config.url_port);
+
+    this.app.set("nunjucks", view);
   }
 }

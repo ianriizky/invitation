@@ -1,4 +1,5 @@
 import config from "../../config/app.js";
+import csrfMiddleware, { csrf } from "./middleware/csrf.js";
 import loggerMiddleware from "./middleware/logger.js";
 import responseMacroMiddleware from "./middleware/response-macro.js";
 import cookieParser from "cookie-parser";
@@ -24,6 +25,7 @@ export class Handler {
       }),
     );
     app.use(cookieParser());
+    app.use(csrf);
   }
 
   /**
@@ -32,5 +34,6 @@ export class Handler {
   bootMiddlewareHandler(app) {
     app.use(loggerMiddleware);
     app.use(responseMacroMiddleware);
+    app.use(csrfMiddleware);
   }
 }

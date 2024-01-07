@@ -3,15 +3,15 @@ import { loadEnv } from "../app/supports/helpers.js";
 loadEnv();
 
 const port = Number(process.env.PORT || "3000");
+const url = process.env.APP_URL || "http://localhost";
 /** @type {"production" | "development" | "testing"} */
 const node_env = process.env.NODE_ENV;
 
 export default {
   port,
   timezone: process.env.APP_TIMEZONE || "Asia/Jakarta",
-  url: `${process.env.APP_URL || "http://localhost"}${
-    [80, 443].includes(port) ? "" : `:${port}`
-  }`,
+  url,
+  url_port: `${url}${[80, 443].includes(port) ? "" : `:${port}`}`,
   name: process.env.APP_NAME || "Invitation Web Page",
   key: process.env.APP_KEY,
   /** @type {import("../app/supports/Encrypter.js").CipherType} */

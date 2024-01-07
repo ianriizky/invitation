@@ -1,4 +1,4 @@
-import authenticate from "../../app/http/middleware/authenticate.js";
+import authenticate from "../../app/http/middleware/authenticate-api.js";
 import { HomeController } from "../../app/http/controllers/api/HomeController.js";
 import { Router } from "express";
 
