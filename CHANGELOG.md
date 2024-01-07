@@ -2,9 +2,13 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.1...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.3...develop)
 
-## [0.1.2](https://github.com/ianriizky/invitation/releases/tag/0.1.1) - 2024-01-07
+## [0.1.3](https://github.com/ianriizky/invitation/releases/tag/0.1.3) - 2024-01-07
+
+- fix: heroku node version causing 503 error by [@ianriizky](https://github.com/ianriizky) in [#b9c5c91](https://github.com/ianriizky/invitation/commit/b9c5c91acf7cd122cccd9ff64bc091ca8c49634d).
+
+## [0.1.2](https://github.com/ianriizky/invitation/releases/tag/0.1.2) - 2024-01-07
 
 - fix: add API_KEY on github actions env by [@ianriizky](https://github.com/ianriizky) in [#560cdf4](https://github.com/ianriizky/invitation/commit/560cdf4c01a80212870d5a3c5c5c22620183c925).
 
