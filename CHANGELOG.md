@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.5...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.6...develop)
+
+## [0.1.6](https://github.com/ianriizky/invitation/releases/tag/0.1.6) - 2024-01-07
+
+- chore: set csrf token and app url as nunjucks global variable by [@ianriizky](https://github.com/ianriizky) in [#86cd85f](https://github.com/ianriizky/invitation/commit/86cd85f116c4c71ab1f4d7bad55e1b2543bb67f0).
+- refactor: change middleware name for api authentication by [@ianriizky](https://github.com/ianriizky) in [#17b20b4](https://github.com/ianriizky/invitation/commit/17b20b4e32ec28465d64f9e0d8eeb7a063811200).
 
 ## [0.1.5](https://github.com/ianriizky/invitation/releases/tag/0.1.5) - 2024-01-07
 
