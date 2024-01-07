@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="csrf-token" value="{{ csrfToken }}">
+    <meta name="csrf-token" value="{{ csrf_token }}">
     <title>Undangan Pernikahan</title>
-    <link rel="stylesheet" href="{{ appUrl }}/build/app.css">
-    <link rel="icon" href="{{ appUrl }}/favicon.ico" />
+    <link rel="stylesheet" href="{{ url }}/build/app.css">
+    <link rel="icon" href="{{ url }}/favicon.ico" />
   </head>
   <body>
     <div class="layout-cover">
@@ -35,14 +35,14 @@
           </div>
 
           <a target="_self" class="music-control add-shadow off" style="cursor: pointer;">
-            <img src="{{ appUrl }}/img/icon-sound.svg" class="sound-on" alt="icon-sound">
-            <img src="{{ appUrl }}/img/icon-sound-off.svg" class="sound-off" alt="icon-sound-off">
+            <img src="{{ url }}/img/icon-sound.svg" class="sound-on" alt="icon-sound">
+            <img src="{{ url }}/img/icon-sound-off.svg" class="sound-off" alt="icon-sound-off">
           </a>
-          <audio id="background_music" loop="loop" src="{{ appUrl }}/music.mp3"></audio>
+          <audio id="background_music" loop="loop" src="{{ url }}/music.mp3"></audio>
 
           <div id="pay" class="float">
             <a id="pay-button" href="#" target="_self" class="pay-btn add-shadow">
-              <img src="{{ appUrl }}/img/icon-pay.svg" alt="icon-pay" />
+              <img src="{{ url }}/img/icon-pay.svg" alt="icon-pay" />
             </a>
           </div>
 
@@ -51,32 +51,32 @@
               <ul class="padding-bar">
                 <li>
                   <a id="date-button" class="bar-icon icon-date">
-                    <img src="{{ appUrl }}/img/icon-date.svg" class="img-off" alt="icon-date-off" />
-                    <img src="{{ appUrl }}/img/icon-date-active.svg" class="img-active" alt="icon-date-active" />
+                    <img src="{{ url }}/img/icon-date.svg" class="img-off" alt="icon-date-off" />
+                    <img src="{{ url }}/img/icon-date-active.svg" class="img-active" alt="icon-date-active" />
                   </a>
                 </li>
                 <li>
                   <a id="bride-button" class="bar-icon icon-bride">
-                    <img src="{{ appUrl }}/img/icon-bride.svg" class="img-off" alt="icon-bride-off" />
-                    <img src="{{ appUrl }}/img/icon-bride-active.svg" class="img-active" alt="icon-bride-active" />
+                    <img src="{{ url }}/img/icon-bride.svg" class="img-off" alt="icon-bride-off" />
+                    <img src="{{ url }}/img/icon-bride-active.svg" class="img-active" alt="icon-bride-active" />
                   </a>
                 </li>
                 <li>
                   <a class="maps-button bar-icon icon-location">
-                    <img src="{{ appUrl }}/img/icon-location.svg" class="img-off" alt="icon-location-off" />
-                    <img src="{{ appUrl }}/img/icon-location-active.svg" class="img-active" alt="icon-location-active" />
+                    <img src="{{ url }}/img/icon-location.svg" class="img-off" alt="icon-location-off" />
+                    <img src="{{ url }}/img/icon-location-active.svg" class="img-active" alt="icon-location-active" />
                   </a>
                 </li>
                 <li>
                   <a id="instagram-button" class="bar-icon icon-instagram">
-                    <img src="{{ appUrl }}/img/icon-instagram.svg" class="img-off" alt="icon-instagram-off" />
-                    <img src="{{ appUrl }}/img/icon-instagram-active.svg" class="img-active" alt="icon-instagram-active" />
+                    <img src="{{ url }}/img/icon-instagram.svg" class="img-off" alt="icon-instagram-off" />
+                    <img src="{{ url }}/img/icon-instagram-active.svg" class="img-active" alt="icon-instagram-active" />
                   </a>
                 </li>
                 <li>
                   <a id="message-button" class="bar-icon icon-message">
-                    <img src="{{ appUrl }}/img/icon-message.svg" class="img-off" alt="icon-message-off" />
-                    <img src="{{ appUrl }}/img/icon-message-active.svg" class="img-active" alt="icon-message-active" />
+                    <img src="{{ url }}/img/icon-message.svg" class="img-off" alt="icon-message-off" />
+                    <img src="{{ url }}/img/icon-message-active.svg" class="img-active" alt="icon-message-active" />
                   </a>
                 </li>
               </ul>
@@ -86,12 +86,12 @@
 
         <div class="mobile-separator" id="mobile-scroll">
           <div class="welcome">
-            <img src="{{ appUrl }}/img/mobile-img.jpg" style="width: 100%;" />
+            <img src="{{ url }}/img/mobile-img.jpg" style="width: 100%;" />
 
             <div class="content">
-              <img src="{{ appUrl }}/img/content-top.svg" class="background-top" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" class="background-top" alt="content-top" />
               <div class="content-data">
-                <img src="{{ appUrl }}/img/scrolls.svg" class="scroll-up-down" alt="scrolls" />
+                <img src="{{ url }}/img/scrolls.svg" class="scroll-up-down" alt="scrolls" />
                 <span class="title-content gs_reveal" style="font-size: 15px;">
                   OFFICIALLY MENGUNDANG
                 </span>
@@ -149,20 +149,20 @@
                   </span>
                 </div>
                 <div class="leaf-flying">
-                  <img src="{{ appUrl }}/img/leaf.svg" class="img-right" alt="leaf-right" />
+                  <img src="{{ url }}/img/leaf.svg" class="img-right" alt="leaf-right" />
                 </div>
                 <div class="leaf-flying">
-                  <img src="{{ appUrl }}/img/leaf.svg" class="img-left" alt="leaf-left" />
+                  <img src="{{ url }}/img/leaf.svg" class="img-left" alt="leaf-left" />
                 </div>
               </div>
             </div>
 
             <div class="end-content">
-              <img src="{{ appUrl }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
             </div>
 
             <div class="quran">
-              {# <img src="{{ appUrl }}/img/border.svg" class="gs_reveal gs_reveal_fromRight" alt="border-top" /> #}
+              {# <img src="{{ url }}/img/border.svg" class="gs_reveal gs_reveal_fromRight" alt="border-top" /> #}
               <div class="quran-title gs_reveal">
                 <p class="content-quran">
                   "Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri.
@@ -179,11 +179,11 @@
                   (QS. Ar-Ruum: 21)
                 </p>
               </div>
-              {# <img src="{{ appUrl }}/img/border.svg" class="gs_reveal gs_reveal_fromLeft" style="transform: rotate(180deg);" alt="border-down" /> #}
+              {# <img src="{{ url }}/img/border.svg" class="gs_reveal gs_reveal_fromLeft" style="transform: rotate(180deg);" alt="border-down" /> #}
             </div>
 
             <div class="content" style="margin-top: -120px;">
-              <img src="{{ appUrl }}/img/content-top.svg" class="background-bot" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" class="background-bot" alt="content-top" />
 
               <div class="content-data">
                 <div id="date-id" class="block-detail">
@@ -239,14 +239,14 @@
                   </div>
                 </div>
                 <div id="bride-id" class="leaves gs_reveal">
-                  <img src="{{ appUrl }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
                     <span class="bride-name signature-font">Fitri</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromRight">
-                    <img src="{{ appUrl }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-bride" />
+                    <img src="{{ url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-bride" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -258,7 +258,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ appUrl }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">beyshalayla</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -268,21 +268,21 @@
                     <p class="font-basic">IBU SUSILAWATI</p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img src="{{ appUrl }}/img/leaf-profile-right.svg" class="img-right-profile" alt="leaf-profile-right" />
+                    <img src="{{ url }}/img/leaf-profile-right.svg" class="img-right-profile" alt="leaf-profile-right" />
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ appUrl }}/img/leaf-profile-left.svg" class="img-left-profile" alt="leaf-profile-left" />
+                    <img src="{{ url }}/img/leaf-profile-left.svg" class="img-left-profile" alt="leaf-profile-left" />
                   </div>
                 </div>
                 <div class="mt-3">
-                  <img src="{{ appUrl }}/img/and.svg" alt="and" />
+                  <img src="{{ url }}/img/and.svg" alt="and" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
                     <span class="bride-name signature-font">Angga</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ appUrl }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-groom" />
+                    <img src="{{ url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-groom" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -294,7 +294,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ appUrl }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">fiqihwew</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -305,13 +305,13 @@
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
                     <img
-                      src="{{ appUrl }}/img/leaf-profile-kb.svg"
+                      src="{{ url }}/img/leaf-profile-kb.svg"
                       class="img-kb-profile"
                       alt="leaf-profile-kb" />
                   </div>
                 </div>
                 <div class="leaves gs_reveal">
-                  <img src="{{ appUrl }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-name mt-1 gs_reveal">
@@ -323,7 +323,7 @@
                     <span class="bride-name signature-font">Fino</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ appUrl }}/img/baby.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="baby" />
+                    <img src="{{ url }}/img/baby.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="baby" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -335,7 +335,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ appUrl }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">fiqihwew</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -345,18 +345,18 @@
                     <p class="font-basic">IBU ANIMINASUKA S.Pd</p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img src="{{ appUrl }}/img/leaf-profile-kb.svg" class="img-kb-profile" alt="leaf-profile-kb" />
+                    <img src="{{ url }}/img/leaf-profile-kb.svg" class="img-kb-profile" alt="leaf-profile-kb" />
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="end-content">
-              <img src="{{ appUrl }}/img/content-top.svg" class="top-location" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" class="top-location" alt="content-top" />
             </div>
 
             <div id="maps-id" class="w-100 gs_reveal" style="padding-top: 25px;">
-              {# <img src="{{ appUrl }}/img/img-down.jpg" class="w-100" alt="img-down" /> #}
+              {# <img src="{{ url }}/img/img-down.jpg" class="w-100" alt="img-down" /> #}
               <p class="title-section signature-font font-black gs_reveal gs_reveal_fromRight" style="text-align: center;">
                 Tempat Acara
               </p>
@@ -416,7 +416,7 @@
             </div>
 
             <div id="instagram-id" class="content">
-              <img src="{{ appUrl }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
               <div class="content-data">
                 <span class="title-section signature-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
                   Live Streaming
@@ -430,11 +430,11 @@
                   class="btn-white gs_reveal"
                   style="text-align: center;"
                 >
-                  <img src="{{ appUrl }}/img/record.svg" alt="watch streaming" />
+                  <img src="{{ url }}/img/record.svg" alt="watch streaming" />
                   <span style="margin-left: 10px;">WATCH STREAMING</span>
                 </a>
                 <div class="leaves mt-3 gs_reveal">
-                  <img src="{{ appUrl }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 {#
                 <span class="title-section signature-font gs_reveal gs_reveal_fromLeft">
@@ -446,7 +446,7 @@
                 <div class="instagram-effects slider gs_reveal gs_reveal_fromLeft">
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ appUrl }}/img/instagrams/slide-1.png" class="w-100" alt="instagrams-slide-1" />
+                      <img src="{{ url }}/img/instagrams/slide-1.png" class="w-100" alt="instagrams-slide-1" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -461,7 +461,7 @@
                   </div>
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ appUrl }}/img/instagrams/slide-2.png" class="w-100" alt="instagrams-slide-2" />
+                      <img src="{{ url }}/img/instagrams/slide-2.png" class="w-100" alt="instagrams-slide-2" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -476,7 +476,7 @@
                   </div>
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ appUrl }}/img/instagrams/slide-3.png" class="w-100" alt="instagrams-slide-3" />
+                      <img src="{{ url }}/img/instagrams/slide-3.png" class="w-100" alt="instagrams-slide-3" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -495,7 +495,7 @@
             </div>
 
             <div class="end-content">
-              <img src="{{ appUrl }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
             </div>
 
             <div id="message-id" class="block-message mt-2">
@@ -600,12 +600,12 @@
 
             {#
             <div class="last-img w-100 gs_reveal">
-              <img src="{{ appUrl }}/img/img-wedding.svg" alt="img-wedding" />
+              <img src="{{ url }}/img/img-wedding.svg" alt="img-wedding" />
             </div>
             #}
 
             <div class="last-img w-100 gs_reveal">
-              <img src="{{ appUrl }}/img/img-end.svg" class="w-100" alt="img-end" />
+              <img src="{{ url }}/img/img-end.svg" class="w-100" alt="img-end" />
             </div>
           </div>
         </div>
@@ -630,12 +630,12 @@
 
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ appUrl }}/img/bank/bca.png" alt="bca" />
+              <img src="{{ url }}/img/bank/bca.png" alt="bca" />
             </div>
             <div class="bank-detail">
               <span class="title aniModal"> BCA </span>
               <span class="bank-title aniModal">
-                3410637811 <img src="{{ appUrl }}/img/copy.png" alt="copy" />
+                3410637811 <img src="{{ url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name aniModal"> a/n Fitri </span>
             </div>
@@ -644,36 +644,36 @@
           {#
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ appUrl }}/img/bank/bca.png" alt="bca" />
+              <img src="{{ url }}/img/bank/bca.png" alt="bca" />
             </div>
             <div class="bank-detail">
               <span class="title aniModal"> BCA </span>
               <span class="bank-title aniModal">
-                1671270172 <img src="{{ appUrl }}/img/copy.png" alt="copy" />
+                1671270172 <img src="{{ url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name aniModal"> a/n Angga Firmansyah </span>
             </div>
           </div>
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ appUrl }}/img/bank/mandiri.png" alt="mandiri" />
+              <img src="{{ url }}/img/bank/mandiri.png" alt="mandiri" />
             </div>
             <div class="bank-detail aniModal">
               <span class="title"> MANDIRI </span>
               <span class="bank-title">
-                1170010228625 <img src="{{ appUrl }}/img/copy.png" alt="copy" />
+                1170010228625 <img src="{{ url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name"> a/n Ahmad Fiqih </span>
             </div>
           </div>
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ appUrl }}/img/bank/bsi.png" alt="bsi" />
+              <img src="{{ url }}/img/bank/bsi.png" alt="bsi" />
             </div>
             <div class="bank-detail aniModal">
               <span class="title"> BSI </span>
               <span class="bank-title">
-                7982942960 <img src="{{ appUrl }}/img/copy.png" alt="copy" />
+                7982942960 <img src="{{ url }}/img/copy.png" alt="copy" />
               </span>
 
               <span class="bank-name"> a/n Ahmad Fiqih </span>
@@ -699,7 +699,7 @@
           </p>
 
           <div class="img-save aniModal">
-            <img src="{{ appUrl }}/img/distance.png" style="width: 80%;" alt="distance" />
+            <img src="{{ url }}/img/distance.png" style="width: 80%;" alt="distance" />
           </div>
 
           <button
@@ -715,10 +715,12 @@
     {# /.PROTOKOL KESEHATAN (COVID-19) #}
 
     <script>
-      const viewData = {{ viewData | json }}
+      const viewData = {{ {
+        date: date
+      } | json }}
     </script>
-    <script src="{{ appUrl }}/build/jquery.min.js"></script>
-    <script src="{{ appUrl }}/build/ohsnap.js"></script>
-    <script src="{{ appUrl }}/build/app.js"></script>
+    <script src="{{ url }}/build/jquery.min.js"></script>
+    <script src="{{ url }}/build/ohsnap.js"></script>
+    <script src="{{ url }}/build/app.js"></script>
   </body>
 </html>
