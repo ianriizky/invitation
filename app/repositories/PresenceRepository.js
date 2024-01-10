@@ -3,10 +3,10 @@ import { Pagination } from "../supports/Pagination.js";
 
 /**
  * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
- * @typedef {import("../models/index.js").prisma.Message} Message
- * @typedef {import("../models/index.js").prisma.Prisma.MessageDelegate} Model
+ * @typedef {import("../models/index.js").prisma.Presence} Presence
+ * @typedef {import("../models/index.js").prisma.Prisma.PresenceDelegate} Model
  */
-export class MessageRepository {
+export class PresenceRepository {
   /** @type {Model} */
   model;
 
@@ -14,7 +14,7 @@ export class MessageRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    this.model = (prisma || defaultModel).message;
+    this.model = (prisma || defaultModel).presence;
   }
 
   /**
