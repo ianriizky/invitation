@@ -19,10 +19,10 @@
     "file": "slick.woff",
     "src": "node_modules/slick-carousel/slick/fonts/slick.woff"
   },
-  "resources/css/event/akad/app.scss": {
+  "resources/css/event/akad-music/app.scss": {
     "file": "app.css",
     "isEntry": true,
-    "src": "resources/css/event/akad/app.scss"
+    "src": "resources/css/event/akad-music/app.scss"
   },
   "resources/font/tropical_summer_signature-webfont.woff2": {
     "file": "tropical_summer_signature-webfont.woff2",
@@ -32,9 +32,9 @@
     "file": "main-img.jpg",
     "src": "resources/img/main-img.jpg"
   },
-  "resources/js/event/akad/app.js": {
+  "resources/js/event/akad-music/app.js": {
     "file": "app.js",
     "isEntry": true,
-    "src": "resources/js/event/akad/app.js"
+    "src": "resources/js/event/akad-music/app.js"
   }
 }

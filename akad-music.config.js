@@ -14,7 +14,11 @@ export default defineConfig({
   },
   plugins: [
     laravel({
-      input: ["resources/js/app.js", "resources/css/app.scss"],
+      buildDirectory: "build-pg3UKx",
+      input: [
+        "resources/js/event/akad-music/app.js",
+        "resources/css/event/akad-music/app.scss",
+      ],
     }),
     viteStaticCopy({
       targets: [

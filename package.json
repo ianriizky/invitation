@@ -14,9 +14,7 @@
   "scripts": {
     "start": "node ./bin/www.js",
     "dev": "nodemon ./bin/www.js",
-    "vite:dev": "npx vite",
-    "vite:preview": "npx vite preview",
-    "vite:build": "npx vite build",
+    "vite:build": "npx vite build --config akad.config.js && npx vite build --config akad-music.config.js",
     "lint": "npx eslint --ext .js, .",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier --check \"**/*.+(js|json)\"",
