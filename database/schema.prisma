@@ -43,6 +43,7 @@ model EventGuest {
   event    Event     @relation(fields: [event_id], references: [id], onDelete: Cascade)
   guest    Guest     @relation(fields: [guest_id], references: [id], onDelete: Cascade)
   presence Presence?
+  message  Message?
 
   @@map("event_guest")
 }
@@ -60,23 +61,21 @@ model Guest {
   updated_at DateTime @updatedAt
 
   event_guests EventGuest[]
-  messages     Message[]
 
   @@map("guests")
 }
 
 model Message {
-  id       String @id @default(uuid()) @db.Char(36)
-  guest_id String @db.Char(36)
+  id             String @id @default(uuid()) @db.Char(36)
+  event_guest_id Int    @unique @db.UnsignedInt
 
-  name                        String         @db.VarChar(255)
-  description                 String         @db.Text
-  presence_possibility_status PresenceStatus
+  content         String         @db.Text
+  presence_status PresenceStatus
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  guest Guest @relation(fields: [guest_id], references: [id], onDelete: Cascade)
+  event_guest EventGuest @relation(fields: [event_guest_id], references: [id], onDelete: Cascade)
 
   @@map("messages")
 }
@@ -85,7 +84,7 @@ model Presence {
   id             String @id @default(uuid()) @db.Char(36)
   event_guest_id Int    @unique @db.UnsignedInt
 
-  presence_status PresenceStatus
+  status PresenceStatus
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
