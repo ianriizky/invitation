@@ -1,4 +1,3 @@
-import { DomainException } from "../exceptions/DomainException.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
@@ -109,10 +108,8 @@ export class EventRepository {
    * @param {import("./GuestRepository.js").Guest} guest
    */
   static getWhatsappLink(event, guest) {
-    if (guest.phone_number === null) {
-      throw new DomainException("Phone number of guest is unavailable.");
+    if (guest.phone_number !== null) {
+      return `https://api.whatsapp.com/send?phone=${guest.phone_number}&text=asdasd`;
     }
-
-    return `https://api.whatsapp.com/send?phone=${guest.phone_number}&text=asdasd`;
   }
 }
