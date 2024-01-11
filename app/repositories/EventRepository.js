@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
@@ -100,7 +101,7 @@ export class EventRepository {
    * @param {Event} event
    */
   static getCurrentViewData(event_guest, event) {
-    return event_guest.view_data || event.view_data;
+    return _.merge(_.clone(event.view_data), event_guest.view_data || {});
   }
 
   /**
@@ -111,5 +112,28 @@ export class EventRepository {
     if (guest.phone_number !== null) {
       return `https://api.whatsapp.com/send?phone=${guest.phone_number}&text=asdasd`;
     }
+  }
+
+  /**
+   * @param {Event["slug"]} slug
+   * @param {import("./GuestRepository.js").Guest["slug"]} guest_slug
+   */
+  findBySlug(slug, guest_slug) {
+    return this.model.findFirst({
+      include: {
+        event_guests: {
+          where: { guest: { slug: guest_slug } },
+          include: { event: true, guest: true },
+        },
+      },
+      where: {
+        slug,
+        event_guests: {
+          some: {
+            guest: { slug: guest_slug },
+          },
+        },
+      },
+    });
   }
 }
