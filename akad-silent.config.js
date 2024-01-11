@@ -16,8 +16,8 @@ export default defineConfig({
     laravel({
       buildDirectory: "build",
       input: [
-        "resources/js/event/akad/app.js",
-        "resources/css/event/akad/app.scss",
+        "resources/js/event/akad-silent/app.js",
+        "resources/css/event/akad-silent/app.scss",
       ],
     }),
     viteStaticCopy({

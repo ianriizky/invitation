@@ -683,24 +683,6 @@ span.w3-button:hover {
   margin: 2rem 0;
 }
 
-.music-control {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  z-index: 99;
-  right: 20px;
-  top: 20px;
-  text-align: center;
-  border-radius: 50%;
-  padding-top: 10px;
-  background-color: #ffffff;
-}
-
-.music-control:hover {
-  background-color: #e4d3cd;
-  transition: all 0.3s ease;
-}
-
 .sound-on {
   display: none;
 }
@@ -819,22 +801,24 @@ span.w3-button:hover {
   }
 }
 
-/* @keyframes flickerAnimation {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+/*
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .animate-flicker {
-    opacity: 1;
-    animation: flickerAnimation 5s infinite;
-} */
+  opacity: 1;
+  animation: flickerAnimation 5s infinite;
+}
+*/
 
 .block-image {
   width: 285px;
@@ -1312,11 +1296,6 @@ li span {
     width: 100%;
     position: absolute;
   }
-  .music-control {
-    display: none;
-    top: 2vh;
-    right: 30px;
-  }
   #pay.float {
     display: none;
     top: 9vh;
@@ -1470,9 +1449,6 @@ li span {
   #pay-button:hover {
     background-color: #ffffff;
   }
-  .music-control:hover {
-    background-color: #ffffff;
-  }
   .btn-instagram-white:hover {
     color: #ffffff;
   }
@@ -1546,11 +1522,6 @@ li span {
   }
   .content-data {
     margin-top: -225px;
-  }
-  .music-control {
-    display: none;
-    top: 17vh;
-    right: 30px;
   }
   #pay.float {
     display: none;
