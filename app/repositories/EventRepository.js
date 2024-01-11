@@ -93,7 +93,6 @@ export class EventRepository {
    * @param {Event} event
    */
   static getCurrentViewPath(event_guest, event) {
-    console.log("coeg", event_guest.view_path, event.view_path);
     return event_guest.view_path || event.view_path;
   }
 
