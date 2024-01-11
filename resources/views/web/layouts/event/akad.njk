@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" value="{{ csrf_token }}">
-    {% if title === undefined %}
-      {% set title = "Undangan Pernikahan" %}
-    {% endif %}
     <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:site_name" content="{{ title }}">
+    <meta property="og:updated_time" content="{{ updated_at }}">
+    <meta property="og:image" content="{{ base_url }}/{{ thumbnail_image_path }}">
+    <meta property="og:image:secure_url" content="{{ base_url }}/{{ thumbnail_image_path }}">
+    <meta property="og:image:width" content="{{ thumbnail_image_width }}">
+    <meta property="og:image:height" content="{{ thumbnail_image_height }}">
+    <meta property="og:image:alt" content="{{ title }}">
+    <meta property="og:image:type" content="{{ thumbnail_image_mime_type }}">
+    <meta property="article:published_time" content="{{ created_at }}">
+    <meta property="article:modified_time" content="{{ updated_at }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ thumbnail_image_path }}">
     <link rel="stylesheet" href="{% block cssPath %}{% endblock %}">
-    <link rel="icon" href="{{ url }}/favicon.ico" />
+    <link rel="icon" href="{{ base_url }}/logo.svg" />
   </head>
   <body>
     <div class="layout-cover">
@@ -23,31 +40,33 @@
           <div class="main-title">
             <div class="top-title">
               <span
-                class="wedding-title signature-font animated-title"
+                class="wedding-title font-black animated-title"
                 style="text-align: center; line-height: 100px;"
               >
-                Undangan Pernikahan
+                The Wedding of
               </span>
             </div>
             <div class="bottom-title">
-              <button class="wedding-open animated-title" style="opacity: 0;">
-                BUKA UNDANGAN
+              <button class="wedding-open animated-title" style="opacity: 0; text-transform: uppercase;">
+                Buka Undangan
               </button>
-              <span class="title-head animated-title">02 JULI 2023</span>
+              <span class="title-head font-black animated-title">
+                {{ date_dmy }}
+              </span>
             </div>
           </div>
 
           {% if useMusic %}
             <a target="_self" class="music-control add-shadow off" style="cursor: pointer;">
-              <img src="{{ url }}/img/5y6RfR9dpR043awCuBiXCRXIo2S7DM8SzUbuHYoVkEw=.svg" class="sound-on" alt="icon-sound">
-              <img src="{{ url }}/img/jwgNsdVvbg2RP30YnTyLO4GWPdl053yOVDxnJSxvYCA=.svg" class="sound-off" alt="icon-sound-off">
+              <img src="{{ base_url }}/img/5y6RfR9dpR043awCuBiXCRXIo2S7DM8SzUbuHYoVkEw=.svg" class="sound-on" alt="icon-sound">
+              <img src="{{ base_url }}/img/jwgNsdVvbg2RP30YnTyLO4GWPdl053yOVDxnJSxvYCA=.svg" class="sound-off" alt="icon-sound-off">
             </a>
-            <audio id="background_music" loop="loop" src="{{ url }}/pg3UKx.mp3"></audio>
+            <audio id="background_music" loop="loop" src="{{ base_url }}/pg3UKx.mp3"></audio>
           {% endif %}
 
           <div id="pay" class="float">
-            <a id="pay-button" href="#" target="_self" class="pay-btn add-shadow">
-              <img src="{{ url }}/img/icon-pay.svg" alt="icon-pay" />
+            <a id="pay-button" target="_self" class="add-shadow" style="cursor: pointer;">
+              <img src="{{ base_url }}/img/icon-pay.svg" alt="icon-pay" />
             </a>
           </div>
 
@@ -56,32 +75,32 @@
               <ul class="padding-bar">
                 <li>
                   <a id="date-button" class="bar-icon icon-date">
-                    <img src="{{ url }}/img/icon-date.svg" class="img-off" alt="icon-date-off" />
-                    <img src="{{ url }}/img/icon-date-active.svg" class="img-active" alt="icon-date-active" />
+                    <img src="{{ base_url }}/img/icon-date.svg" class="img-off" alt="icon-date-off" />
+                    <img src="{{ base_url }}/img/icon-date-active.svg" class="img-active" alt="icon-date-active" />
                   </a>
                 </li>
                 <li>
                   <a id="bride-button" class="bar-icon icon-bride">
-                    <img src="{{ url }}/img/icon-bride.svg" class="img-off" alt="icon-bride-off" />
-                    <img src="{{ url }}/img/icon-bride-active.svg" class="img-active" alt="icon-bride-active" />
+                    <img src="{{ base_url }}/img/icon-bride.svg" class="img-off" alt="icon-bride-off" />
+                    <img src="{{ base_url }}/img/icon-bride-active.svg" class="img-active" alt="icon-bride-active" />
                   </a>
                 </li>
                 <li>
                   <a class="maps-button bar-icon icon-location">
-                    <img src="{{ url }}/img/icon-location.svg" class="img-off" alt="icon-location-off" />
-                    <img src="{{ url }}/img/icon-location-active.svg" class="img-active" alt="icon-location-active" />
+                    <img src="{{ base_url }}/img/icon-location.svg" class="img-off" alt="icon-location-off" />
+                    <img src="{{ base_url }}/img/icon-location-active.svg" class="img-active" alt="icon-location-active" />
                   </a>
                 </li>
                 <li>
                   <a id="instagram-button" class="bar-icon icon-instagram">
-                    <img src="{{ url }}/img/icon-instagram.svg" class="img-off" alt="icon-instagram-off" />
-                    <img src="{{ url }}/img/icon-instagram-active.svg" class="img-active" alt="icon-instagram-active" />
+                    <img src="{{ base_url }}/img/icon-instagram.svg" class="img-off" alt="icon-instagram-off" />
+                    <img src="{{ base_url }}/img/icon-instagram-active.svg" class="img-active" alt="icon-instagram-active" />
                   </a>
                 </li>
                 <li>
                   <a id="message-button" class="bar-icon icon-message">
-                    <img src="{{ url }}/img/icon-message.svg" class="img-off" alt="icon-message-off" />
-                    <img src="{{ url }}/img/icon-message-active.svg" class="img-active" alt="icon-message-active" />
+                    <img src="{{ base_url }}/img/icon-message.svg" class="img-off" alt="icon-message-off" />
+                    <img src="{{ base_url }}/img/icon-message-active.svg" class="img-active" alt="icon-message-active" />
                   </a>
                 </li>
               </ul>
@@ -91,55 +110,48 @@
 
         <div class="mobile-separator" id="mobile-scroll">
           <div class="welcome">
-            <img src="{{ url }}/img/mobile-img.jpg" style="width: 100%;" />
+            <img src="{{ base_url }}/img/mobile-img.jpg" style="width: 100%;" />
 
             <div class="content">
-              <img src="{{ url }}/img/content-top.svg" class="background-top" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" class="background-top" alt="content-top" />
               <div class="content-data">
-                <img src="{{ url }}/img/scrolls.svg" class="scroll-up-down" alt="scrolls" />
-                <span class="title-content gs_reveal" style="font-size: 15px;">
-                  OFFICIALLY MENGUNDANG
+                <span class="title-content gs_reveal" style="font-size: 15px; text-transform: uppercase;">
+                  Kepada Bapak/Ibu/Saudara/i
                 </span>
                 <span class="title-content signature-font mobile-title gs_reveal gs_reveal_fromLeft">
-                  Anda dan Partner
+                  {{ guest.name }}
                 </span>
-                <span class="title-content gs_reveal" style="font-weight: 700; font-size: 24px;">
-                  02 JULI 2023 {# <sup class="pangkat">ND</sup> 2023 #}</span>
-                <a
-                  href="https://calendar.google.com/calendar/u/0/r/eventedit/MDc3amVqdnZkNTQya2RqbzNscG92NDk4MnMgYWE2ZjcxYzk4OTc1ZWU0MDYzZGY0OGVjMWJkYzdlNWUzYTYyMjVlYTYyOWIzZTM4M2VkM2IwNzBjMzMwMDJlYUBn"
-                  target="_blank"
-                  class="save-date gs_reveal gs_reveal_fromLeft"
-                >
-                  SAVE THE DATE
-                </a>
+                <span class="title-content gs_reveal" style="font-weight: 700; font-size: 24px; text-transform: uppercase;">
+                  {{ date_readable }}
+                </span>
                 <div id="countdown" class="gs_reveal">
                   <ul class="countdown-list">
                     <li>
                       <div class="box-number">
                         <span id="days"></span>
                       </div>
-                      <div class="mt-1 font-countdown">DAYS</div>
+                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Hari</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="hours"></span>
                       </div>
-                      <div class="mt-1 font-countdown">HOURS</div>
+                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Jam</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="minutes"></span>
                       </div>
-                      <div class="mt-1 font-countdown">MINUTES</div>
+                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Menit</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="seconds"></span>
                       </div>
-                      <div class="mt-1 font-countdown">SECONDS</div>
+                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Detik</div>
                     </li>
                   </ul>
                 </div>
@@ -153,75 +165,77 @@
                     Sekarang
                   </span>
                 </div>
+                <a id="quran-button" style="cursor: pointer;">
+                  <img src="{{ base_url }}/img/scrolls.svg" class="scroll-up-down" alt="scrolls" />
+                </a>
                 <div class="leaf-flying">
-                  <img src="{{ url }}/img/leaf.svg" class="img-right" alt="leaf-right" />
+                  <img src="{{ base_url }}/img/leaf.svg" class="img-right" alt="leaf-right" />
                 </div>
                 <div class="leaf-flying">
-                  <img src="{{ url }}/img/leaf.svg" class="img-left" alt="leaf-left" />
+                  <img src="{{ base_url }}/img/leaf.svg" class="img-left" alt="leaf-left" />
                 </div>
               </div>
             </div>
 
             <div class="end-content">
-              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
             </div>
 
-            <div class="quran">
-              {# <img src="{{ url }}/img/border.svg" class="gs_reveal gs_reveal_fromRight" alt="border-top" /> #}
+            <div id="quran-id" class="quran">
+              {# <img src="{{ base_url }}/img/border.svg" class="gs_reveal gs_reveal_fromRight" alt="border-top" /> #}
               <div class="quran-title gs_reveal">
-                <p class="content-quran">
-                  "Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri.
-                  <br>
-                  Supaya kamu mendapatkan ketenangan hati.
-                  <br>
-                  Dan dijadikan-Nya kasih sayang diantara kamu.
-                  <br>
-                  Sesungguhnya yang demikian itu menjadi tanda-tanda
-                  <br>
-                  kebesaran-Nya bagi orang-orang yang berfikir"
+                <p class="content-quran arab-font" style="font-size: 26px; line-height: 65px;" lang="ar">
+                  وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
                 </p>
-                <p class="content-quran" style="margin-top: 10px;">
+                <p class="content-quran" style="margin-top: 20px;">
+                  "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+                  agar kamu cenderung dan merasa tenteram kepadanya,
+                  dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu
+                  benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+                </p>
+                <p class="content-quran" style="margin-top: 20px;">
                   (QS. Ar-Ruum: 21)
                 </p>
               </div>
-              {# <img src="{{ url }}/img/border.svg" class="gs_reveal gs_reveal_fromLeft" style="transform: rotate(180deg);" alt="border-down" /> #}
+              {# <img src="{{ base_url }}/img/border.svg" class="gs_reveal gs_reveal_fromLeft" style="transform: rotate(180deg);" alt="border-down" /> #}
             </div>
 
             <div class="content" style="margin-top: -120px;">
-              <img src="{{ url }}/img/content-top.svg" class="background-bot" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" class="background-bot" alt="content-top" />
 
-              <div class="content-data">
-                <div id="date-id" class="block-detail">
+              <div id="date-id" class="content-data">
+                <div class="block-detail">
                   <div class="quran-greeting gs_reveal">
-                    <p>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-                    <p>
+                    <p class="arab-font" style="font-size: 24px; line-height: 65px;" lang="ar">
+                      بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                      <br>
                       اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَا تُهُ
                     </p>
                   </div>
                   <div class="quran-title gs_reveal">
                     <p class="font-basic">
-                      Dengan memohon rahmat dan ridho Allah SWT, serta mengucap
-                      rasa syukur atas karunia Allah SWT, Kami hendak
-                      menyampaikan kabar bahagia pernikahan Kami serta Marhabah
-                      & Aqiqah. Yang Insya Allah akan dilaksanakan :
+                      Dengan memohon ridho dan rahmat dari Allah <span class="arab-font" style="font-size: 16px;">ﷻ</span>,
+                      kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
                     </p>
                   </div>
                   <div class="wedding-name">
                     <span class="title-section signature-font gs_reveal gs_reveal_fromRight">
                       Akad Nikah
                     </span>
-                    <span class="title-content dilanjut-dengan gs_reveal">
-                      DILANJUT DENGAN
+                    <span class="title-content dilanjut-dengan gs_reveal" style="text-transform: uppercase;">
+                      dilanjut Dengan
                     </span>
                     <span class="title-section signature-font gs_reveal gs_reveal_fromLeft">
                       Marhabah dan Aqiqah
                     </span>
                   </div>
                   <div class="wedding-time">
-                    <span class="time-title gs_reveal">
-                      MINGGU, 02 JULI 2023
+                    <span class="time-title gs_reveal" style="text-transform: uppercase;">
+                      {{ date_readable }}
                     </span>
-                    <span class="time-title gs_reveal"> 08:00 - SELESAI </span>
+                    <span class="time-title gs_reveal" style="text-transform: uppercase;">
+                      {{ time_readable }}
+                    </span>
                   </div>
                   <div class="wedding-bottom">
                     <span class="address-section gs_reveal"> MASJID NURHIDAYAH </span>
@@ -238,20 +252,20 @@
                     </span>
                   </div>
                   <div class="doa-awal gs_reveal">
-                    <p>
+                    <p class="arab-font" style="font-size: 24px; line-height: 65px;" lang="ar">
                       وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
                     </p>
                   </div>
                 </div>
                 <div id="bride-id" class="leaves gs_reveal">
-                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
                     <span class="bride-name signature-font">Fitri</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromRight">
-                    <img src="{{ url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-bride" />
+                    <img src="{{ base_url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-bride" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -263,7 +277,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">beyshalayla</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -273,21 +287,21 @@
                     <p class="font-basic">IBU SUSILAWATI</p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img src="{{ url }}/img/leaf-profile-right.svg" class="img-right-profile" alt="leaf-profile-right" />
+                    <img src="{{ base_url }}/img/leaf-profile-right.svg" class="img-right-profile" alt="leaf-profile-right" />
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ url }}/img/leaf-profile-left.svg" class="img-left-profile" alt="leaf-profile-left" />
+                    <img src="{{ base_url }}/img/leaf-profile-left.svg" class="img-left-profile" alt="leaf-profile-left" />
                   </div>
                 </div>
                 <div class="mt-3">
-                  <img src="{{ url }}/img/and.svg" alt="and" />
+                  <img src="{{ base_url }}/img/and.svg" alt="and" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
                     <span class="bride-name signature-font">Angga</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-groom" />
+                    <img src="{{ base_url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-groom" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -299,7 +313,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">fiqihwew</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -310,17 +324,17 @@
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
                     <img
-                      src="{{ url }}/img/leaf-profile-kb.svg"
+                      src="{{ base_url }}/img/leaf-profile-kb.svg"
                       class="img-kb-profile"
                       alt="leaf-profile-kb" />
                   </div>
                 </div>
                 <div class="leaves gs_reveal">
-                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap">
+                    <span class="title-content nama-lengkap" style="line-height: 60px;">
                       MARHABAH DAN AQIQAH
                     </span>
                   </div>
@@ -328,7 +342,7 @@
                     <span class="bride-name signature-font">Fino</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ url }}/img/baby.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="baby" />
+                    <img src="{{ base_url }}/img/baby.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="baby" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
@@ -340,7 +354,7 @@
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
-                    <img src="{{ url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
+                    <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
                     <span style="margin-left: 10px;">fiqihwew</span>
                   </a>
                   <div class="family-detail gs_reveal">
@@ -350,18 +364,18 @@
                     <p class="font-basic">IBU ANIMINASUKA S.Pd</p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img src="{{ url }}/img/leaf-profile-kb.svg" class="img-kb-profile" alt="leaf-profile-kb" />
+                    <img src="{{ base_url }}/img/leaf-profile-kb.svg" class="img-kb-profile" alt="leaf-profile-kb" />
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="end-content">
-              <img src="{{ url }}/img/content-top.svg" class="top-location" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" class="top-location" alt="content-top" />
             </div>
 
             <div id="maps-id" class="w-100 gs_reveal" style="padding-top: 25px;">
-              {# <img src="{{ url }}/img/img-down.jpg" class="w-100" alt="img-down" /> #}
+              {# <img src="{{ base_url }}/img/img-down.jpg" class="w-100" alt="img-down" /> #}
               <p class="title-section signature-font font-black gs_reveal gs_reveal_fromRight" style="text-align: center;">
                 Tempat Acara
               </p>
@@ -414,14 +428,14 @@
                 href="https://goo.gl/maps/6SUxY1KZw3ZHRoKR7"
                 target="_blank"
                 class="btn-white gs_reveal"
-                style="text-align: center"
+                style="text-align: center; text-transform: uppercase;"
               >
-                SEE LOCATION
+                Lihat Lokasi
               </a>
             </div>
 
             <div id="instagram-id" class="content">
-              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
               <div class="content-data">
                 <span class="title-section signature-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
                   Live Streaming
@@ -435,11 +449,11 @@
                   class="btn-white gs_reveal"
                   style="text-align: center;"
                 >
-                  <img src="{{ url }}/img/record.svg" alt="watch streaming" />
+                  <img src="{{ base_url }}/img/record.svg" alt="watch streaming" />
                   <span style="margin-left: 10px;">WATCH STREAMING</span>
                 </a>
                 <div class="leaves mt-3 gs_reveal">
-                  <img src="{{ url }}/img/leaves.svg" class="w-100" alt="leaves" />
+                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
                 {#
                 <span class="title-section signature-font gs_reveal gs_reveal_fromLeft">
@@ -451,7 +465,7 @@
                 <div class="instagram-effects slider gs_reveal gs_reveal_fromLeft">
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ url }}/img/instagrams/slide-1.png" class="w-100" alt="instagrams-slide-1" />
+                      <img src="{{ base_url }}/img/instagrams/slide-1.png" class="w-100" alt="instagrams-slide-1" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -466,7 +480,7 @@
                   </div>
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ url }}/img/instagrams/slide-2.png" class="w-100" alt="instagrams-slide-2" />
+                      <img src="{{ base_url }}/img/instagrams/slide-2.png" class="w-100" alt="instagrams-slide-2" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -481,7 +495,7 @@
                   </div>
                   <div class="block-image">
                     <div class="images-place w-100">
-                      <img src="{{ url }}/img/instagrams/slide-3.png" class="w-100" alt="instagrams-slide-3" />
+                      <img src="{{ base_url }}/img/instagrams/slide-3.png" class="w-100" alt="instagrams-slide-3" />
                     </div>
                     <div class="btn-place w-100" style="margin-top: 1rem;">
                       <a
@@ -500,7 +514,7 @@
             </div>
 
             <div class="end-content">
-              <img src="{{ url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
             </div>
 
             <div id="message-id" class="block-message mt-2">
@@ -595,7 +609,7 @@
                     value="Submit"
                     class="btn-send gs_reveal"
                   >
-                    <span class="button__text">SEND MESSAGE</span>
+                    <span class="button__text" style="text-transform: uppercase;">Kirim Pesan</span>
                   </button>
                 </div>
 
@@ -605,12 +619,12 @@
 
             {#
             <div class="last-img w-100 gs_reveal">
-              <img src="{{ url }}/img/img-wedding.svg" alt="img-wedding" />
+              <img src="{{ base_url }}/img/img-wedding.svg" alt="img-wedding" />
             </div>
             #}
 
             <div class="last-img w-100 gs_reveal">
-              <img src="{{ url }}/img/img-end.svg" class="w-100" alt="img-end" />
+              <img src="{{ base_url }}/img/img-end.svg" class="w-100" alt="img-end" />
             </div>
           </div>
         </div>
@@ -620,9 +634,9 @@
 
     {# DIGITAL ENVELOPE #}
     <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
+      <div class="w3-modal-content w3-animate-zoom">
         <header id="close-01" class="w3-container">
-          <span class="w3-button w3-display-topright">&times;</span>
+          <span class="w3-button w3-display-topright" style="z-index: 99999;">&times;</span>
 
           <h2 class="modal-h aniModal">DIGITAL ENVELOPE</h2>
         </header>
@@ -635,12 +649,12 @@
 
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ url }}/img/bank/bca.png" alt="bca" />
+              <img src="{{ base_url }}/img/bank/bca.png" alt="bca" />
             </div>
             <div class="bank-detail">
               <span class="title aniModal"> BCA </span>
               <span class="bank-title aniModal">
-                3410637811 <img src="{{ url }}/img/copy.png" alt="copy" />
+                3410637811 <img src="{{ base_url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name aniModal"> a/n Fitri </span>
             </div>
@@ -649,36 +663,36 @@
           {#
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ url }}/img/bank/bca.png" alt="bca" />
+              <img src="{{ base_url }}/img/bank/bca.png" alt="bca" />
             </div>
             <div class="bank-detail">
               <span class="title aniModal"> BCA </span>
               <span class="bank-title aniModal">
-                1671270172 <img src="{{ url }}/img/copy.png" alt="copy" />
+                1671270172 <img src="{{ base_url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name aniModal"> a/n Angga Firmansyah </span>
             </div>
           </div>
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ url }}/img/bank/mandiri.png" alt="mandiri" />
+              <img src="{{ base_url }}/img/bank/mandiri.png" alt="mandiri" />
             </div>
             <div class="bank-detail aniModal">
               <span class="title"> MANDIRI </span>
               <span class="bank-title">
-                1170010228625 <img src="{{ url }}/img/copy.png" alt="copy" />
+                1170010228625 <img src="{{ base_url }}/img/copy.png" alt="copy" />
               </span>
               <span class="bank-name"> a/n Ahmad Fiqih </span>
             </div>
           </div>
           <div class="choosen-bank">
             <div class="bank-img aniModal">
-              <img src="{{ url }}/img/bank/bsi.png" alt="bsi" />
+              <img src="{{ base_url }}/img/bank/bsi.png" alt="bsi" />
             </div>
             <div class="bank-detail aniModal">
               <span class="title"> BSI </span>
               <span class="bank-title">
-                7982942960 <img src="{{ url }}/img/copy.png" alt="copy" />
+                7982942960 <img src="{{ base_url }}/img/copy.png" alt="copy" />
               </span>
 
               <span class="bank-name"> a/n Ahmad Fiqih </span>
@@ -690,42 +704,39 @@
     </div>
     {# /.DIGITAL ENVELOPE #}
 
-    {# PROTOKOL KESEHATAN (COVID-19) #}
+    {# WELCOME #}
     <div id="id02" class="w3-modal">
-      <div class="w3-modal-content text-modal-center">
+      <div class="w3-modal-content w3-animate-zoom text-modal-center">
         <header class="w3-container">
-          <h2 class="modal-h aniModal">PROTOKOL KESEHATAN (COVID-19)</h2>
+          <h2 class="modal-h aniModal">{{ title }}</h2>
         </header>
 
         <div class="w3-container">
-          <p class="font-digital aniModal" style="color: #000000; width: 100%;">
-            Demi mendukung kesehatan bersama alangkah baiknya para tamu yang
-            akan hadir memenuhi protokol kesehatan sebagai berikut:
+          <p class="font-digital aniModal" style="color: #000000; width: 100%; font-size: 16px;">
+            Kepada Bapak/Ibu/Saudara/i
           </p>
 
-          <div class="img-save aniModal">
-            <img src="{{ url }}/img/distance.png" style="width: 80%;" alt="distance" />
-          </div>
+          <p class="title-content signature-font mobile-title font-black" style="font-size: 48px;">
+            {{ guest.name }}
+          </p>
 
           <button
             id="okay"
             class="btn-send aniModal"
             style="margin-bottom: 1rem;"
           >
-            Okay, I Understand
+            Buka Undangan
           </button>
         </div>
       </div>
     </div>
-    {# /.PROTOKOL KESEHATAN (COVID-19) #}
+    {# /.WELCOME #}
 
     <script>
-      const viewData = {{ {
-        date: date
-      } | json }}
+      const viewData = {{ { date: event.date } | json }}
     </script>
-    <script src="{{ url }}/build/jquery.min.js"></script>
-    <script src="{{ url }}/build/ohsnap.js"></script>
+    <script src="{{ base_url }}/build/jquery.min.js"></script>
+    <script src="{{ base_url }}/build/ohsnap.js"></script>
     <script src="{% block jsPath %}{% endblock %}""></script>
   </body>
 </html>

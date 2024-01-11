@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "LPMQ";
+  src: url("https://kangismet.github.io/fonts/lpmq.eot");
+  src:
+    url("https://kangismet.github.io/fonts/lpmq.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://kangismet.github.io/fonts/lpmq.ttf") format("truetype");
+  font-weight: 400;
+  font-weight: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: "Signature";
   src: url("../../../font/tropical_summer_signature-webfont.woff2")
@@ -54,6 +66,12 @@ body {
 
 .signature-font {
   font-family: "Signature" !important;
+}
+
+.arab-font {
+  font-family: LPMQ, "Traditional Arabic", Tahoma, sans-serif !important;
+  direction: rtl !important;
+  letter-spacing: 0 !important;
 }
 
 .mobile-title {
@@ -265,8 +283,11 @@ a.bar-icon:hover {
 }
 
 .wedding-title {
-  font-size: 120px;
-  font-weight: 600;
+  font-family: "Poppins", Sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
   margin-bottom: 11rem;
 }
 
@@ -303,13 +324,12 @@ a.bar-icon:hover {
 }
 
 .content-quran {
-  font-family: "Forum";
-  font-style: italic;
+  font-family: "Lora";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 23px;
   text-align: center;
-  width: 300px;
+  padding: 0 50px;
 }
 
 .quran-title {
@@ -346,7 +366,7 @@ a.bar-icon:hover {
 .img-right {
   right: 0;
   position: absolute;
-  top: 200px;
+  top: 330px;
 }
 
 .img-right-profile {
@@ -370,7 +390,7 @@ a.bar-icon:hover {
 .img-left {
   left: 0;
   position: absolute;
-  top: 200px;
+  top: 330px;
   transform: rotateY(200deg);
 }
 
@@ -435,7 +455,7 @@ a.bar-icon:hover {
 }
 
 .title-content {
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0 3rem 0;
   font-weight: 600;
   line-height: 16px;
   z-index: 1;
@@ -459,7 +479,7 @@ a.save-date {
 }
 
 a.save-date:hover {
-  background: #a5cbcc;
+  background: #698182;
   color: #ffffff;
   transition: all 0.3s ease;
 }
@@ -482,7 +502,7 @@ a.btn-white {
 }
 
 a.btn-white:hover {
-  background: #a5cbcc;
+  background: #698182;
   color: #ffffff;
   transition: all 0.3s ease;
 }
@@ -534,7 +554,7 @@ a.btn-white:hover {
 }
 
 .hadir {
-  background: #ddbbae;
+  background: #7d9a9b;
   border-radius: 200px;
   color: #ffffff;
   padding: 3px 10px;
@@ -544,7 +564,7 @@ a.btn-white:hover {
 }
 
 .m-hadir {
-  background: #e4d3cd;
+  background: #7d9a9b;
   border-radius: 200px;
   color: #ffffff;
   padding: 3px 10px;
@@ -554,7 +574,7 @@ a.btn-white:hover {
 }
 
 .t-hadir {
-  background: #c9c9c9;
+  background: #7d9a9b;
   border-radius: 200px;
   color: #ffffff;
   padding: 3px 10px;
@@ -583,7 +603,7 @@ a.btn-white:hover {
 }
 
 #pay-button:hover {
-  background-color: #e4d3cd;
+  background-color: #a5cbcc;
   transition: all 0.3s ease;
 }
 
@@ -787,7 +807,7 @@ span.w3-button:hover {
 }
 
 .scroll-up-down {
-  margin-top: -35px;
+  margin-top: 35px;
   transition: 0.4s;
   animation: up-down 1s ease-in-out infinite alternate-reverse both;
 }
@@ -867,7 +887,7 @@ span.w3-button:hover {
 }
 
 .font-basic {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   width: 370px;
@@ -945,7 +965,7 @@ span.w3-button:hover {
 }
 
 .location:hover {
-  background: #e4d3cd;
+  background: #698182;
   color: #ffffff;
   transition: all 0.3s ease;
 }
@@ -963,7 +983,7 @@ span.w3-button:hover {
 /* Countdown CSS */
 
 .container {
-  color: #333;
+  color: #698182;
   margin: 0 auto;
   text-align: center;
 }
@@ -1028,7 +1048,7 @@ li span {
 
 #countdown {
   z-index: 1;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 .background-bot {
@@ -1058,7 +1078,7 @@ li span {
 }
 
 .specifyColor {
-  accent-color: #cd7d60;
+  accent-color: #7d9a9b;
 }
 
 /* ALERTS */
@@ -1206,7 +1226,7 @@ li span {
     margin-top: -195px;
   }
   .font-basic {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     width: 300px;
@@ -1324,15 +1344,15 @@ li span {
     letter-spacing: 0.15em;
     padding: 15px 30px;
     border-radius: 300px;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    color: #575757;
+    border: 2px solid #575757;
     background: transparent;
     margin-bottom: 30px;
     cursor: pointer;
   }
   .wedding-open:hover {
-    background: #ffffff;
-    color: #575757;
+    background: #575757;
+    color: #ffffff;
     transition: all 0.3s ease;
   }
   .main-img {
@@ -1343,8 +1363,6 @@ li span {
     margin-top: -180px;
   }
   .wedding-title {
-    font-size: 120px;
-    font-weight: 600;
     margin-bottom: 6rem;
   }
   .modal-h {
@@ -1406,7 +1424,6 @@ li span {
     margin-top: -440px;
   }
   .font-basic {
-    font-size: 13px;
     font-weight: 400;
     line-height: 21px;
     width: 400px;
@@ -1512,8 +1529,6 @@ li span {
     margin-top: -220px;
   }
   .wedding-title {
-    font-size: 6rem;
-    font-weight: 600;
     margin-bottom: 6rem;
   }
   .background-top {
@@ -1565,7 +1580,6 @@ li span {
     padding-top: 20px;
   }
   .font-basic {
-    font-size: 13px;
     font-weight: 400;
     line-height: 21px;
     width: 320px;
@@ -1599,8 +1613,6 @@ li span {
     padding: 22px 0 !important;
   }
   .wedding-title {
-    font-size: 5rem;
-    font-weight: 600;
     margin-bottom: 6rem;
   }
   .top-title {
@@ -1629,7 +1641,6 @@ li span {
     margin-top: -210px;
   }
   .font-basic {
-    font-size: 13px;
     font-weight: 400;
     line-height: 21px;
     width: 260px;

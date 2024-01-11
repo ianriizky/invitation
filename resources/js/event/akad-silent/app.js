@@ -116,6 +116,10 @@ $(function () {
   }
 });
 
+$("#quran-button").on("click", function () {
+  document.getElementById("quran-id").scrollIntoView();
+});
+
 $("#date-button").on("click", function () {
   document.getElementById("date-id").scrollIntoView();
 });
@@ -152,18 +156,15 @@ $("#close-01").on("click", function () {
 
 $("#okay").on("click", function () {
   $("#id02").hide();
-  $(".sound-off").hide();
-  $(".sound-on").show();
 });
 
 $(".wedding-open").on("click", function () {
-  $(".main-title").hide();
-  $(".main-img").hide();
+  $(".main-title").fadeOut("slow");
+  $(".main-img").fadeOut("slow");
   $("#pay").show();
   $(".desktop-bar").show();
   $(".separator").css("position", "absolute");
   $(".mobile-separator").css("visibility", "visible");
-  $("#id02").show();
 });
 
 gsap.from(".animated-title", {
