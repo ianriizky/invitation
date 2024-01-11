@@ -1,6 +1,5 @@
 import laravel from "laravel-vite-plugin";
 import { defineConfig } from "vite";
-import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
   build: {
@@ -18,18 +17,6 @@ export default defineConfig({
       input: [
         "resources/js/event/akad-music/app.js",
         "resources/css/event/akad-music/app.scss",
-      ],
-    }),
-    viteStaticCopy({
-      targets: [
-        {
-          src: "node_modules/jquery/dist/jquery.min.js",
-          dest: "",
-        },
-        {
-          src: "node_modules/oh-snap-notifications/ohsnap.js",
-          dest: "",
-        },
       ],
     }),
   ],
