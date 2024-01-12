@@ -33,7 +33,7 @@ CREATE TABLE `guests` (
     `id` CHAR(36) NOT NULL,
     `slug` VARCHAR(255) NOT NULL,
     `name` VARCHAR(255) NOT NULL,
-    `domicile` VARCHAR(255) NOT NULL,
+    `domicile` VARCHAR(255) NULL,
     `phone_number` VARCHAR(255) NULL,
     `description` TEXT NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
