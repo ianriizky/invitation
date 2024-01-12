@@ -12,6 +12,16 @@
   font-display: swap;
 }
 @font-face {
+  font-family: "NewYork";
+  src: url("../../../font/NewYork.otf") format("opentype");
+}
+@font-face {
+  font-family: "Qagetto";
+  src:
+    url("../../../font/qagetto-serif-font/qagetto.otf") format("opentype"),
+    url("../../../font/qagetto-serif-font/qagetto.ttf") format("truetype");
+}
+@font-face {
   font-family: "Signature";
   src: url("../../../font/tropical_summer_signature-webfont.woff2")
     format("woff2");
@@ -62,6 +72,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #c1c1c1;
   transition: all 0.3s ease;
+}
+
+.newyork-font {
+  font-family: "NewYork", Sans-serif !important;
 }
 
 .signature-font {
@@ -366,7 +380,7 @@ a.bar-icon:hover {
 .img-right {
   right: 0;
   position: absolute;
-  top: 330px;
+  top: 180px;
 }
 
 .img-right-profile {
@@ -390,7 +404,7 @@ a.bar-icon:hover {
 .img-left {
   left: 0;
   position: absolute;
-  top: 330px;
+  top: 180px;
   transform: rotateY(200deg);
 }
 
@@ -685,6 +699,10 @@ span.w3-button:hover {
   margin-top: -130px;
 }
 
+.text-transform-uppercase {
+  text-transform: uppercase !important;
+}
+
 .modal-h {
   font-family: "Forum";
   font-style: normal;
@@ -881,7 +899,7 @@ span.w3-button:hover {
 }
 
 .title-section {
-  font-size: 64px;
+  font-size: 40px;
   font-weight: 600;
   margin: 3rem 0;
 }
@@ -1190,7 +1208,7 @@ li span {
     padding: 17px 0;
   }
   .font-countdown {
-    font-size: 10px;
+    font-size: 12px;
   }
   .box-number {
     box-sizing: border-box;
@@ -1234,7 +1252,7 @@ li span {
     letter-spacing: normal;
   }
   .title-section {
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 600;
     line-height: 80px;
     margin: 1rem 0;
@@ -1555,7 +1573,7 @@ li span {
     padding: 17px 0;
   }
   .font-countdown {
-    font-size: 10px;
+    font-size: 12px;
   }
   .box-number {
     box-sizing: border-box;

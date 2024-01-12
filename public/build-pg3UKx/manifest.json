@@ -24,6 +24,18 @@
     "isEntry": true,
     "src": "resources/css/event/akad-music/app.scss"
   },
+  "resources/font/NewYork.otf": {
+    "file": "NewYork.otf",
+    "src": "resources/font/NewYork.otf"
+  },
+  "resources/font/qagetto-serif-font/qagetto.otf": {
+    "file": "qagetto.otf",
+    "src": "resources/font/qagetto-serif-font/qagetto.otf"
+  },
+  "resources/font/qagetto-serif-font/qagetto.ttf": {
+    "file": "qagetto.ttf",
+    "src": "resources/font/qagetto-serif-font/qagetto.ttf"
+  },
   "resources/font/tropical_summer_signature-webfont.woff2": {
     "file": "tropical_summer_signature-webfont.woff2",
     "src": "resources/font/tropical_summer_signature-webfont.woff2"
