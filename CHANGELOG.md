@@ -16,6 +16,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 - chore: change font of guest name by [@ianriizky](https://github.com/ianriizky) in [#6904e15](https://github.com/ianriizky/invitation/commit/6904e15b43395589859a2852c1372484295cab3d).
 - chore: change meta opengraph description by [@ianriizky](https://github.com/ianriizky) in [#d940a96](https://github.com/ianriizky/invitation/commit/d940a96973eb2b622e90948b4f7a7f428cac182a).
 - feat: create gift section using modal view by [@ianriizky](https://github.com/ianriizky) in [#1b3bd65](https://github.com/ianriizky/invitation/commit/1b3bd654f0e57559d3e8226c6e2ea71010bcbd93).
+- fix: set phone_number formatting on GuestRepository as optional by [@ianriizky](https://github.com/ianriizky) in [#59f0923](https://github.com/ianriizky/invitation/commit/59f0923a063e7d58b3803434cba71f60e28c4ab1).
 
 ## [0.2.0](https://github.com/ianriizky/invitation/releases/tag/0.2.0) - 2024-01-13
 
