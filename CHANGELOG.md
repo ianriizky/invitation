@@ -4,10 +4,18 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/0.3.0...develop)
 
-## [0.3.0](https://github.com/ianriizky/invitation/releases/tag/0.3.0) - 2024-01-13
+## [0.3.0](https://github.com/ianriizky/invitation/releases/tag/0.3.0) - 2024-01-14
 
 - fix: music not played on mobile version by [@ianriizky](https://github.com/ianriizky) in [#ca2c5dd](https://github.com/ianriizky/invitation/commit/ca2c5ddd71cc3cb801b2aa659f908ca17aa69833).
 - chore: revise event page by [@ianriizky](https://github.com/ianriizky) in [#056139c](https://github.com/ianriizky/invitation/commit/056139c25d8e0bae89d44201f7baa26710833f4f).
+- fix: change timezone configuration by [@ianriizky](https://github.com/ianriizky) in [#90b5bdd](https://github.com/ianriizky/invitation/commit/90b5bddcf5ec7d56a2c8a4bb517fce17040ee0c6).
+- chore: remove lokasi input form by [@ianriizky](https://github.com/ianriizky) in [#5218299](https://github.com/ianriizky/invitation/commit/5218299f3cdd5e8561bcb3a749daef214f646471).
+- chore: change font of title-content by [@ianriizky](https://github.com/ianriizky) in [#dc739e5](https://github.com/ianriizky/invitation/commit/dc739e55858afd0b3bc94f2c87a6345f7c20b0a5).
+- chore: revise instagram profile appearance by [@ianriizky](https://github.com/ianriizky) in [#f48da7b](https://github.com/ianriizky/invitation/commit/f48da7b8d69d4d1edb1bd2444438b658fb641474).
+- chore: change alt on bank-img by [@ianriizky](https://github.com/ianriizky) in [#5df8a8c](https://github.com/ianriizky/invitation/commit/5df8a8c38348587ba5d0e11a8ea9aacefe056d8f).
+- chore: change font of guest name by [@ianriizky](https://github.com/ianriizky) in [#6904e15](https://github.com/ianriizky/invitation/commit/6904e15b43395589859a2852c1372484295cab3d).
+- chore: change meta opengraph description by [@ianriizky](https://github.com/ianriizky) in [#d940a96](https://github.com/ianriizky/invitation/commit/d940a96973eb2b622e90948b4f7a7f428cac182a).
+- feat: create gift section using modal view by [@ianriizky](https://github.com/ianriizky) in [#1b3bd65](https://github.com/ianriizky/invitation/commit/1b3bd654f0e57559d3e8226c6e2ea71010bcbd93).
 
 ## [0.2.0](https://github.com/ianriizky/invitation/releases/tag/0.2.0) - 2024-01-13
 
