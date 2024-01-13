@@ -28,7 +28,7 @@ $(".music-control").on("click", function () {
   }
 });
 
-$("#okay").on("click", function () {
+$("#okay, .wedding-open").on("click", function () {
   $("#id02").hide();
   playAudio();
   $(".music-control").show().removeClass("off");
