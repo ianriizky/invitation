@@ -5,9 +5,7 @@ import $ from "jquery";
 import "particles.js";
 import "slick-carousel";
 
-/** @type {{
- *   date: string;
- * }} */
+/** @type {import("../../../../app/http/presenters/EventPresenter.js").ViewData} */
 // eslint-disable-next-line no-undef
 const data = viewData;
 
@@ -31,10 +29,10 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "./php/display.php",
+    url: data.message_url.display,
     dataType: "html",
     success: function (response) {
-      $(".block-data-doa").append(response);
+      $(".block-data-message").append(response);
     },
   });
 
@@ -67,7 +65,7 @@ $(function () {
 
       $.ajax({
         type: "POST",
-        url: "./php/insert.php",
+        url: data.message_url.insert,
         data: {
           nama: $("#nama").val(),
           lokasi: $("#lokasi").val(),
@@ -82,12 +80,12 @@ $(function () {
             });
             $.ajax({
               type: "GET",
-              url: "./php/display.php",
+              url: data.message_url.display,
               dataType: "html",
               success: function (response) {
-                $(".block-data-doa").empty();
-                $(".block-data-doa").append(response);
-                let scroll_to_bottom = document.getElementById("block-doa");
+                $(".block-data-message").empty();
+                $(".block-data-message").append(response);
+                let scroll_to_bottom = document.getElementById("block-message");
                 scroll_to_bottom.scrollIntoView({
                   behavior: "smooth",
                   block: "end",
