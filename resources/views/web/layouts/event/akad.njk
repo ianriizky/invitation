@@ -45,6 +45,8 @@
                 style="text-align: center; line-height: 100px;"
               >
                 {{ subtitle }}
+                <br>
+                <img src="{{ base_url }}/{{ logo_path }}" style="width: 35vh;" />
               </span>
             </div>
             <div class="bottom-title">
@@ -227,8 +229,8 @@
                     </p>
                   </div>
                   <div class="wedding-name">
-                    <span class="title-section newyork-font gs_reveal gs_reveal_fromRight">
-                      Akad Nikah
+                    <span class="title-section newyork-font gs_reveal gs_reveal_fromRight" style="line-height: 40px;">
+                      {{ akad_title }}
                     </span>
                     <div class="wedding-time">
                       <span class="time-title text-transform-uppercase gs_reveal">
@@ -240,8 +242,8 @@
                     <span class="title-content dilanjut-dengan text-transform-uppercase gs_reveal">
                       dilanjutkan dengan
                     </span>
-                    <span class="title-section newyork-font gs_reveal gs_reveal_fromLeft">
-                      Resepsi Pernikahan
+                    <span class="title-section newyork-font gs_reveal gs_reveal_fromLeft" style="line-height: 40px;">
+                      {{ reception_title }}
                     </span>
                     <div class="wedding-time">
                       <span class="time-title text-transform-uppercase gs_reveal">
@@ -252,8 +254,10 @@
                     </div>
                   </div>
                   <div class="wedding-bottom">
-                    <span class="address-section text-transform-uppercase gs_reveal">
-                      {{ location.name }}
+                    <span class="address-section gs_reveal">
+                      bertempat di
+                      <br><br>
+                      <span class="text-transform-uppercase" style="font-size: 16px;">{{ location.name }}</span>
                     </span>
                     <span class="address-section font-basic gs_reveal">
                       {{ location.address }}
@@ -279,27 +283,27 @@
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name newyork-font">Fitri</span>
+                    <span class="bride-name newyork-font">{{ bride.nick_name }}</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromRight">
                     <img src="{{ base_url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-bride" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap">
-                      Fitri, S.Sos.
+                    <span class="title-content full-name">
+                      {{ bride.full_name }}
                     </span>
                   </div>
                   <a
-                    href="https://www.instagram.com/beyshalayla"
+                    href="{{ bride.instagram_url }}"
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
                     <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
-                    <span style="margin-left: 10px;">beyshalayla</span>
+                    <span style="margin-left: 10px;">{{ bride.instagram_username }}</span>
                   </a>
                   <div class="family-detail gs_reveal">
-                    <p class="font-basic text-transform-uppercase">
-                      Putri kedua dari Bapak Drs. Djunaidi Zaini & Ibu Susilawati
+                    <p class="font-basic">
+                      {{ bride.parent_description|safe  }}
                     </p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
@@ -314,27 +318,27 @@
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name newyork-font">Angga</span>
+                    <span class="bride-name newyork-font">{{ groom.nick_name }}</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
                     <img src="{{ base_url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-groom" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap text-transform-uppercase">
-                      Angga Firmansyah
+                    <span class="title-content full-name">
+                      {{ groom.full_name }}
                     </span>
                   </div>
                   <a
-                    href="https://www.instagram.com/fiqihwew"
+                    href="{{ groom.instagram_url }}"
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
                     <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
-                    <span style="margin-left: 10px;">fiqihwew</span>
+                    <span style="margin-left: 10px;">{{ groom.instagram_username }}</span>
                   </a>
                   <div class="family-detail gs_reveal">
-                    <p class="font-basic text-transform-uppercase">
-                      Putra kedua dari Bapak Faisal Murodi & Ibu Diana Artati
+                    <p class="font-basic">
+                      {{ groom.parent_description|safe }}
                     </p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
@@ -419,18 +423,24 @@
                 <span class="title-section newyork-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
                   Wedding Gift
                 </span>
-                <span class="title-content find-instagram gs_reveal text-transform-uppercase">
-                  Find Our Wedding Virtually on Instagram
-                </span>
-                <a
-                  href="https://www.instagram.com/fitridjunaidizaini"
-                  target="_blank"
-                  class="btn-white gs_reveal"
-                  style="text-align: center;"
-                >
-                  <img src="{{ base_url }}/img/record.svg" alt="watch streaming" />
-                  <span style="margin-left: 10px;">WATCH STREAMING</span>
-                </a>
+                <p class="font-basic">
+                  Tanpa mengurangi rasa hormat, bagi undangan yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkan melalui:
+                </p>
+                {% for bank in wedding_gift.banks %}
+                  <div class="block-detail choosen-bank" style="margin: 1rem 20px; width: 70%;">
+                    <div class="bank-img aniModal">
+                      <img src="{{ base_url }}/{{ bank.image_path }}" alt="bca" />
+                    </div>
+                    <div class="bank-detail" style="text-align: left;">
+                      <span class="title aniModal">{{ bank.name }}</span>
+                      <span class="bank-title aniModal">
+                        {{ bank.account_number }}
+                        <img src="{{ base_url }}/img/copy.png" alt="copy" />
+                      </span>
+                      <span class="bank-name aniModal">{{ bank.owner_name }}</span>
+                    </div>
+                  </div>
+                {% endfor %}
                 <div class="leaves mt-3 gs_reveal">
                   <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
@@ -736,7 +746,7 @@
     {# /.WELCOME #}
 
     <script>
-      const viewData = {{ { date: event.date } | json }}
+      const viewData = {{ { date: event.date, message_url: message_url } | json }}
     </script>
     <script src="{{ base_url }}/build/jquery.min.js"></script>
     <script src="{{ base_url }}/build/ohsnap.js"></script>

@@ -1,11 +1,14 @@
-import _ from "lodash";
+import config from "../../config/app.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
+import { GuestRepository } from "./GuestRepository.js";
+import _ from "lodash";
 
 /**
  * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
  * @typedef {import("../models/index.js").prisma.Event} Event
+ * @typedef {import("../models/index.js").prisma.EventGuest} EventGuest
  * @typedef {import("../models/index.js").prisma.Prisma.EventDelegate} Model
  */
 export class EventRepository {
@@ -58,10 +61,10 @@ export class EventRepository {
               );
             },
           },
-          whatsapp_link: {
+          url: {
             needs: { event: true, guest: true },
             compute({ event, guest }) {
-              return EventRepository.getWhatsappLink(event, guest);
+              return EventRepository.getUrl(event, guest);
             },
           },
         },
@@ -108,9 +111,35 @@ export class EventRepository {
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
    */
-  static getWhatsappLink(event, guest) {
+  static getUrl(event, guest) {
+    return `${config.url}/event/${event.slug}/${guest.slug}`;
+  }
+
+  /**
+   * @param {import("nunjucks").Environment} view
+   * @param {Event} event
+   * @param {import("./GuestRepository.js").Guest} guest
+   */
+  static getWhatsappMessage(view, event, guest) {
+    return view.render("whatsapp/event/akad/show.njk", {
+      guest_name: guest.name,
+      bride_full_name: "Eka Budiarti & Septianata Rizky Pratama",
+      url: this.getUrl(event, guest),
+      bride_nick_name: "Eka & Ian",
+    });
+  }
+
+  /**
+   * @param {import("nunjucks").Environment} view
+   * @param {Event} event
+   * @param {import("./GuestRepository.js").Guest} guest
+   */
+  static getWhatsappMessageLink(view, event, guest) {
     if (guest.phone_number !== null) {
-      return `https://api.whatsapp.com/send?phone=${guest.phone_number}&text=asdasd`;
+      return GuestRepository.getWhatsappLink(
+        guest,
+        this.getWhatsappMessage(view, event, guest),
+      );
     }
   }
 

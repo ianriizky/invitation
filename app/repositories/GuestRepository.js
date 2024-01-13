@@ -70,4 +70,16 @@ export class GuestRepository {
 
     return { data, pagination: pagination.generateMeta(total, data.length) };
   }
+
+  /**
+   * @param {Guest} guest
+   * @param {string} message
+   */
+  static getWhatsappLink(guest, message) {
+    if (guest.phone_number !== null) {
+      return `https://api.whatsapp.com/send?phone=${
+        guest.phone_number
+      }&text=${encodeURIComponent(message)}`;
+    }
+  }
 }

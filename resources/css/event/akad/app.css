@@ -683,7 +683,6 @@ span.w3-button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: #575757;
   letter-spacing: normal;
   width: 150px;
 }
@@ -693,9 +692,8 @@ span.w3-button:hover {
   font-style: normal;
   font-weight: 500;
   letter-spacing: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
-  color: #575757;
 }
 
 .bank-title {

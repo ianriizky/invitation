@@ -36,6 +36,13 @@ $(function () {
     },
   });
 
+  $(".bank-title").on("click", function (event) {
+    navigator.clipboard.writeText(event.target.textContent);
+    ohSnap("Nomor rekening berhasil disalin.", {
+      color: "green",
+    });
+  });
+
   $("#submit").css("cursor", "pointer");
 
   $(document).on("click", "#submit", function (event) {
@@ -52,13 +59,13 @@ $(function () {
 
     /* eslint-disable no-undef */
     if (nama == "") {
-      ohSnap("Nama harus diisi", { color: "red" });
+      ohSnap("Nama harus diisi.", { color: "red" });
     } else if (lokasi == "") {
-      ohSnap("Lokasi harus diisi", { color: "red" });
+      ohSnap("Lokasi harus diisi.", { color: "red" });
     } else if (!kehadiran) {
-      ohSnap("Kehadiran harus diisi", { color: "red" });
+      ohSnap("Kehadiran harus diisi.", { color: "red" });
     } else if (ucapan == "") {
-      ohSnap("Ucapan harus diisi", { color: "red" });
+      ohSnap("Ucapan harus diisi.", { color: "red" });
     } else {
       $("#submit").prop("disabled", true);
       $("#submit").addClass("button--loading");
@@ -75,7 +82,7 @@ $(function () {
         },
         success: function (data) {
           if (data == "success") {
-            ohSnap("Terima Kasih atas doa dan ucapannya", {
+            ohSnap("Terima Kasih atas doa dan ucapannya.", {
               color: "green",
             });
             $.ajax({
