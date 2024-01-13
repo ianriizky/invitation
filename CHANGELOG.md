@@ -6,6 +6,9 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [0.3.0](https://github.com/ianriizky/invitation/releases/tag/0.3.0) - 2024-01-13
 
+- fix: music not played on mobile version by [@ianriizky](https://github.com/ianriizky) in [#ca2c5dd](https://github.com/ianriizky/invitation/commit/ca2c5ddd71cc3cb801b2aa659f908ca17aa69833).
+- chore: revise event page by [@ianriizky](https://github.com/ianriizky) in [#056139c](https://github.com/ianriizky/invitation/commit/056139c25d8e0bae89d44201f7baa26710833f4f).
+
 ## [0.2.0](https://github.com/ianriizky/invitation/releases/tag/0.2.0) - 2024-01-13
 
 - chore: split view template for music and no music by [@ianriizky](https://github.com/ianriizky) in [#a7b3c30](https://github.com/ianriizky/invitation/commit/a7b3c30a070acf719f5034544125dd3ced9821dd).
