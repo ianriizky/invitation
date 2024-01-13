@@ -89,7 +89,7 @@ body {
 }
 
 .mobile-title {
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 600 !important;
   line-height: 85.7px;
 }
@@ -278,6 +278,20 @@ a.bar-icon:hover {
   display: block;
 }
 
+.icon-gift.active {
+  background-color: #7d9a9b;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-gift.active > .img-off {
+  display: none;
+}
+
+.icon-gift.active > .img-active {
+  display: block;
+}
+
 .icon-message.active {
   background-color: #7d9a9b;
   width: 40px;
@@ -380,7 +394,7 @@ a.bar-icon:hover {
 .img-right {
   right: 0;
   position: absolute;
-  top: 180px;
+  top: 355px;
 }
 
 .img-right-profile {
@@ -404,7 +418,7 @@ a.bar-icon:hover {
 .img-left {
   left: 0;
   position: absolute;
-  top: 180px;
+  top: 355px;
   transform: rotateY(200deg);
 }
 
@@ -968,6 +982,7 @@ span.w3-button:hover {
   margin: 0.8rem 0;
   font-size: 20px;
   font-weight: 700;
+  line-height: 30px;
 }
 
 .address-section {
@@ -1176,9 +1191,9 @@ li span {
     z-index: 2;
   }
   .title-content {
-    margin: 3rem 0 0 0;
+    margin: 2rem 0 3rem 0;
     font-weight: 600;
-    line-height: 60px;
+    line-height: 35px;
     z-index: 1;
   }
   a.save-date {
@@ -1644,7 +1659,7 @@ li span {
   .title-content {
     margin: 2rem 0 2rem 0;
     font-weight: 600;
-    font-size: 55px;
+    font-size: 47px;
     line-height: 30px;
     z-index: 1;
   }

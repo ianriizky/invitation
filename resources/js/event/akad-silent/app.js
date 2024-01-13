@@ -136,6 +136,10 @@ $("#instagram-button").on("click", function () {
   document.getElementById("instagram-id").scrollIntoView();
 });
 
+$("#gift-button").on("click", function () {
+  document.getElementById("gift-id").scrollIntoView();
+});
+
 $("#message-button").on("click", function () {
   document.getElementById("message-id").scrollIntoView();
 });
@@ -289,20 +293,37 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
+  // ScrollTrigger.create({
+  //   trigger: "#instagram-id",
+  //   scroller: "#mobile-scroll",
+  //   onEnter: function () {
+  //     changeBackground(".icon-instagram", "active");
+  //   },
+  //   onEnterBack: function () {
+  //     changeBackground(".icon-instagram", "active");
+  //   },
+  //   onLeave: function () {
+  //     changeBackground(".icon-instagram", "");
+  //   },
+  //   onLeaveBack: function () {
+  //     changeBackground(".icon-instagram", "");
+  //   },
+  // });
+
   ScrollTrigger.create({
-    trigger: "#instagram-id",
+    trigger: "#gift-id",
     scroller: "#mobile-scroll",
     onEnter: function () {
-      changeBackground(".icon-instagram", "active");
+      changeBackground(".icon-gift", "active");
     },
     onEnterBack: function () {
-      changeBackground(".icon-instagram", "active");
+      changeBackground(".icon-gift", "active");
     },
     onLeave: function () {
-      changeBackground(".icon-instagram", "");
+      changeBackground(".icon-gift", "");
     },
     onLeaveBack: function () {
-      changeBackground(".icon-instagram", "");
+      changeBackground(".icon-gift", "");
     },
   });
 

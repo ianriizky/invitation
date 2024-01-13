@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +7,7 @@
     <meta name="csrf-token" value="{{ csrf_token }}">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
+    <meta name="theme-color" content="#7d9a9b" />
     <meta property="og:locale" content="id_ID">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ title }}">
@@ -43,11 +44,11 @@
                 class="wedding-title font-black animated-title"
                 style="text-align: center; line-height: 100px;"
               >
-                The Wedding of
+                {{ subtitle }}
               </span>
             </div>
             <div class="bottom-title">
-              <button class="wedding-open animated-title" style="opacity: 0; text-transform: uppercase;">
+              <button class="wedding-open animated-title text-transform-uppercase" style="opacity: 0;">
                 Buka Undangan
               </button>
               <span class="title-head font-black animated-title">
@@ -64,11 +65,13 @@
             <audio id="background_music" loop="loop" src="{{ base_url }}/pg3UKx.mp3"></audio>
           {% endif %}
 
+          {#
           <div id="pay" class="float">
             <a id="pay-button" target="_self" class="add-shadow" style="cursor: pointer;">
               <img src="{{ base_url }}/img/icon-pay.svg" alt="icon-pay" />
             </a>
           </div>
+          #}
 
           <div class="desktop-bar add-shadow">
             <div class="wrapper-bar w-100">
@@ -92,9 +95,9 @@
                   </a>
                 </li>
                 <li>
-                  <a id="instagram-button" class="bar-icon icon-instagram">
-                    <img src="{{ base_url }}/img/icon-instagram.svg" class="img-off" alt="icon-instagram-off" />
-                    <img src="{{ base_url }}/img/icon-instagram-active.svg" class="img-active" alt="icon-instagram-active" />
+                  <a id="gift-button" class="bar-icon icon-gift">
+                    <img src="{{ base_url }}/img/icon-gift.svg" class="img-off" alt="icon-gift-off" />
+                    <img src="{{ base_url }}/img/icon-gift-active.svg" class="img-active" alt="icon-gift-active" />
                   </a>
                 </li>
                 <li>
@@ -110,18 +113,21 @@
 
         <div class="mobile-separator" id="mobile-scroll">
           <div class="welcome">
-            <img src="{{ base_url }}/img/mobile-img.jpg" style="width: 100%;" />
+            <img src="{{ base_url }}/img/mobile-img.png" style="width: 100%;" />
 
             <div class="content">
               <img src="{{ base_url }}/img/content-top.svg" class="background-top" alt="content-top" />
               <div class="content-data">
-                <span class="title-content gs_reveal" style="font-size: 15px; text-transform: uppercase;">
+                <span class="title-content gs_reveal" style="font-size: 15px;">
                   Kepada Bapak/Ibu/Saudara/i
                 </span>
-                <span class="title-content signature-font mobile-title gs_reveal gs_reveal_fromLeft">
+                <span class="title-content newyork-font mobile-title gs_reveal gs_reveal_fromLeft" style="line-height:65px;">
                   {{ guest.name }}
                 </span>
-                <span class="title-content gs_reveal" style="font-weight: 700; font-size: 24px; text-transform: uppercase;">
+                <span class="title-content font-digital gs_reveal" style="font-weight: 700; font-size: 28px; color: #ffffff; margin-bottom: 0; padding: 0 50px;">
+                  {{ title }}
+                </span>
+                <span class="title-content font-digital gs_reveal" style="font-weight: 700; font-size: 22px; color: #ffffff; margin-top: 5px; padding: 0 50px;">
                   {{ date_readable }}
                 </span>
                 <div id="countdown" class="gs_reveal">
@@ -130,50 +136,52 @@
                       <div class="box-number">
                         <span id="days"></span>
                       </div>
-                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Hari</div>
+                      <div class="mt-1 font-countdown text-transform-uppercase">Hari</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="hours"></span>
                       </div>
-                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Jam</div>
+                      <div class="mt-1 font-countdown text-transform-uppercase">Jam</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="minutes"></span>
                       </div>
-                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Menit</div>
+                      <div class="mt-1 font-countdown text-transform-uppercase">Menit</div>
                     </li>
                     <li class="number-separator">:</li>
                     <li>
                       <div class="box-number">
                         <span id="seconds"></span>
                       </div>
-                      <div class="mt-1 font-countdown" style="text-transform: uppercase;">Detik</div>
+                      <div class="mt-1 font-countdown text-transform-uppercase">Detik</div>
                     </li>
                   </ul>
                 </div>
                 <div id="wedding-done" class="gs_reveal">
-                  <span class="title-content signature-font mobile-title">
+                  <span class="title-content newyork-font mobile-title" style="line-height: 65px;">
                     Acara Telah Usai
                   </span>
                 </div>
                 <div id="wedding-running" class="gs_reveal">
-                  <span class="title-content signature-font mobile-title">
+                  <span class="title-content newyork-font mobile-title" style="line-height: 65px;">
                     Sekarang
                   </span>
                 </div>
                 <a id="quran-button" style="cursor: pointer;">
                   <img src="{{ base_url }}/img/scrolls.svg" class="scroll-up-down" alt="scrolls" />
                 </a>
+                {#
                 <div class="leaf-flying">
                   <img src="{{ base_url }}/img/leaf.svg" class="img-right" alt="leaf-right" />
                 </div>
                 <div class="leaf-flying">
                   <img src="{{ base_url }}/img/leaf.svg" class="img-left" alt="leaf-left" />
                 </div>
+                #}
               </div>
             </div>
 
@@ -219,36 +227,45 @@
                     </p>
                   </div>
                   <div class="wedding-name">
-                    <span class="title-section signature-font gs_reveal gs_reveal_fromRight">
+                    <span class="title-section newyork-font gs_reveal gs_reveal_fromRight">
                       Akad Nikah
                     </span>
-                    <span class="title-content dilanjut-dengan gs_reveal" style="text-transform: uppercase;">
-                      dilanjut Dengan
+                    <div class="wedding-time">
+                      <span class="time-title text-transform-uppercase gs_reveal">
+                        {{ date_readable }}
+                        <br>
+                        {{ time_readable }}
+                      </span>
+                    </div>
+                    <span class="title-content dilanjut-dengan text-transform-uppercase gs_reveal">
+                      dilanjutkan dengan
                     </span>
-                    <span class="title-section signature-font gs_reveal gs_reveal_fromLeft">
-                      Marhabah dan Aqiqah
+                    <span class="title-section newyork-font gs_reveal gs_reveal_fromLeft">
+                      Resepsi Pernikahan
                     </span>
-                  </div>
-                  <div class="wedding-time">
-                    <span class="time-title gs_reveal" style="text-transform: uppercase;">
-                      {{ date_readable }}
-                    </span>
-                    <span class="time-title gs_reveal" style="text-transform: uppercase;">
-                      {{ time_readable }}
-                    </span>
+                    <div class="wedding-time">
+                      <span class="time-title text-transform-uppercase gs_reveal">
+                        {{ reception_date_readable }}
+                        <br>
+                        {{ reception_time_readable }}
+                      </span>
+                    </div>
                   </div>
                   <div class="wedding-bottom">
-                    <span class="address-section gs_reveal"> MASJID NURHIDAYAH </span>
+                    <span class="address-section text-transform-uppercase gs_reveal">
+                      {{ location.name }}
+                    </span>
                     <span class="address-section font-basic gs_reveal">
-                      Jln Demang Lebar Daun Kec. Ilir Barat 1 , Kota Palembang,
-                      Sumatera Selatan 30137
+                      {{ location.address }}
                     </span>
                     <a class="maps-button address-section location gs_reveal" style="cursor: pointer;">
-                      LIHAT LOKASI
+                      Lihat Lokasi
                     </a>
                     <span class="address-section font-basic gs_reveal">
-                      Atas kehadiran dan do'a restunya kami mengucapkan terima
-                      kasih
+                      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila bapak/ibu/saudara/i berkenan hadir untuk memberikan doa restu.
+                    </span>
+                    <span class="address-section font-basic gs_reveal">
+                      Atas kehadiran dan doa restu yang diberikan, kami ucapkan terima kasih.
                     </span>
                   </div>
                   <div class="doa-awal gs_reveal">
@@ -262,18 +279,18 @@
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name signature-font">Fitri</span>
+                    <span class="bride-name newyork-font">Fitri</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromRight">
-                    <img src="{{ base_url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-bride" />
+                    <img src="{{ base_url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-bride" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
                     <span class="title-content nama-lengkap">
-                      FITRI, S.Sos.
+                      Fitri, S.Sos.
                     </span>
                   </div>
                   <a
-                    href="https://www.instagram.com/beyshalayla/"
+                    href="https://www.instagram.com/beyshalayla"
                     target="_blank"
                     class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
                   >
@@ -281,10 +298,9 @@
                     <span style="margin-left: 10px;">beyshalayla</span>
                   </a>
                   <div class="family-detail gs_reveal">
-                    <p class="font-basic">PUTRI KEDUA DARI</p>
-                    <p class="font-basic">BAPAK DRS. DJUNAIDI ZAINI</p>
-                    <p class="font-basic">&</p>
-                    <p class="font-basic">IBU SUSILAWATI</p>
+                    <p class="font-basic text-transform-uppercase">
+                      Putri kedua dari Bapak Drs. Djunaidi Zaini & Ibu Susilawati
+                    </p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
                     <img src="{{ base_url }}/img/leaf-profile-right.svg" class="img-right-profile" alt="leaf-profile-right" />
@@ -298,55 +314,14 @@
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name signature-font">Angga</span>
+                    <span class="bride-name newyork-font">Angga</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ base_url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="profile-groom" />
+                    <img src="{{ base_url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-groom" />
                   </div>
                   <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap">
-                      ANGGA FIRMANSYAH
-                    </span>
-                  </div>
-                  <a
-                    href="https://www.instagram.com/fiqihwew/"
-                    target="_blank"
-                    class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
-                  >
-                    <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
-                    <span style="margin-left: 10px;">fiqihwew</span>
-                  </a>
-                  <div class="family-detail gs_reveal">
-                    <p class="font-basic">PUTRA KEDUA DARI</p>
-                    <p class="font-basic">BAPAK FAISAL MURODI</p>
-                    <p class="font-basic">&</p>
-                    <p class="font-basic">IBU DIANA ARTATI</p>
-                  </div>
-                  <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img
-                      src="{{ base_url }}/img/leaf-profile-kb.svg"
-                      class="img-kb-profile"
-                      alt="leaf-profile-kb" />
-                  </div>
-                </div>
-                <div class="leaves gs_reveal">
-                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
-                </div>
-                <div class="block-profile">
-                  <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap" style="line-height: 60px;">
-                      MARHABAH DAN AQIQAH
-                    </span>
-                  </div>
-                  <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name signature-font">Fino</span>
-                  </div>
-                  <div class="profile-picture gs_reveal gs_reveal_fromLeft">
-                    <img src="{{ base_url }}/img/baby.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%;" alt="baby" />
-                  </div>
-                  <div class="profile-name mt-1 gs_reveal">
-                    <span class="title-content nama-lengkap">
-                      ALFINO ZAYN ACHMAD
+                    <span class="title-content nama-lengkap text-transform-uppercase">
+                      Angga Firmansyah
                     </span>
                   </div>
                   <a
@@ -358,14 +333,19 @@
                     <span style="margin-left: 10px;">fiqihwew</span>
                   </a>
                   <div class="family-detail gs_reveal">
-                    <p class="font-basic">PUTRA PERTAMA DARI</p>
-                    <p class="font-basic">BAPAK ADAM SAHILI S.Pd</p>
-                    <p class="font-basic">&</p>
-                    <p class="font-basic">IBU ANIMINASUKA S.Pd</p>
+                    <p class="font-basic text-transform-uppercase">
+                      Putra kedua dari Bapak Faisal Murodi & Ibu Diana Artati
+                    </p>
                   </div>
                   <div class="leaf-flying gs_reveal gs_reveal_fromRight">
-                    <img src="{{ base_url }}/img/leaf-profile-kb.svg" class="img-kb-profile" alt="leaf-profile-kb" />
+                    <img
+                      src="{{ base_url }}/img/leaf-profile-kb.svg"
+                      class="img-kb-profile"
+                      alt="leaf-profile-kb" />
                   </div>
+                </div>
+                <div class="leaves gs_reveal">
+                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
               </div>
             </div>
@@ -376,7 +356,7 @@
 
             <div id="maps-id" class="w-100 gs_reveal" style="padding-top: 25px;">
               {# <img src="{{ base_url }}/img/img-down.jpg" class="w-100" alt="img-down" /> #}
-              <p class="title-section signature-font font-black gs_reveal gs_reveal_fromRight" style="text-align: center;">
+              <p class="title-section newyork-font font-black gs_reveal gs_reveal_fromRight" style="text-align: center;">
                 Tempat Acara
               </p>
             </div>
@@ -387,7 +367,7 @@
                   <div class="gmap_canvas">
                     <iframe
                       id="gmap_canvas"
-                      src="https://maps.google.com/maps?q=masjid%20nurhidayah%20palembang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      src="{{ location.google_map.embed_url }}"
                       width="376"
                       height="400"
                       frameborder="0"
@@ -395,7 +375,7 @@
                       marginheight="0"
                       marginwidth="0"
                     ></iframe>
-                    <br />
+                    <br>
                     <style>
                       .mapouter {
                         position: relative;
@@ -420,28 +400,27 @@
               </div>
 
               <span class="font-basic font-black mt-2 gs_reveal" style="font-weight: 600;">
-                Jl. Demang Lebar Daun, Demang Lebar Daun, Kec. Ilir Bar. I, Kota
-                Palembang, Sumatera Selatan 30137
+                {{ location.address }}
               </span>
 
               <a
-                href="https://goo.gl/maps/6SUxY1KZw3ZHRoKR7"
+                href="{{ location.google_map.url }}"
                 target="_blank"
-                class="btn-white gs_reveal"
-                style="text-align: center; text-transform: uppercase;"
+                class="btn-white gs_reveal text-transform-uppercase"
+                style="text-align: center;"
               >
                 Lihat Lokasi
               </a>
             </div>
 
-            <div id="instagram-id" class="content">
+            <div id="gift-id" class="content">
               <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
               <div class="content-data">
-                <span class="title-section signature-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
-                  Live Streaming
+                <span class="title-section newyork-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
+                  Wedding Gift
                 </span>
-                <span class="title-content find-instagram gs_reveal">
-                  FIND OUR WEDDING VIRTUALLY ON INSTAGRAM
+                <span class="title-content find-instagram gs_reveal text-transform-uppercase">
+                  Find Our Wedding Virtually on Instagram
                 </span>
                 <a
                   href="https://www.instagram.com/fitridjunaidizaini"
@@ -455,8 +434,32 @@
                 <div class="leaves mt-3 gs_reveal">
                   <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
                 </div>
-                {#
-                <span class="title-section signature-font gs_reveal gs_reveal_fromLeft">
+              </div>
+            </div>
+
+            {#
+            <div id="instagram-id" class="content">
+              <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
+              <div class="content-data">
+                <span class="title-section newyork-font gs_reveal gs_reveal_fromRight" style="padding-top: 3rem;">
+                  Live Streaming
+                </span>
+                <span class="title-content find-instagram gs_reveal text-transform-uppercase">
+                  Find Our Wedding Virtually on Instagram
+                </span>
+                <a
+                  href="https://www.instagram.com/fitridjunaidizaini"
+                  target="_blank"
+                  class="btn-white gs_reveal"
+                  style="text-align: center;"
+                >
+                  <img src="{{ base_url }}/img/record.svg" alt="watch streaming" />
+                  <span style="margin-left: 10px;">WATCH STREAMING</span>
+                </a>
+                <div class="leaves mt-3 gs_reveal">
+                  <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
+                </div>
+                <span class="title-section newyork-font gs_reveal gs_reveal_fromLeft">
                   Instagram Effect
                 </span>
                 <span class="title-content find-instagram gs_reveal">
@@ -509,16 +512,16 @@
                     </div>
                   </div>
                 </div>
-                #}
               </div>
             </div>
+            #}
 
             <div class="end-content">
               <img src="{{ base_url }}/img/content-top.svg" style="width: 100%;" alt="content-top" />
             </div>
 
             <div id="message-id" class="block-message mt-2">
-              <span class="title-section signature-font font-black gs_reveal gs_reveal_fromRight">
+              <span class="title-section newyork-font font-black gs_reveal gs_reveal_fromRight">
                 Kirim Doa
               </span>
               <div class="form-data font-black">
@@ -609,7 +612,7 @@
                     value="Submit"
                     class="btn-send gs_reveal"
                   >
-                    <span class="button__text" style="text-transform: uppercase;">Kirim Pesan</span>
+                    <span class="button__text text-transform-uppercase">Kirim Pesan</span>
                   </button>
                 </div>
 
@@ -633,6 +636,7 @@
     </div>
 
     {# DIGITAL ENVELOPE #}
+    {#
     <div id="id01" class="w3-modal">
       <div class="w3-modal-content w3-animate-zoom">
         <header id="close-01" class="w3-container">
@@ -660,7 +664,6 @@
             </div>
           </div>
 
-          {#
           <div class="choosen-bank">
             <div class="bank-img aniModal">
               <img src="{{ base_url }}/img/bank/bca.png" alt="bca" />
@@ -698,10 +701,10 @@
               <span class="bank-name"> a/n Ahmad Fiqih </span>
             </div>
           </div>
-          #}
         </div>
       </div>
     </div>
+    #}
     {# /.DIGITAL ENVELOPE #}
 
     {# WELCOME #}
@@ -712,11 +715,11 @@
         </header>
 
         <div class="w3-container">
-          <p class="font-digital aniModal" style="color: #000000; width: 100%; font-size: 16px;">
+          <p class="font-digital aniModal" style="color: #000000; width: 100%; font-size: 16px; margin-top: 10px;">
             Kepada Bapak/Ibu/Saudara/i
           </p>
 
-          <p class="title-content signature-font mobile-title font-black" style="font-size: 48px;">
+          <p class="title-content newyork-font mobile-title font-black" style="font-size: 48px; line-height: 65px;">
             {{ guest.name }}
           </p>
 
