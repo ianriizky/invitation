@@ -6,7 +6,7 @@ import express from "express";
 
 const app = express();
 
-new ServiceProvider(app);
+new ServiceProvider(app).boot();
 new HttpHandler(app);
 new Router(app);
 new ErrorHandler(app);

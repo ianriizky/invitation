@@ -54,9 +54,7 @@ export class Handler {
       return res
         .status(status)
         .header("content-type", "text/html")
-        .send(
-          err?.createHtmlDocument ? err?.createHtmlDocument() : err.message,
-        );
+        .send(err?.render ? err?.render() : err.message);
     }
 
     return res.status(status).formattedJson({

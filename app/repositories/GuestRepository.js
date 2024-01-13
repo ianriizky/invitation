@@ -1,7 +1,10 @@
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
+import { Str } from "../supports/Str.js";
+import googleLibphonenumber from "google-libphonenumber";
 
 /**
+ * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
  * @typedef {import("../models/index.js").prisma.Guest} Guest
  * @typedef {import("../models/index.js").prisma.Prisma.GuestDelegate} Model
  */
@@ -10,10 +13,43 @@ export class GuestRepository {
   model;
 
   /**
-   * @param {Model} [model]
+   * @param {PrismaClient} [prisma]
    */
-  constructor(model) {
-    this.model = model || defaultModel.guest;
+  constructor(prisma) {
+    prisma = this.appendExtension(prisma || defaultModel);
+
+    this.model = prisma.guest;
+  }
+
+  /**
+   * @param {PrismaClient} prisma
+   */
+  appendExtension(prisma) {
+    return prisma.$extends({
+      name: GuestRepository.name,
+      query: {
+        guest: {
+          async create({ args, query }) {
+            if (args.data?.slug === undefined) {
+              args.data.slug =
+                Str.slug(args.data.name) + "-" + Str.randomAlphaNumeric(5);
+            }
+
+            const phoneNumberUtil =
+              googleLibphonenumber.PhoneNumberUtil.getInstance();
+
+            args.data.phone_number = phoneNumberUtil
+              .format(
+                phoneNumberUtil.parse(args.data.phone_number, "ID"),
+                googleLibphonenumber.PhoneNumberFormat.E164,
+              )
+              .replace("+", "");
+
+            return query(args);
+          },
+        },
+      },
+    });
   }
 
   /**
@@ -33,5 +69,17 @@ export class GuestRepository {
     ]);
 
     return { data, pagination: pagination.generateMeta(total, data.length) };
+  }
+
+  /**
+   * @param {Guest} guest
+   * @param {string} message
+   */
+  static getWhatsappLink(guest, message) {
+    if (guest.phone_number !== null) {
+      return `https://api.whatsapp.com/send?phone=${
+        guest.phone_number
+      }&text=${encodeURIComponent(message)}`;
+    }
   }
 }

@@ -1,0 +1,19 @@
+{% for message in messages %}
+  <div class="data-message">
+    <div class="name-message mt-1">{{ guest.name }}</div>
+    <div class="location-and-present mt-1">
+      <span class="location-name">{{ guest.domicile }}</span>
+      {% if message.presence_status === "yes" %}
+        <span class="hadir">Hadir</span>
+      {% elif message.presence_status === "maybe" %}
+        <span class="m-hadir">Mungkin Hadir</span>
+      {% else %}
+        <span class="t-hadir">Tidak Hadir</span>
+      {% endif %}
+    </div>
+    <div class="message-value mt-1">{{ message.content }}</div>
+  </div>
+{% endfor %}
+{% if messages.length < 1 %}
+  Tidak ada pesan.
+{% endif %}

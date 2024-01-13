@@ -19,10 +19,22 @@
     "file": "slick.woff",
     "src": "node_modules/slick-carousel/slick/fonts/slick.woff"
   },
-  "resources/css/app.scss": {
+  "resources/css/event/akad/app.scss": {
     "file": "app.css",
     "isEntry": true,
-    "src": "resources/css/app.scss"
+    "src": "resources/css/event/akad/app.scss"
+  },
+  "resources/font/NewYork.otf": {
+    "file": "NewYork.otf",
+    "src": "resources/font/NewYork.otf"
+  },
+  "resources/font/qagetto-serif-font/qagetto.otf": {
+    "file": "qagetto.otf",
+    "src": "resources/font/qagetto-serif-font/qagetto.otf"
+  },
+  "resources/font/qagetto-serif-font/qagetto.ttf": {
+    "file": "qagetto.ttf",
+    "src": "resources/font/qagetto-serif-font/qagetto.ttf"
   },
   "resources/font/tropical_summer_signature-webfont.woff2": {
     "file": "tropical_summer_signature-webfont.woff2",
@@ -32,9 +44,9 @@
     "file": "main-img.jpg",
     "src": "resources/img/main-img.jpg"
   },
-  "resources/js/app.js": {
+  "resources/js/event/akad/app.js": {
     "file": "app.js",
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "resources/js/event/akad/app.js"
   }
 }

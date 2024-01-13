@@ -1,0 +1,40 @@
+.music-control {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 99;
+  right: 20px;
+  top: 20px;
+  text-align: center;
+  border-radius: 50%;
+  padding-top: 10px;
+  background-color: #ffffff;
+}
+
+.music-control:hover {
+  background-color: #e4d3cd;
+  transition: all 0.3s ease;
+}
+
+/* Large devices (tabs, 992px and down) */
+
+@media only screen and (max-width: 992px) {
+  .music-control {
+    display: none;
+    top: 2vh;
+    right: 30px;
+  }
+  .music-control:hover {
+    background-color: #ffffff;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .music-control {
+    display: none;
+    top: 17vh;
+    right: 30px;
+  }
+}

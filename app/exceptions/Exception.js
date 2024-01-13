@@ -23,7 +23,7 @@ export class Exception extends Error {
     return this;
   }
 
-  createHtmlDocument() {
+  render() {
     const DOUBLE_SPACE_REGEXP = /\x20{2}/g;
     const NEWLINE_REGEXP = /\n/g;
 
