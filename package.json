@@ -112,6 +112,10 @@
     "seed": "node database/seeders/index.js"
   },
   "nodemonConfig": {
-    "ext": "js,json,mjs,njk"
+    "ext": "js,json,mjs,njk",
+    "ignore": [
+      "public/build/*.*",
+      "public/build-pg3UKx/*.*"
+    ]
   }
 }
