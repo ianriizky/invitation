@@ -12,7 +12,7 @@ export default async function () {
       name: "wedding",
       description: "The Wedding of",
       date,
-      view_path: "web/event/akad-music/show.njk",
+      view_path: "web/event/akad/show-music.njk",
       view_data: {
         title: "The Wedding of",
         description: format(date, "EEEE, d LLLL yyyy", { locale: idLocale }),
@@ -47,7 +47,7 @@ export default async function () {
       description: "lorem ipsum",
       event_guests: {
         create: {
-          view_path: "web/event/akad-silent/show.njk",
+          view_path: "web/event/akad/show-silent.njk",
           event: { connect: { id: eventAkad.id } },
         },
       },
