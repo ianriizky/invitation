@@ -38,7 +38,8 @@ $(function () {
 
   $(".bank-title").on("click", function (event) {
     navigator.clipboard.writeText(event.target.textContent);
-    ohSnap("Nomor rekening berhasil disalin.", {
+    // eslint-disable-next-line no-undef
+    ohSnap("Tersalin.", {
       color: "green",
     });
   });

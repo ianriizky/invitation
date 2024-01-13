@@ -78,6 +78,10 @@ body {
   font-family: "NewYork", Sans-serif !important;
 }
 
+.qagetto-font {
+  font-family: "Qagetto", Sans-serif !important;
+}
+
 .signature-font {
   font-family: "Signature" !important;
 }
@@ -479,13 +483,13 @@ a.bar-icon:hover {
 }
 
 .full-name {
-  font-size: 13px !important;
+  font-size: 16px !important;
 }
 
 .title-content {
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
   font-weight: 600;
-  line-height: 16px;
+  line-height: 30px;
   z-index: 1;
 }
 
@@ -673,8 +677,6 @@ span.w3-button:hover {
 }
 
 .choosen-bank {
-  display: flex;
-  justify-content: space-evenly;
   align-items: center;
   margin: 2rem 0;
 }
@@ -684,7 +686,6 @@ span.w3-button:hover {
   flex-direction: column;
   justify-content: flex-start;
   letter-spacing: normal;
-  width: 150px;
 }
 
 .bank-name {
@@ -930,8 +931,9 @@ span.w3-button:hover {
 }
 
 .bride-name {
-  font-size: 86px;
+  font-size: 46px;
   font-weight: 500;
+  line-height: 46px;
 }
 
 .w-100 {
@@ -939,7 +941,7 @@ span.w3-button:hover {
 }
 
 .block-profile {
-  width: 220px;
+  width: 250px;
   z-index: 2;
 }
 
@@ -960,13 +962,13 @@ span.w3-button:hover {
 .wedding-name {
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 .wedding-time {
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 .wedding-bottom {
@@ -985,6 +987,7 @@ span.w3-button:hover {
 
 .address-section {
   margin: 0.8rem 0;
+  line-height: 30px;
 }
 
 .location {
@@ -1189,7 +1192,7 @@ li span {
     z-index: 2;
   }
   .title-content {
-    margin: 2rem 0 3rem 0;
+    margin: 1rem 0 1rem 0;
     font-weight: 600;
     line-height: 35px;
     z-index: 1;
@@ -1270,7 +1273,7 @@ li span {
     line-height: 80px;
     margin: 1rem 0;
   }
-  .dilanjut-dengan {
+  .continue-with {
     margin: 1rem 0 !important;
   }
   .time-title {
@@ -1282,7 +1285,7 @@ li span {
   .wedding-time {
     display: flex;
     flex-direction: column;
-    margin: 30px 0;
+    margin: 20px 0;
   }
   .img-down {
     margin-top: -65px;
@@ -1410,7 +1413,7 @@ li span {
     margin-top: -410px;
   }
   .title-content {
-    margin: 2rem 0 0 0;
+    margin: 1rem 0 1rem 0;
     font-weight: 600;
     line-height: 60px;
     z-index: 1;
@@ -1472,13 +1475,10 @@ li span {
     width: 100%;
   }
   .title-content {
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 1rem 0;
     font-weight: 600;
     line-height: 30px;
     z-index: 1;
-  }
-  .scroll-up-down {
-    display: none;
   }
   .leaf-flying {
     display: block;
@@ -1655,7 +1655,7 @@ li span {
     font-size: 12px;
   }
   .title-content {
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 1rem 0;
     font-weight: 600;
     font-size: 47px;
     line-height: 30px;
@@ -1678,7 +1678,7 @@ li span {
     color: #ffffff;
     letter-spacing: normal;
   }
-  .dilanjut-dengan {
+  .continue-with {
     margin: 1rem 0 !important;
     font-size: 14px !important;
   }

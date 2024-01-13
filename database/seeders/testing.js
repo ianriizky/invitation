@@ -35,25 +35,24 @@ export default async function () {
           parent_description: "Putri pertama dari Bapak & Ibu",
         },
         groom: {
-          nick_name: "",
-          full_name: "",
+          title: "",
+          fullname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putra pertama dari Bapak & Ibu",
         },
-        wedding_gift: {
-          banks: [
-            {
-              image_path: "img/bank/bca.png",
-              name: "BCA",
-              account_number: "",
-              owner_name: "a/n ",
-            },
-          ],
-        },
+        gifts: [
+          {
+            image_path: "",
+            name: "",
+            description: "",
+            owner_name: "",
+          },
+        ],
         location: {
-          address: "",
-          name: "",
+          name: "Masjid Nurhidayah",
+          address:
+            "Jl. Demang Lebar Daun, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137",
           google_map: {
             url: "https://goo.gl/maps/6SUxY1KZw3ZHRoKR7",
             embed_url:
