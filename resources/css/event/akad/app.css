@@ -146,7 +146,7 @@ canvas {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #232741;
+  background-color: #7d9a9b;
   background-size: cover;
   background-position: 50% 50%;
   background-image: url("../../../img/main-img.jpg");
@@ -681,7 +681,6 @@ span.w3-button.w3-display-topright {
 
 span.w3-button:hover {
   color: #575757 !important;
-  background-color: transparent !important;
 }
 
 .choosen-bank {
@@ -1107,7 +1106,7 @@ li span {
 
 .top-location {
   width: 100%;
-  z-index: 1;
+  z-index: revert-layer;
   margin-top: -50px;
 }
 
@@ -1127,7 +1126,8 @@ li span {
 
 /* inspired by Twitter Bootstrap */
 
-#ohsnap {
+#ohsnap,
+.ohsnap-bank-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1474,7 +1474,7 @@ li span {
   }
   .top-location {
     width: 100%;
-    z-index: 1;
+    z-index: revert-layer;
     margin-top: 10px;
   }
   .img-down {

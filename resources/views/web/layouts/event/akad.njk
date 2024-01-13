@@ -263,7 +263,7 @@
                     <span class="address-section font-basic gs_reveal">
                       {{ location.address }}
                     </span>
-                    <a class="maps-button address-section location gs_reveal" style="cursor: pointer;">
+                    <a class="maps-button address-section text-transform-uppercase location gs_reveal" style="cursor: pointer;">
                       Lihat Lokasi
                     </a>
                     <span class="address-section font-basic gs_reveal">
@@ -414,7 +414,7 @@
                 class="btn-white gs_reveal text-transform-uppercase"
                 style="text-align: center;"
               >
-                Lihat Lokasi
+                Google Maps
               </a>
             </div>
 
@@ -428,21 +428,9 @@
                   Tanpa mengurangi rasa hormat, bagi undangan yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkan melalui:
                 </p>
                 {% for gift in gifts %}
-                  <div class="block-detail choosen-bank" style="margin: 1rem 20px; width: 70%;">
-                    {% if gift.image_path %}
-                      <div class="bank-img aniModal">
-                        <img src="{{ base_url }}/{{ gift.image_path }}" alt="{{ gift.name }}" />
-                      </div>
-                    {% endif %}
-                    <div class="bank-detail" style="text-align: left;">
-                      <span class="title aniModal">{{ gift.name }}</span>
-                      <span class="bank-title aniModal">
-                        {{ gift.description|safe }}
-                        <img src="{{ base_url }}/img/copy.png" alt="copy" />
-                      </span>
-                      <span class="bank-name aniModal">{{ gift.owner_name }}</span>
-                    </div>
-                  </div>
+                  <a class="gift-button-open address-section text-transform-uppercase location gs_reveal" data-target="gift-id-{{ loop.index }}" style="cursor: pointer; margin-top: 2rem;">
+                    {{ gift.button_name }}
+                  </a>
                 {% endfor %}
                 <div class="leaves mt-3 gs_reveal">
                   <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
@@ -711,6 +699,37 @@
     </div>
     #}
     {# /.DIGITAL ENVELOPE #}
+
+    {% for gift in gifts %}
+      <div id="gift-id-{{ loop.index }}" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+          <header class="gift-button-close w3-container" data-target="gift-id-{{ loop.index }}" style="cursor: pointer;">
+            <span class="w3-button w3-display-topright" style="z-index: 99999;">&times;</span>
+
+            <h2 class="modal-h text-transform-uppercase aniModal">{{ gift.button_name }}</h2>
+          </header>
+
+          <div class="w3-container">
+            <div class="choosen-bank font-black">
+              {% if gift.image_path %}
+                <div class="bank-img aniModal">
+                  <img src="{{ base_url }}/{{ gift.image_path }}" alt="{{ gift.name }}" />
+                </div>
+              {% endif %}
+              <div class="bank-detail">
+                <span class="title aniModal">{{ gift.name }}</span>
+                <span class="bank-title aniModal" data-target="ohsnap-bank-title-{{ loop.index }}">
+                  {{ gift.description|safe }}
+                  <img src="{{ base_url }}/img/copy.png" alt="copy" />
+                  <div id="ohsnap-bank-title-{{ loop.index }}" class="ohsnap-bank-title"></div>
+                </span>
+                <span class="bank-name aniModal">{{ gift.owner_name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
 
     {# WELCOME #}
     <div id="id02" class="w3-modal">
