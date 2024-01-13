@@ -2,7 +2,19 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.1.6...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.2.0...develop)
+
+## [0.2.0](https://github.com/ianriizky/invitation/releases/tag/0.2.0) - 2024-01-13
+
+- chore: split view template for music and no music by [@ianriizky](https://github.com/ianriizky) in [#a7b3c30](https://github.com/ianriizky/invitation/commit/a7b3c30a070acf719f5034544125dd3ced9821dd).
+- refactor: change booting way of ServiceProvider by [@ianriizky](https://github.com/ianriizky) in [#b688288](https://github.com/ianriizky/invitation/commit/b688288521952e286f8e8e6aa3ebcc9c3a765f9d).
+- refactor!: redesign schema.prisma by [@ianriizky](https://github.com/ianriizky) in [#eab655c](https://github.com/ianriizky/invitation/commit/eab655c5826ce7807a6e2a9fd0df6dd3ac0aaf1f).
+- refactor: change Exception.createHtmlDocument() method name into render() by [@ianriizky](https://github.com/ianriizky) in [#77b3daf](https://github.com/ianriizky/invitation/commit/77b3dafb2ab2fa55cb061d81389e20586068948b).
+- chore: add logo on black color by [@ianriizky](https://github.com/ianriizky) in [#d74a3eb](https://github.com/ianriizky/invitation/commit/d74a3eb9f65c25c693882cb2fa50aa8b8c2353f0).
+- chore: ignore specific file when running nodemon by [@ianriizky](https://github.com/ianriizky) in [#ff94f21](https://github.com/ianriizky/invitation/commit/ff94f2109006e47a0af6a9999ca7acbd093296f8).
+- chore: add logo in wide resolution by [@ianriizky](https://github.com/ianriizky) in [#eecdc39](https://github.com/ianriizky/invitation/commit/eecdc3928bdebc454cc2bbdb9e4fe5e89e65e812).
+- chore: add url on default variable view by [@ianriizky](https://github.com/ianriizky) in [#087f44e](https://github.com/ianriizky/invitation/commit/087f44e079fc9c5beca176dc9089bb167bb3421d).
+- feat: finish event page by [@ianriizky](https://github.com/ianriizky) in [#b1d6fd6](https://github.com/ianriizky/invitation/commit/b1d6fd60ba5cd42188dc17899f25bbb2a81f02ee).
 
 ## [0.1.6](https://github.com/ianriizky/invitation/releases/tag/0.1.6) - 2024-01-07
 
