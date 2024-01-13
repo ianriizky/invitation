@@ -1,4 +1,4 @@
-import "../akad-silent/app.js";
+import "../app.js";
 
 const music = document.getElementById("background_music");
 
