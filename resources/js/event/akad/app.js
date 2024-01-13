@@ -37,9 +37,13 @@ $(function () {
   });
 
   $(".bank-title").on("click", function (event) {
-    navigator.clipboard.writeText(event.target.textContent);
-    ohSnap("Nomor rekening berhasil disalin.", {
+    navigator.clipboard.writeText(event.currentTarget.textContent);
+    // eslint-disable-next-line no-undef
+    ohSnap("Tersalin.", {
       color: "green",
+      "container-id": $(event.currentTarget).attr("data-target"),
+      duration: 2000,
+      "fade-duration": 500,
     });
   });
 
@@ -54,14 +58,11 @@ $(function () {
     if ($("#tidak-hadir").prop("checked")) kehadiran = "tidak-hadir";
 
     var nama = $("#nama").val();
-    var lokasi = $("#lokasi").val();
     var ucapan = $("#ucapan").val();
 
     /* eslint-disable no-undef */
     if (nama == "") {
       ohSnap("Nama harus diisi.", { color: "red" });
-    } else if (lokasi == "") {
-      ohSnap("Lokasi harus diisi.", { color: "red" });
     } else if (!kehadiran) {
       ohSnap("Kehadiran harus diisi.", { color: "red" });
     } else if (ucapan == "") {
@@ -75,7 +76,6 @@ $(function () {
         url: data.message_url.insert,
         data: {
           nama: $("#nama").val(),
-          lokasi: $("#lokasi").val(),
           kehadiran: kehadiran,
           ucapan: $("#ucapan").val(),
           submit: "insert",
@@ -100,7 +100,6 @@ $(function () {
                 });
 
                 $("#nama").val("");
-                $("#lokasi").val("");
                 $("#ucapan").val("");
                 $("#submit").removeClass("button--loading");
               },
@@ -161,6 +160,20 @@ $("#pay").on("click", function () {
 
 $("#close-01").on("click", function () {
   $("#id01").fadeOut("slow");
+});
+
+$(".gift-button-open").on("click", function (event) {
+  $(`#${$(event.currentTarget).attr("data-target")}`).fadeIn("slow");
+  gsap.from(".aniModal", {
+    scale: 0,
+    duration: 1.25,
+    opacity: 0,
+    ease: "circ.inOut",
+  });
+});
+
+$(".gift-button-close").on("click", function (event) {
+  $(`#${$(event.currentTarget).attr("data-target")}`).fadeOut("slow");
 });
 
 $("#okay").on("click", function () {

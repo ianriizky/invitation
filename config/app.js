@@ -9,7 +9,7 @@ const node_env = process.env.NODE_ENV;
 
 export default {
   port,
-  timezone: process.env.APP_TIMEZONE || "Asia/Jakarta",
+  timezone: process.env.TZ || "Asia/Jakarta",
   url,
   url_port: `${url}${[80, 443].includes(port) ? "" : `:${port}`}`,
   name: process.env.APP_NAME || "Invitation Web Page",

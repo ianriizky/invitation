@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" value="{{ csrf_token }}">
-    <title>{{ title }}</title>
+    <title>{{ event.description }}</title>
     <meta name="description" content="{{ description }}">
     <meta name="theme-color" content="#7d9a9b" />
     <meta property="og:locale" content="id_ID">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ title }}">
+    <meta property="og:title" content="{{ event.description }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="{{ url }}">
-    <meta property="og:site_name" content="{{ title }}">
+    <meta property="og:site_name" content="{{ event.description }}">
     <meta property="og:updated_time" content="{{ updated_at }}">
     <meta property="og:image" content="{{ base_url }}/{{ thumbnail_image_path }}">
     <meta property="og:image:secure_url" content="{{ base_url }}/{{ thumbnail_image_path }}">
     <meta property="og:image:width" content="{{ thumbnail_image_width }}">
     <meta property="og:image:height" content="{{ thumbnail_image_height }}">
-    <meta property="og:image:alt" content="{{ title }}">
+    <meta property="og:image:alt" content="{{ event.description }}">
     <meta property="og:image:type" content="{{ thumbnail_image_mime_type }}">
     <meta property="article:published_time" content="{{ created_at }}">
     <meta property="article:modified_time" content="{{ updated_at }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:title" content="{{ event.description }}">
     <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:image" content="{{ thumbnail_image_path }}">
     <link rel="stylesheet" href="{% block cssPath %}{% endblock %}">
@@ -45,12 +45,12 @@
                 style="text-align: center; line-height: 100px;"
               >
                 {{ subtitle }}
-                <br>
+                <p>&nbsp;</p>
                 <img src="{{ base_url }}/{{ logo_path }}" style="width: 35vh;" />
               </span>
             </div>
             <div class="bottom-title">
-              <button class="wedding-open animated-title text-transform-uppercase" style="opacity: 0;">
+              <button class="wedding-open animated-title" style="opacity: 0;">
                 Buka Undangan
               </button>
               <span class="title-head font-black animated-title">
@@ -123,11 +123,11 @@
                 <span class="title-content gs_reveal" style="font-size: 15px;">
                   Kepada Bapak/Ibu/Saudara/i
                 </span>
-                <span class="title-content newyork-font mobile-title gs_reveal gs_reveal_fromLeft" style="line-height:65px;">
+                <span class="title-content forum-font mobile-title gs_reveal gs_reveal_fromLeft" style="line-height:65px;">
                   {{ guest.name }}
                 </span>
-                <span class="title-content font-digital gs_reveal" style="font-weight: 700; font-size: 28px; color: #ffffff; margin-bottom: 0; padding: 0 50px;">
-                  {{ title }}
+                <span class="title-content newyork-font gs_reveal" style="font-weight: 700; font-size: 28px; color: #ffffff; margin-bottom: 0; padding: 0 50px;">
+                  {{ title|safe }}
                 </span>
                 <span class="title-content font-digital gs_reveal" style="font-weight: 700; font-size: 22px; color: #ffffff; margin-top: 5px; padding: 0 50px;">
                   {{ date_readable }}
@@ -217,12 +217,13 @@
                 <div class="block-detail">
                   <div class="quran-greeting gs_reveal">
                     <p class="arab-font" style="font-size: 24px; line-height: 65px;" lang="ar">
-                      بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-                      <br>
-                      اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَا تُهُ
+                      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                    </p>
+                    <p style="font-size: 16px; line-height: 21px;">
+                      Assalamu'alaikum Warahmatullahi Wabarakatuh
                     </p>
                   </div>
-                  <div class="quran-title gs_reveal">
+                  <div class="quran-title gs_reveal" style="margin: 20px 0;">
                     <p class="font-basic">
                       Dengan memohon ridho dan rahmat dari Allah <span class="arab-font" style="font-size: 16px;">ﷻ</span>,
                       kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
@@ -231,38 +232,38 @@
                   <div class="wedding-name">
                     <span class="title-section newyork-font gs_reveal gs_reveal_fromRight" style="line-height: 40px;">
                       {{ akad_title }}
+                      <div class="wedding-time">
+                        <span class="time-title font-digital gs_reveal" style="color: #ffffff;">
+                          {{ date_readable }}
+                          <br>
+                          {{ time_readable }}
+                        </span>
+                      </div>
                     </span>
-                    <div class="wedding-time">
-                      <span class="time-title text-transform-uppercase gs_reveal">
-                        {{ date_readable }}
-                        <br>
-                        {{ time_readable }}
-                      </span>
-                    </div>
-                    <span class="title-content dilanjut-dengan text-transform-uppercase gs_reveal">
+                    <span class="title-content continue-with gs_reveal">
                       dilanjutkan dengan
                     </span>
                     <span class="title-section newyork-font gs_reveal gs_reveal_fromLeft" style="line-height: 40px;">
                       {{ reception_title }}
+                      <div class="wedding-time">
+                        <span class="time-title font-digital gs_reveal" style="color: #ffffff;">
+                          {{ reception_date_readable }}
+                          <br>
+                          {{ reception_time_readable }}
+                        </span>
+                      </div>
                     </span>
-                    <div class="wedding-time">
-                      <span class="time-title text-transform-uppercase gs_reveal">
-                        {{ reception_date_readable }}
-                        <br>
-                        {{ reception_time_readable }}
-                      </span>
-                    </div>
                   </div>
                   <div class="wedding-bottom">
                     <span class="address-section gs_reveal">
                       bertempat di
-                      <br><br>
-                      <span class="text-transform-uppercase" style="font-size: 16px;">{{ location.name }}</span>
+                      <br>
+                      <span style="font-size: 16px;">{{ location.name }}</span>
                     </span>
                     <span class="address-section font-basic gs_reveal">
                       {{ location.address }}
                     </span>
-                    <a class="maps-button address-section location gs_reveal" style="cursor: pointer;">
+                    <a class="maps-button address-section text-transform-uppercase location gs_reveal" style="cursor: pointer;">
                       Lihat Lokasi
                     </a>
                     <span class="address-section font-basic gs_reveal">
@@ -272,9 +273,9 @@
                       Atas kehadiran dan doa restu yang diberikan, kami ucapkan terima kasih.
                     </span>
                   </div>
-                  <div class="doa-awal gs_reveal">
-                    <p class="arab-font" style="font-size: 24px; line-height: 65px;" lang="ar">
-                      وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
+                  <div class="quran-greeting gs_reveal">
+                    <p style="font-size: 16px; line-height: 21px;">
+                      Wassalamu'alaikum Warahmatullahi Wabarakatuh
                     </p>
                   </div>
                 </div>
@@ -283,23 +284,23 @@
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name newyork-font">{{ bride.nick_name }}</span>
+                    <span class="bride-name newyork-font">{{ bride.title }}</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromRight">
                     <img src="{{ base_url }}/img/profile-bride.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-bride" />
                   </div>
-                  <div class="profile-name mt-1 gs_reveal">
+                  <div class="profile-name gs_reveal">
                     <span class="title-content full-name">
-                      {{ bride.full_name }}
+                      {{ bride.fullname }}
                     </span>
                   </div>
                   <a
                     href="{{ bride.instagram_url }}"
                     target="_blank"
-                    class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
+                    class="profile-instagram-white btn-instagram-white gs_reveal"
                   >
                     <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
-                    <span style="margin-left: 10px;">{{ bride.instagram_username }}</span>
+                    <span style="margin-left: 10px; font-weight: 400;">{{ bride.instagram_username }}</span>
                   </a>
                   <div class="family-detail gs_reveal">
                     <p class="font-basic">
@@ -313,28 +314,28 @@
                     <img src="{{ base_url }}/img/leaf-profile-left.svg" class="img-left-profile" alt="leaf-profile-left" />
                   </div>
                 </div>
-                <div class="mt-3">
+                <div class="mt-1">
                   <img src="{{ base_url }}/img/and.svg" alt="and" />
                 </div>
                 <div class="block-profile">
                   <div class="profile-nickname mt-3 gs_reveal">
-                    <span class="bride-name newyork-font">{{ groom.nick_name }}</span>
+                    <span class="bride-name newyork-font">{{ groom.title }}</span>
                   </div>
                   <div class="profile-picture gs_reveal gs_reveal_fromLeft">
                     <img src="{{ base_url }}/img/profile-groom.png" class="picture-rounded" style="border: 2px solid #ffffff; border-radius: 100%; width: 150px;" alt="profile-groom" />
                   </div>
-                  <div class="profile-name mt-1 gs_reveal">
+                  <div class="profile-name gs_reveal">
                     <span class="title-content full-name">
-                      {{ groom.full_name }}
+                      {{ groom.fullname }}
                     </span>
                   </div>
                   <a
                     href="{{ groom.instagram_url }}"
                     target="_blank"
-                    class="profile-instagram-white mt-1 btn-instagram-white gs_reveal"
+                    class="profile-instagram-white btn-instagram-white gs_reveal"
                   >
                     <img src="{{ base_url }}/img/icon-instagram-white.svg" alt="icon-instagram-white" />
-                    <span style="margin-left: 10px;">{{ groom.instagram_username }}</span>
+                    <span style="margin-left: 10px; font-weight: 400;">{{ groom.instagram_username }}</span>
                   </a>
                   <div class="family-detail gs_reveal">
                     <p class="font-basic">
@@ -413,7 +414,7 @@
                 class="btn-white gs_reveal text-transform-uppercase"
                 style="text-align: center;"
               >
-                Lihat Lokasi
+                Google Maps
               </a>
             </div>
 
@@ -426,20 +427,10 @@
                 <p class="font-basic">
                   Tanpa mengurangi rasa hormat, bagi undangan yang ingin mengirimkan hadiah kepada kedua mempelai dapat mengirimkan melalui:
                 </p>
-                {% for bank in wedding_gift.banks %}
-                  <div class="block-detail choosen-bank" style="margin: 1rem 20px; width: 70%;">
-                    <div class="bank-img aniModal">
-                      <img src="{{ base_url }}/{{ bank.image_path }}" alt="bca" />
-                    </div>
-                    <div class="bank-detail" style="text-align: left;">
-                      <span class="title aniModal">{{ bank.name }}</span>
-                      <span class="bank-title aniModal">
-                        {{ bank.account_number }}
-                        <img src="{{ base_url }}/img/copy.png" alt="copy" />
-                      </span>
-                      <span class="bank-name aniModal">{{ bank.owner_name }}</span>
-                    </div>
-                  </div>
+                {% for gift in gifts %}
+                  <a class="gift-button-open address-section text-transform-uppercase location gs_reveal" data-target="gift-id-{{ loop.index }}" style="cursor: pointer; margin-top: 2rem;">
+                    {{ gift.button_name }}
+                  </a>
                 {% endfor %}
                 <div class="leaves mt-3 gs_reveal">
                   <img src="{{ base_url }}/img/leaves.svg" class="w-100" alt="leaves" />
@@ -545,19 +536,8 @@
                         id="nama"
                         name="nama"
                         placeholder="Nama Anda"
-                        value="Anda dan Partner"
-                        required />
-                    </div>
-                  </div>
-                  <div class="form-wrap mt-2 gs_reveal">
-                    <div class="label">LOKASI</div>
-                    <div class="input-form">
-                      <input
-                        type="text"
-                        class="w-100 input-t"
-                        id="lokasi"
-                        name="lokasi"
-                        placeholder="Asal Daerah"
+                        value="{{ guest.name }}"
+                        readonly="readonly"
                         required />
                     </div>
                   </div>
@@ -628,6 +608,9 @@
 
                 <div id="block-message" class="block-data-message gs_reveal gs_reveal_fromLeft mt-3"></div>
               </div>
+              <span class="title-section newyork-font font-black gs_reveal gs_reveal_fromRight">
+                Terima Kasih
+              </span>
             </div>
 
             {#
@@ -717,11 +700,42 @@
     #}
     {# /.DIGITAL ENVELOPE #}
 
+    {% for gift in gifts %}
+      <div id="gift-id-{{ loop.index }}" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+          <header class="gift-button-close w3-container" data-target="gift-id-{{ loop.index }}" style="cursor: pointer;">
+            <span class="w3-button w3-display-topright" style="z-index: 99999;">&times;</span>
+
+            <h2 class="modal-h text-transform-uppercase aniModal">{{ gift.button_name }}</h2>
+          </header>
+
+          <div class="w3-container">
+            <div class="choosen-bank font-black">
+              {% if gift.image_path %}
+                <div class="bank-img aniModal">
+                  <img src="{{ base_url }}/{{ gift.image_path }}" alt="{{ gift.name }}" />
+                </div>
+              {% endif %}
+              <div class="bank-detail">
+                <span class="title aniModal">{{ gift.name }}</span>
+                <span class="bank-title aniModal" data-target="ohsnap-bank-title-{{ loop.index }}">
+                  {{ gift.description|safe }}
+                  <img src="{{ base_url }}/img/copy.png" alt="copy" />
+                  <div id="ohsnap-bank-title-{{ loop.index }}" class="ohsnap-bank-title"></div>
+                </span>
+                <span class="bank-name aniModal">{{ gift.owner_name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
     {# WELCOME #}
     <div id="id02" class="w3-modal">
       <div class="w3-modal-content w3-animate-zoom text-modal-center">
         <header class="w3-container">
-          <h2 class="modal-h aniModal">{{ title }}</h2>
+          <h2 class="modal-h aniModal">{{ event.description }}</h2>
         </header>
 
         <div class="w3-container">
@@ -729,7 +743,7 @@
             Kepada Bapak/Ibu/Saudara/i
           </p>
 
-          <p class="title-content newyork-font mobile-title font-black" style="font-size: 48px; line-height: 65px;">
+          <p class="title-content forum-font mobile-title font-black" style="font-size: 48px; line-height: 65px;">
             {{ guest.name }}
           </p>
 

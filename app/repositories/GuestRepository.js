@@ -35,15 +35,17 @@ export class GuestRepository {
                 Str.slug(args.data.name) + "-" + Str.randomAlphaNumeric(5);
             }
 
-            const phoneNumberUtil =
-              googleLibphonenumber.PhoneNumberUtil.getInstance();
+            if (args.data?.phone_number === undefined) {
+              const phoneNumberUtil =
+                googleLibphonenumber.PhoneNumberUtil.getInstance();
 
-            args.data.phone_number = phoneNumberUtil
-              .format(
-                phoneNumberUtil.parse(args.data.phone_number, "ID"),
-                googleLibphonenumber.PhoneNumberFormat.E164,
-              )
-              .replace("+", "");
+              args.data.phone_number = phoneNumberUtil
+                .format(
+                  phoneNumberUtil.parse(args.data.phone_number, "ID"),
+                  googleLibphonenumber.PhoneNumberFormat.E164,
+                )
+                .replace("+", "");
+            }
 
             return query(args);
           },
