@@ -55,14 +55,11 @@ $(function () {
     if ($("#tidak-hadir").prop("checked")) kehadiran = "tidak-hadir";
 
     var nama = $("#nama").val();
-    var lokasi = $("#lokasi").val();
     var ucapan = $("#ucapan").val();
 
     /* eslint-disable no-undef */
     if (nama == "") {
       ohSnap("Nama harus diisi.", { color: "red" });
-    } else if (lokasi == "") {
-      ohSnap("Lokasi harus diisi.", { color: "red" });
     } else if (!kehadiran) {
       ohSnap("Kehadiran harus diisi.", { color: "red" });
     } else if (ucapan == "") {
@@ -76,7 +73,6 @@ $(function () {
         url: data.message_url.insert,
         data: {
           nama: $("#nama").val(),
-          lokasi: $("#lokasi").val(),
           kehadiran: kehadiran,
           ucapan: $("#ucapan").val(),
           submit: "insert",
@@ -101,7 +97,6 @@ $(function () {
                 });
 
                 $("#nama").val("");
-                $("#lokasi").val("");
                 $("#ucapan").val("");
                 $("#submit").removeClass("button--loading");
               },
