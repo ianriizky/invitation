@@ -1,5 +1,6 @@
 import config from "../../../config/app.js";
 import { generateKey } from "../../supports/helpers.js";
+import { Str } from "../../supports/Str.js";
 import fs from "fs";
 import minimist from "minimist";
 import { EOL } from "os";
@@ -44,11 +45,14 @@ const setEnvValue = (key, value, envFilePath) => {
   fs.writeFileSync(envFilePath, envVars.join(EOL));
 };
 
-const key = `base64:${generateKey(config.cipher)}`;
+const appKey = `base64:${generateKey(config.cipher)}`;
+const csrfKey = Str.randomAlphaNumeric(32);
 const terminalArguments = minimist(process.argv.slice(2));
 
 if (terminalArguments?.show || false) {
-  console.log(key);
+  console.log("appKey", appKey);
+  console.log("csrfKey", csrfKey);
 } else {
-  setEnvValue("APP_KEY", key, terminalArguments?.source_path);
+  setEnvValue("APP_KEY", appKey, terminalArguments?.source_path);
+  setEnvValue("CSRF_KEY", csrfKey, terminalArguments?.source_path);
 }

@@ -12,15 +12,6 @@ const data = viewData;
 countdown(new Date(data.date));
 
 $(function () {
-  const queryString = window.location;
-  const url = new URL(queryString);
-  const to = url.searchParams.get("to");
-
-  if (to) {
-    $(".mobile-title").html(to);
-    $("#nama").val(to);
-  }
-
   $(".instagram-effects").slick({
     dots: true,
     slidesToShow: 1,
@@ -52,21 +43,18 @@ $(function () {
   $(document).on("click", "#submit", function (event) {
     event.preventDefault();
 
-    var kehadiran;
-    if ($("#hadir").prop("checked")) kehadiran = "hadir";
-    if ($("#mungkin-hadir").prop("checked")) kehadiran = "mungkin-hadir";
-    if ($("#tidak-hadir").prop("checked")) kehadiran = "tidak-hadir";
+    let presence_status;
+    if ($("#hadir").prop("checked")) presence_status = "yes";
+    if ($("#mungkin-hadir").prop("checked")) presence_status = "maybe";
+    if ($("#tidak-hadir").prop("checked")) presence_status = "no";
 
-    var nama = $("#nama").val();
-    var ucapan = $("#ucapan").val();
+    const content = $("#ucapan").val();
 
     /* eslint-disable no-undef */
-    if (nama == "") {
-      ohSnap("Nama harus diisi.", { color: "red" });
-    } else if (!kehadiran) {
-      ohSnap("Kehadiran harus diisi.", { color: "red" });
-    } else if (ucapan == "") {
-      ohSnap("Ucapan harus diisi.", { color: "red" });
+    if (!presence_status) {
+      ohSnap("Kehadiran harus diisi.", { color: "yellow" });
+    } else if (content == "") {
+      ohSnap("Ucapan harus diisi.", { color: "yellow" });
     } else {
       $("#submit").prop("disabled", true);
       $("#submit").addClass("button--loading");
@@ -74,37 +62,44 @@ $(function () {
       $.ajax({
         type: "POST",
         url: data.message_url.insert,
-        data: {
-          nama: $("#nama").val(),
-          kehadiran: kehadiran,
-          ucapan: $("#ucapan").val(),
-          submit: "insert",
+        headers: {
+          "CSRF-Token": $('meta[name="csrf-token"]').attr("value"),
         },
-        success: function (data) {
-          if (data == "success") {
-            ohSnap("Terima Kasih atas doa dan ucapannya.", {
-              color: "green",
-            });
-            $.ajax({
-              type: "GET",
-              url: data.message_url.display,
-              dataType: "html",
-              success: function (response) {
-                $(".block-data-message").empty();
-                $(".block-data-message").append(response);
-                let scroll_to_bottom = document.getElementById("block-message");
-                scroll_to_bottom.scrollIntoView({
-                  behavior: "smooth",
-                  block: "end",
-                  inline: "nearest",
-                });
+        data: { presence_status, content },
+        dataType: "json",
+        // eslint-disable-next-line no-unused-vars
+        success: function (responseData, textStatus, jqXHR) {
+          ohSnap(responseData.message, {
+            color: responseData.color,
+          });
 
-                $("#nama").val("");
-                $("#ucapan").val("");
-                $("#submit").removeClass("button--loading");
-              },
-            });
-          }
+          $.ajax({
+            type: "GET",
+            url: data.message_url.display,
+            dataType: "html",
+            success: function (response) {
+              $(".block-data-message").empty();
+              $(".block-data-message").append(response);
+              let scroll_to_bottom = document.getElementById("block-message");
+              scroll_to_bottom.scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+                inline: "nearest",
+              });
+
+              $("#ucapan").val("");
+            },
+          });
+        },
+        // eslint-disable-next-line no-unused-vars
+        error: function (jqXHR, textStatus, errorThrown) {
+          ohSnap("Maaf, telah terjadi kesalahan teknis.", {
+            color: "red",
+          });
+        },
+        complete() {
+          $("#submit").removeClass("button--loading");
+          $("#submit").prop("disabled", false);
         },
       });
     }

@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.3.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.0...develop)
+
+## [0.4.0](https://github.com/ianriizky/invitation/releases/tag/0.4.0) - 2024-01-14
+
+- chore: set scrollbar width by [@ianriizky](https://github.com/ianriizky) in [#1cf299d](https://github.com/ianriizky/invitation/commit/1cf299d128d69babdd3e720951436f3b68f49399).
+- feat: finish message feature on event page by [@ianriizky](https://github.com/ianriizky) in [#f6e32e2](https://github.com/ianriizky/invitation/commit/f6e32e2c9ddf5d7786753ad341b3e801eb56e3e3).
 
 ## [0.3.0](https://github.com/ianriizky/invitation/releases/tag/0.3.0) - 2024-01-14
 

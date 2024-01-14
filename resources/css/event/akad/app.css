@@ -51,7 +51,7 @@ body {
 /* width */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.5rem;
 }
 
 /* Track */
@@ -758,6 +758,9 @@ span.w3-button:hover {
   max-height: 600px;
   overflow-y: scroll;
   letter-spacing: normal;
+  border: 2px solid #575757;
+  border-radius: 10px;
+  padding: 0 10px;
 }
 
 .data-message {
