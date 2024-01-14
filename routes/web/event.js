@@ -21,10 +21,5 @@ router.post(
   [new EventValidator().show, new EventValidator().postMessage, csrf],
   asyncHandler(new EventController().postMessage),
 );
-router.get(
-  "/event/:event_slug/:guest_slug/whatsapp-message",
-  new EventValidator().show,
-  asyncHandler(new EventController().message),
-);
 
 export default router;
