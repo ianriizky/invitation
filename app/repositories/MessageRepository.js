@@ -54,7 +54,7 @@ export class MessageRepository {
    * @param {import("../models/index.js").prisma.EventGuest} event_guest
    * @param {Parameters<Model['upsert']>[0]["create"] | Parameters<Model['upsert']>[0]["update"]} data
    */
-  upsertBy(event_guest, data) {
+  upsertByEventGuest(event_guest, data) {
     return this.model.upsert({
       where: { event_guest_id: event_guest.id },
       create: {

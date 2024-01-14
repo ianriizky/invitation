@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.1...develop)
+
+## [0.4.1](https://github.com/ianriizky/invitation/releases/tag/0.4.1) - 2024-01-14
+
+- fix: typo method name on MessageRepository by [@ianriizky](https://github.com/ianriizky) in [#772adbe](https://github.com/ianriizky/invitation/commit/772adbe9ba8ea3c35f4483d18c2ab6b7b335e62b).
 
 ## [0.4.0](https://github.com/ianriizky/invitation/releases/tag/0.4.0) - 2024-01-14
 
