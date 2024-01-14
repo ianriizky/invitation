@@ -14,6 +14,7 @@ export default {
   url_port: `${url}${[80, 443].includes(port) ? "" : `:${port}`}`,
   name: process.env.APP_NAME || "Invitation Web Page",
   key: process.env.APP_KEY,
+  csrf_key: process.env.CSRF_KEY,
   /** @type {import("../app/supports/Encrypter.js").CipherType} */
   cipher: "aes-256-cbc",
   version: process.env.npm_package_version,

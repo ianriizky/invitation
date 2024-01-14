@@ -104,6 +104,8 @@
     "sass": "^1.69.7",
     "slick-carousel": "^1.8.1",
     "supertest": "^6.3.3",
+    "tsv-json": "^2.0.0",
+    "tsv-json-cli": "^2.0.0",
     "vite": "^5.0.10",
     "vite-plugin-static-copy": "^1.0.0"
   },

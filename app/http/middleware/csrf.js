@@ -5,7 +5,7 @@ import csurf from "csurf";
  * @param {import("express").Response} res
  * @param {import("express").NextFunction} next
  */
-export default function handle(req, res, next) {
+export default function (req, res, next) {
   if (req?.csrfToken) {
     /** @type {import("nunjucks").Environment} */
     const view = req.app.get("nunjucks");

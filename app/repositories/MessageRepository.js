@@ -35,4 +35,33 @@ export class MessageRepository {
 
     return { data, pagination: pagination.generateMeta(total, data.length) };
   }
+
+  /**
+   * @param {import("./EventRepository.js").Event["slug"]} event_slug
+   */
+  findManyByEventSlug(event_slug) {
+    return this.model.findMany({
+      where: {
+        event_guest: { is: { event: { slug: event_slug } } },
+      },
+      include: { event_guest: { include: { guest: true } } },
+      take: 20,
+      orderBy: { updated_at: "desc" },
+    });
+  }
+
+  /**
+   * @param {import("../models/index.js").prisma.EventGuest} event_guest
+   * @param {Parameters<Model['upsert']>[0]["create"] | Parameters<Model['upsert']>[0]["update"]} data
+   */
+  upsertBy(event_guest, data) {
+    return this.model.upsert({
+      where: { event_guest_id: event_guest.id },
+      create: {
+        ...data,
+        event_guest: { connect: { id: event_guest.id } },
+      },
+      update: data,
+    });
+  }
 }

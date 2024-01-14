@@ -1,8 +1,8 @@
 {% for message in messages %}
   <div class="data-message">
-    <div class="name-message mt-1">{{ guest.name }}</div>
+    <div class="name-message mt-1">{{ message.event_guest.guest.name }}</div>
     <div class="location-and-present mt-1">
-      <span class="location-name">{{ guest.domicile }}</span>
+      <span class="location-name">{{ message.event_guest.guest.domicile }}</span>
       {% if message.presence_status === "yes" %}
         <span class="hadir">Hadir</span>
       {% elif message.presence_status === "maybe" %}
