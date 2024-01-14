@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.1...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.2...develop)
+
+## [0.4.2](https://github.com/ianriizky/invitation/releases/tag/0.4.2) - 2024-01-14
+
+- fix: unimport Forum font on css asset by [@ianriizky](https://github.com/ianriizky) in [#d417c7e](https://github.com/ianriizky/invitation/commit/d417c7e6f57fe05ce305975b9826951aeb056f6b).
+- chore: remove event whatsapp-message routes by [@ianriizky](https://github.com/ianriizky) in [#14b5de0](https://github.com/ianriizky/invitation/commit/14b5de0d50f0ddc0ce8bc46310cf113a06d443d7).
 
 ## [0.4.1](https://github.com/ianriizky/invitation/releases/tag/0.4.1) - 2024-01-14
 
