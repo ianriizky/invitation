@@ -6,6 +6,8 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [0.4.1](https://github.com/ianriizky/invitation/releases/tag/0.4.1) - 2024-01-14
 
+- fix: typo method name on MessageRepository by [@ianriizky](https://github.com/ianriizky) in [#772adbe](https://github.com/ianriizky/invitation/commit/772adbe9ba8ea3c35f4483d18c2ab6b7b335e62b).
+
 ## [0.4.0](https://github.com/ianriizky/invitation/releases/tag/0.4.0) - 2024-01-14
 
 - chore: set scrollbar width by [@ianriizky](https://github.com/ianriizky) in [#1cf299d](https://github.com/ianriizky/invitation/commit/1cf299d128d69babdd3e720951436f3b68f49399).
