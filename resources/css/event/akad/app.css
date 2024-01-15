@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Forum:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @font-face {
   font-family: "LPMQ";
@@ -83,8 +85,16 @@ body {
   font-family: "Lora", Sans-serif !important;
 }
 
+.dancing-font {
+  font-family: "Dancing Script", Sans-serif !important;
+}
+
 .newyork-font {
   font-family: "NewYork", Sans-serif !important;
+}
+
+.pinyon-font {
+  font-family: "Pinyon Script", Sans-serif !important;
 }
 
 .qagetto-font {
@@ -498,7 +508,7 @@ a.bar-icon:hover {
 .title-content {
   margin: 1rem 0 1rem 0;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 35px;
   z-index: 1;
 }
 
@@ -1667,7 +1677,7 @@ li span {
     margin: 1rem 0 1rem 0;
     font-weight: 600;
     font-size: 47px;
-    line-height: 30px;
+    line-height: 35px;
     z-index: 1;
   }
   .background-top {

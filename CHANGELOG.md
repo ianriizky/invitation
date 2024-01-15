@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.4.2...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.5.0...develop)
+
+## [0.5.0](https://github.com/ianriizky/invitation/releases/tag/0.5.0) - 2024-01-15
+
+- chore: revise view akad page by [@ianriizky](https://github.com/ianriizky) in [#a99a292](https://github.com/ianriizky/invitation/commit/a99a29243f6b2ea0324a4026b78ec5e960b0994f).
+- chore: change background music using Sal Priadi - Irama Laot Teduh by [@ianriizky](https://github.com/ianriizky) in [#90e2e29](https://github.com/ianriizky/invitation/commit/90e2e291cdf19ce5aa56c0f50618d6ca58595a37).
 
 ## [0.4.2](https://github.com/ianriizky/invitation/releases/tag/0.4.2) - 2024-01-14
 
