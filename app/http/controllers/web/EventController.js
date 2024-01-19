@@ -38,6 +38,33 @@ export class EventController extends Controller {
    * @param {import("express").NextFunction} next
    */
   // eslint-disable-next-line no-unused-vars
+  async showWhatsappMessage(req, res, next) {
+    const { event_slug, guest_slug } = req.params;
+    const event = await new EventRepository().findBySlug(
+      event_slug,
+      guest_slug,
+    );
+
+    if (event === null) {
+      throw new NotFoundException("Event not found.");
+    }
+
+    return res.redirect(
+      EventRepository.getWhatsappMessageLink(
+        req.app.get("nunjucks"),
+        event,
+        event.event_guests[0].guest,
+      ),
+    );
+  }
+
+  /**
+   * @template {import("../../validators/web/EventValidator.js").ShowRequestParam} RequestParam
+   * @param {import("express").Request<RequestParam>} req
+   * @param {import("express").Response} res
+   * @param {import("express").NextFunction} next
+   */
+  // eslint-disable-next-line no-unused-vars
   async getMessages(req, res, next) {
     const { event_slug } = req.params;
     const messages = await new MessageRepository().findManyByEventSlug(

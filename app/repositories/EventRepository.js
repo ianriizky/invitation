@@ -135,12 +135,10 @@ export class EventRepository {
    * @param {import("./GuestRepository.js").Guest} guest
    */
   static getWhatsappMessageLink(view, event, guest) {
-    if (guest.phone_number !== null) {
-      return GuestRepository.getWhatsappLink(
-        guest,
-        this.getWhatsappMessage(view, event, guest),
-      );
-    }
+    return GuestRepository.getWhatsappLink(
+      guest,
+      this.getWhatsappMessage(view, event, guest),
+    );
   }
 
   /**
