@@ -78,10 +78,11 @@ export class GuestRepository {
    * @param {string} message
    */
   static getWhatsappLink(guest, message) {
-    if (guest.phone_number !== null) {
-      return `https://api.whatsapp.com/send?phone=${
-        guest.phone_number
-      }&text=${encodeURIComponent(message)}`;
-    }
+    const queryPhone =
+      guest.phone_number !== null ? `phone=${guest.phone_number}&` : "";
+
+    return `https://api.whatsapp.com/send?${queryPhone}text=${encodeURIComponent(
+      message,
+    )}`;
   }
 }
