@@ -4,7 +4,11 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/0.6.0...develop)
 
-## [0.6.0](https://github.com/ianriizky/invitation/releases/tag/0.6.0) - 2024-01-15
+## [0.6.0](https://github.com/ianriizky/invitation/releases/tag/0.6.0) - 2024-01-19
+
+- chore: add CSRF_KEY on .env.example by [@ianriizky](https://github.com/ianriizky) in [#59c7e5e](https://github.com/ianriizky/invitation/commit/59c7e5e84349d109de5bcdf45986db089f472ac1).
+- feat: create middleware to run basic authentication by [@ianriizky](https://github.com/ianriizky) in [#763ab69](https://github.com/ianriizky/invitation/commit/763ab6909b9e6bac33f084edc07770be645b95de).
+- feat: create URL to redirect guest into the whatsapp message format by [@ianriizky](https://github.com/ianriizky) in [#395ba53](https://github.com/ianriizky/invitation/commit/395ba5362780e1c64804278e0f5d5eace4f8a72c).
 
 ## [0.5.0](https://github.com/ianriizky/invitation/releases/tag/0.5.0) - 2024-01-15
 
