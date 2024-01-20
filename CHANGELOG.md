@@ -4,7 +4,9 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/0.7.0...develop)
 
-## [0.7.0](https://github.com/ianriizky/invitation/releases/tag/0.7.0) - 2024-01-19
+## [0.7.0](https://github.com/ianriizky/invitation/releases/tag/0.7.0) - 2024-01-20
+
+- fix: wrong case for test unit folder by [@ianriizky](https://github.com/ianriizky) in [#c9ade7d](https://github.com/ianriizky/invitation/commit/c9ade7d4711bc262cdf05dd3be89b8e15355d76a) and [#5e822f1](https://github.com/ianriizky/invitation/commit/5e822f1ef6ab32a915342c104e11cffa675a1694).
 
 ## [0.6.0](https://github.com/ianriizky/invitation/releases/tag/0.6.0) - 2024-01-19
 
