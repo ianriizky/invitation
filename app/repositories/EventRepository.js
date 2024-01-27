@@ -145,7 +145,7 @@ export class EventRepository {
    * @param {Event["slug"]} slug
    * @param {import("./GuestRepository.js").Guest["slug"]} guest_slug
    */
-  findBySlug(slug, guest_slug) {
+  findByGuestSlug(slug, guest_slug) {
     return this.model.findFirst({
       include: {
         event_guests: {

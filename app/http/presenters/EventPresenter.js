@@ -13,7 +13,7 @@ import _ from "lodash";
  */
 export class EventPresenter {
   /**
-   * @param {ReturnType<import("../../repositories/EventRepository.js").EventRepository["findBySlug"]>} event
+   * @param {ReturnType<import("../../repositories/EventRepository.js").EventRepository["findByGuestSlug"]>} event
    */
   show(event) {
     /** @type {import("../../repositories/EventRepository.js").EventGuest} */
