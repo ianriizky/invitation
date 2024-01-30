@@ -134,8 +134,8 @@ export class EventRepository {
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
    */
-  static getWhatsappMessageLink(view, event, guest) {
-    return GuestRepository.getWhatsappLink(
+  static getWhatsappMessageUrl(view, event, guest) {
+    return GuestRepository.getWhatsappUrl(
       guest,
       this.getWhatsappMessage(view, event, guest),
     );

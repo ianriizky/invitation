@@ -78,7 +78,7 @@ export class GuestRepository {
    * @param {Guest} guest
    * @param {string} message
    */
-  static getWhatsappLink(guest, message) {
+  static getWhatsappUrl(guest, message) {
     const queryPhone =
       guest.phone_number !== null ? `phone=${guest.phone_number}&` : "";
 

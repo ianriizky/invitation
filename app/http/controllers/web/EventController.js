@@ -50,7 +50,7 @@ export class EventController extends Controller {
     }
 
     return res.redirect(
-      EventRepository.getWhatsappMessageLink(
+      EventRepository.getWhatsappMessageUrl(
         req.app.get("nunjucks"),
         event,
         event.event_guests[0].guest,
