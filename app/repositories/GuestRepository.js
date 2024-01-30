@@ -35,7 +35,7 @@ export class GuestRepository {
                 Str.slug(args.data.name) + "-" + Str.randomAlphaNumeric(5);
             }
 
-            if (args.data?.phone_number === undefined) {
+            if (args.data?.phone_number !== undefined) {
               const phoneNumberUtil =
                 googleLibphonenumber.PhoneNumberUtil.getInstance();
 
