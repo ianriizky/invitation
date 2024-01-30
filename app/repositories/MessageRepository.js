@@ -39,14 +39,15 @@ export class MessageRepository {
 
   /**
    * @param {import("./EventRepository.js").Event["slug"]} event_slug
+   * @param {number} take
    */
-  findManyByEventSlug(event_slug) {
+  findManyByEventSlug(event_slug, take = 50) {
     return this.model.findMany({
       where: {
         event_guest: { is: { event: { slug: event_slug } } },
       },
       include: { event_guest: { include: { guest: true } } },
-      take: 20,
+      take,
       orderBy: { updated_at: "desc" },
     });
   }
