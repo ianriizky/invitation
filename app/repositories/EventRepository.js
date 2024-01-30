@@ -80,7 +80,7 @@ export class EventRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,

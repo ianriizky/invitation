@@ -2,6 +2,7 @@ import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
 import googleLibphonenumber from "google-libphonenumber";
+import _ from "lodash";
 
 /**
  * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
@@ -62,7 +63,7 @@ export class GuestRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,
