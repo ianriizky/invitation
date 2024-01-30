@@ -47,12 +47,15 @@ const setEnvValue = (key, value, envFilePath) => {
 
 const appKey = `base64:${generateKey(config.cipher)}`;
 const csrfKey = Str.randomAlphaNumeric(32);
+const sessionKey = Str.randomAlphaNumeric(32);
 const terminalArguments = minimist(process.argv.slice(2));
 
 if (terminalArguments?.show || false) {
   console.log("appKey", appKey);
   console.log("csrfKey", csrfKey);
+  console.log("sessionKey", sessionKey);
 } else {
   setEnvValue("APP_KEY", appKey, terminalArguments?.source_path);
   setEnvValue("CSRF_KEY", csrfKey, terminalArguments?.source_path);
+  setEnvValue("SESSION_KEY", sessionKey, terminalArguments?.source_path);
 }

@@ -1,8 +1,10 @@
 import config from "../../config/app.js";
 import loggerMiddleware from "./middleware/logger.js";
 import responseMacroMiddleware from "./middleware/response-macro.js";
+import connectFlash from "connect-flash";
 import cookieParser from "cookie-parser";
 import express from "express";
+import expressSession from "express-session";
 
 export class Handler {
   /**
@@ -24,6 +26,14 @@ export class Handler {
       }),
     );
     app.use(cookieParser());
+    app.use(
+      expressSession({
+        secret: config.session_key,
+        saveUninitialized: true,
+        resave: true,
+      }),
+    );
+    app.use(connectFlash());
   }
 
   /**

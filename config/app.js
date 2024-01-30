@@ -15,6 +15,7 @@ export default {
   name: process.env.APP_NAME || "Invitation Web Page",
   key: process.env.APP_KEY,
   csrf_key: process.env.CSRF_KEY,
+  session_key: process.env.SESSION_KEY,
   /** @type {import("../app/supports/Encrypter.js").CipherType} */
   cipher: "aes-256-cbc",
   version: process.env.npm_package_version,
