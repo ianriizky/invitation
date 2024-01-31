@@ -72,7 +72,7 @@
                         </p>
                       </div>
                       <div class="location-and-present mt-1">
-                        <form action="{{ guest.event_guests[0].destroy_url }}" method="post">
+                        <form action="{{ guest.event_guests[0].destroy_url }}" method="post" onsubmit="return confirm('Apa anda yakin ingin menghapus {{ guest.name }}?');">
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_csrf" value="{{ csrf_token }}">
                           <button type="submit" class="hadir btn-send">
@@ -102,8 +102,10 @@
                   ≫
                 </a>
               </span>
-              <span class="title-section newyork-font font-black">
-                Total Halaman: {{ pagination.lastPage }}
+              <span class="newyork-font font-black" style="font-size: 18px;">
+                <p>Total Halaman: {{ pagination.lastPage }}</p>
+                <br>
+                <p>Halaman Sekarang: {{ pagination.currentPage }}</p>
               </span>
             </div>
           </div>

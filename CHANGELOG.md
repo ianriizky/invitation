@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.7.1...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.8.0...develop)
+
+## [0.8.0](https://github.com/ianriizky/invitation/releases/tag/0.8.0) - 2024-01-31
+
+- chore: create confirm alert when delete data on event guest page by [@ianriizky](https://github.com/ianriizky) in [#866e3b1](https://github.com/ianriizky/invitation/commit/866e3b1587beb8ddb3c49d2548c67a548a0caaef).
+- chore: show current page on event guest page by [@ianriizky](https://github.com/ianriizky) in [#f5ccc65](https://github.com/ianriizky/invitation/commit/f5ccc654d77939593ebd702a132c4b83f20116ce).
 
 ## [0.7.1](https://github.com/ianriizky/invitation/releases/tag/0.7.1) - 2024-01-31
 
