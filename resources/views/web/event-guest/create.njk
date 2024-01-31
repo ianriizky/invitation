@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Guest</title>
+    <meta name="description" content="Create Guest">
+    <meta name="theme-color" content="#7d9a9b" />
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Create Guest">
+    <meta property="og:description" content="Create Guest">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:site_name" content="Create Guest">
+    <meta property="og:image" content="{{ base_url }}/logo-wide.png">
+    <meta property="og:image:secure_url" content="{{ base_url }}/logo-wide.png">
+    <meta property="og:image:width" content="661">
+    <meta property="og:image:height" content="452">
+    <meta property="og:image:alt" content="Create Guest">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Create Guest">
+    <meta name="twitter:description" content="Create Guest">
+    <meta name="twitter:image" content="{{ base_url }}/logo-wide.png">
+    <link rel="stylesheet" href="{{ base_url }}/build/app.css">
+    <link rel="icon" href="{{ base_url }}/logo.svg" />
+  </head>
+  <body>
+    <div class="layout-cover">
+      <div class="wrapper">
+
+        <div class="mobile-separator" style="width: 100%; visibility: visible;">
+          <div class="welcome">
+            <div id="message-id" class="block-message mt-2">
+              <span class="title-section newyork-font font-black">
+                Buat Tamu
+              </span>
+              {% if flash %}
+                <div class="alert-{{ flash?.color }}" style="margin-bottom: 20px;">{{ flash?.message }}</div>
+              {% endif %}
+              <span>
+                <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                  Daftar Tamu
+                </a>
+              </span>
+              <form action="{{ store_url }}" method="post" class="form-data font-black">
+                <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+                <div class="w-100">
+                  <div class="form-wrap mt-2">
+                    <div class="label">
+                      <span class="text-transform-uppercase">Nama</span> (wajib diisi)
+                    </div>
+                    <div class="input-form">
+                      <input
+                        type="text"
+                        class="w-100 input-t"
+                        id="guest_name"
+                        name="guest[name]"
+                        value="{{ body["guest[name]"] }}"
+                    </div>
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label">
+                      <span class="text-transform-uppercase">Format URL</span> (opsional)
+                    </div>
+                    <div class="input-form">
+                      <input
+                        type="text"
+                        class="w-100 input-t"
+                        id="guest_slug"
+                        name="guest[slug]"
+                        value="{{ body["guest[slug]"] }}" />
+                    </div>
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label text-transform-uppercase">Domisili</div>
+                      <div class="input-form">
+                        <input
+                        type="text"
+                        class="w-100 input-t"
+                        id="guest_domicile"
+                        name="guest[domicile]"
+                        value="{{ body["guest[domicile]"] }}" />
+                      </div>
+                    </div>
+                    <div class="form-wrap mt-2">
+                      <div class="label text-transform-uppercase">Nomor Telepon / WhatsApp</div>
+                      <div class="input-form">
+                        <input
+                        type="tel"
+                        class="w-100 input-t"
+                        id="guest_phone_number"
+                        name="guest[phone_number]"
+                        value="{{ body["guest[phone_number]"] }}" />
+                      </div>
+                    </div>
+                    <div class="form-wrap mt-2">
+                      <div class="label text-transform-uppercase">Keterangan</div>
+                      <div class="input-form">
+                        <textarea
+                        type="text"
+                        class="w-100 input-t"
+                        id="guest_description"
+                        name="guest[description]"
+                        rows="8"
+                      >{{ body["guest[description]"] }}</textarea>
+                      </div>
+                    </div>
+                    <div class="form-wrap mt-2">
+                      <div class="label text-transform-uppercase">Menggunakan Musik?</div>
+                      <div class="input-form">
+                        <div class="wrap-radio">
+                          <input
+                          type="radio"
+                          class="specifyColor"
+                          id="event_guest_use_music_yes"
+                          name="event_guest[use_music]"
+                          value="1"
+                          {% if body["event_guest[use_music]"] === "1" %}checked{% endif %}
+                          required />
+                          <label class="btn-click" for="event_guest_use_music_yes">Iya</label>
+                        </div>
+                      </div>
+                      <div class="input-form">
+                        <div class="wrap-radio">
+                          <input
+                          type="radio"
+                          class="specifyColor"
+                          id="event_guest_use_music_no"
+                          name="event_guest[use_music]"
+                          value="0"
+                          {% if body["event_guest[use_music]"] === "0" %}checked{% endif %}
+                          required />
+                          <label class="btn-click" for="event_guest_use_music_no">Tidak</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn-send">
+                      <span class="button__text text-transform-uppercase">Simpan</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>

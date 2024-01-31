@@ -142,6 +142,23 @@ export class EventRepository {
   }
 
   /**
+   * @param {Event} event
+   * @param {import("./GuestRepository.js").Guest} guest
+   */
+  static getWhatsappMessageShortUrl(event, guest) {
+    return `${config.url}/event/${event.slug}/${guest.slug}/whatsapp-message`;
+  }
+
+  /**
+   * @param {Event["slug"]} slug
+   */
+  findBySlug(slug) {
+    return this.model.findFirst({
+      where: { slug },
+    });
+  }
+
+  /**
    * @param {Event["slug"]} slug
    * @param {import("./GuestRepository.js").Guest["slug"]} guest_slug
    */

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guest List</title>
+    <meta name="description" content="Guest List">
+    <meta name="theme-color" content="#7d9a9b" />
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Guest List">
+    <meta property="og:description" content="Guest List">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:site_name" content="Guest List">
+    <meta property="og:image" content="{{ base_url }}/logo-wide.png">
+    <meta property="og:image:secure_url" content="{{ base_url }}/logo-wide.png">
+    <meta property="og:image:width" content="661">
+    <meta property="og:image:height" content="452">
+    <meta property="og:image:alt" content="Guest List">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guest List">
+    <meta name="twitter:description" content="Guest List">
+    <meta name="twitter:image" content="{{ base_url }}/logo-wide.png">
+    <link rel="stylesheet" href="{{ base_url }}/build/app.css">
+    <link rel="icon" href="{{ base_url }}/logo.svg" />
+  </head>
+  <body>
+    <div class="layout-cover">
+      <div class="wrapper">
+        <div class="mobile-separator" style="width: 100%; visibility: visible;">
+          <div class="welcome">
+            <div id="message-id" class="block-message mt-2">
+              <span class="title-section newyork-font font-black">
+                Daftar Tamu
+              </span>
+              {% for flash in flashes %}
+                <div class="alert-{{ flash.color }}" style="margin-bottom: 20px;">{{ flash.message }}</div>
+              {% endfor %}
+              <span>
+                <a href="{{ create_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                  Buat Tamu
+                </a>
+              </span>
+              <div class="form-data font-black">
+                <div id="block-message" class="block-data-message mt-3">
+                  {% for guest in guests %}
+                    <div class="data-message">
+                      <div class="name-message mt-1">
+                        <p class="dancing-font" style="font-size: 22px;">{{ guest.name }}</p>
+                        <p>
+                          <a href="{{ guest.url }}" target="_blank">{{ guest.url }}</a>
+                        </p>
+                        <p>
+                          <a href="{{ guest.whatsapp_message_url }}" target="_blank">{{ guest.whatsapp_message_url }}</a>
+                        </p>
+                        <p>Lokasi: {{ guest.domicile }}</p>
+                        <p>Menggunakan Musik: {% if guest
+                            .event_guests[0]
+                            .use_music %}
+                            Iya
+                          {% else %} Tidak {% endif %}
+                        </p>
+                        <p>Nomor Telepon: {% if guest.phone_number %}
+                            {{ guest.phone_number }}
+                          {% else %} - {% endif %}
+                        </p>
+                        <p>Keterangan: {% if guest.description %}
+                            {{ guest.description }}
+                          {% else %} - {% endif %}
+                        </p>
+                      </div>
+                      <div class="location-and-present mt-1">
+                        <form action="{{ guest.event_guests[0].destroy_url }}" method="post">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+                          <button type="submit" class="hadir btn-send">
+                            Hapus Data
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <span class="title-section">
+                <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                  ≪
+                </a>
+                {% if pagination.currentPage !== 1 %}
+                  <a href="{{ index_url }}?page={{ pagination.prev }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                    ＜
+                  </a>
+                {% endif %}
+                {% if pagination.currentPage !== pagination.lastPage %}
+                  <a href="{{ index_url }}?page={{ pagination.next }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                    ＞
+                  </a>
+                {% endif %}
+                <a href="{{ index_url }}?page={{ pagination.lastPage }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                  ≫
+                </a>
+              </span>
+              <span class="title-section newyork-font font-black">
+                Total Halaman: {{ pagination.lastPage }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
