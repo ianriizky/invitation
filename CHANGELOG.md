@@ -6,6 +6,8 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [0.7.1](https://github.com/ianriizky/invitation/releases/tag/0.7.1) - 2024-01-31
 
+- fix: create dummy for CSRF_KEY, COOKIE_KEY, SESSION_KEY, BASIC_USERNAME, and BASIC_PASSWORD on github actions by [@ianriizky](https://github.com/ianriizky) in [#a6fb084](https://github.com/ianriizky/invitation/commit/a6fb0845d09440a0cfd83a4dfc5fd10ed8d3d431).
+
 ## [0.7.0](https://github.com/ianriizky/invitation/releases/tag/0.7.0) - 2024-01-31
 
 - fix: wrong case for test unit folder by [@ianriizky](https://github.com/ianriizky) in [#c9ade7d](https://github.com/ianriizky/invitation/commit/c9ade7d4711bc262cdf05dd3be89b8e15355d76a) and [#5e822f1](https://github.com/ianriizky/invitation/commit/5e822f1ef6ab32a915342c104e11cffa675a1694).
