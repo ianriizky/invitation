@@ -80,7 +80,7 @@ export class EventRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,
@@ -134,18 +134,35 @@ export class EventRepository {
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
    */
-  static getWhatsappMessageLink(view, event, guest) {
-    return GuestRepository.getWhatsappLink(
+  static getWhatsappMessageUrl(view, event, guest) {
+    return GuestRepository.getWhatsappUrl(
       guest,
       this.getWhatsappMessage(view, event, guest),
     );
   }
 
   /**
+   * @param {Event} event
+   * @param {import("./GuestRepository.js").Guest} guest
+   */
+  static getWhatsappMessageShortUrl(event, guest) {
+    return `${config.url}/event/${event.slug}/${guest.slug}/whatsapp-message`;
+  }
+
+  /**
+   * @param {Event["slug"]} slug
+   */
+  findBySlug(slug) {
+    return this.model.findFirst({
+      where: { slug },
+    });
+  }
+
+  /**
    * @param {Event["slug"]} slug
    * @param {import("./GuestRepository.js").Guest["slug"]} guest_slug
    */
-  findBySlug(slug, guest_slug) {
+  findByGuestSlug(slug, guest_slug) {
     return this.model.findFirst({
       include: {
         event_guests: {

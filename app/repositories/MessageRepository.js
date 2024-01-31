@@ -1,5 +1,6 @@
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
+import _ from "lodash";
 
 /**
  * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
@@ -25,7 +26,7 @@ export class MessageRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,
@@ -38,14 +39,15 @@ export class MessageRepository {
 
   /**
    * @param {import("./EventRepository.js").Event["slug"]} event_slug
+   * @param {number} take
    */
-  findManyByEventSlug(event_slug) {
+  findManyByEventSlug(event_slug, take = 50) {
     return this.model.findMany({
       where: {
         event_guest: { is: { event: { slug: event_slug } } },
       },
       include: { event_guest: { include: { guest: true } } },
-      take: 20,
+      take,
       orderBy: { updated_at: "desc" },
     });
   }

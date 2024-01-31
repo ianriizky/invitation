@@ -2,6 +2,7 @@ import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
 import googleLibphonenumber from "google-libphonenumber";
+import _ from "lodash";
 
 /**
  * @typedef {import("../models/index.js").prisma.PrismaClient} PrismaClient
@@ -35,7 +36,7 @@ export class GuestRepository {
                 Str.slug(args.data.name) + "-" + Str.randomAlphaNumeric(5);
             }
 
-            if (args.data?.phone_number === undefined) {
+            if (args.data?.phone_number !== undefined) {
               const phoneNumberUtil =
                 googleLibphonenumber.PhoneNumberUtil.getInstance();
 
@@ -62,7 +63,7 @@ export class GuestRepository {
     const pagination = new Pagination(page);
 
     const [total, data] = await Promise.all([
-      this.model.count({ ...args }),
+      this.model.count({ ..._.omit(args, ["select", "include", "distinct"]) }),
       this.model.findMany({
         skip: pagination.getSkip(),
         take: pagination.page.size,
@@ -74,10 +75,36 @@ export class GuestRepository {
   }
 
   /**
+   *
+   * @param {import("../repositories/EventRepository.js").Event} event
+   * @param {import("../../app/http/validators/web/EventGuestValidator.js").StoreRequestBody} body
+   */
+  async createByEvent(event, body) {
+    return this.model.create({
+      data: {
+        name: body["guest[name]"],
+        slug: body["guest[slug]"] || undefined,
+        domicile: body["guest[domicile]"] || undefined,
+        phone_number: body["guest[phone_number]"] || undefined,
+        description: body["guest[description]"] || undefined,
+        event_guests: {
+          create: {
+            view_path:
+              body["event_guest[use_music]"] === "1"
+                ? undefined
+                : "web/event/akad/show-silent.njk",
+            event: { connect: { id: event.id } },
+          },
+        },
+      },
+    });
+  }
+
+  /**
    * @param {Guest} guest
    * @param {string} message
    */
-  static getWhatsappLink(guest, message) {
+  static getWhatsappUrl(guest, message) {
     const queryPhone =
       guest.phone_number !== null ? `phone=${guest.phone_number}&` : "";
 

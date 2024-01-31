@@ -16,7 +16,7 @@ export class EventController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async show(req, res, next) {
     const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository().findBySlug(
+    const event = await new EventRepository().findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -40,7 +40,7 @@ export class EventController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async showWhatsappMessage(req, res, next) {
     const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository().findBySlug(
+    const event = await new EventRepository().findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -50,7 +50,7 @@ export class EventController extends Controller {
     }
 
     return res.redirect(
-      EventRepository.getWhatsappMessageLink(
+      EventRepository.getWhatsappMessageUrl(
         req.app.get("nunjucks"),
         event,
         event.event_guests[0].guest,
@@ -86,7 +86,7 @@ export class EventController extends Controller {
     const { event_slug, guest_slug } = req.params;
     const { presence_status, content } = req.body;
 
-    const event = await new EventRepository().findBySlug(
+    const event = await new EventRepository().findByGuestSlug(
       event_slug,
       guest_slug,
     );

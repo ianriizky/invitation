@@ -2,7 +2,26 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.6.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.7.0...develop)
+
+## [0.7.0](https://github.com/ianriizky/invitation/releases/tag/0.7.0) - 2024-01-31
+
+- fix: wrong case for test unit folder by [@ianriizky](https://github.com/ianriizky) in [#c9ade7d](https://github.com/ianriizky/invitation/commit/c9ade7d4711bc262cdf05dd3be89b8e15355d76a) and [#5e822f1](https://github.com/ianriizky/invitation/commit/5e822f1ef6ab32a915342c104e11cffa675a1694).
+- refactor: remove unnecessary views template by [@ianriizky](https://github.com/ianriizky) in [#36b76a0](https://github.com/ianriizky/invitation/commit/36b76a00928b73e4156bc9729fe3cf47c18c60ab).
+- refactor: change name method from findBySlug() into findByGuestSlug() by [@ianriizky](https://github.com/ianriizky) in [#782c198](https://github.com/ianriizky/invitation/commit/782c19899c140995541ad33603ab6aa3873c28a1).
+- fix: remove duplicate double quote on akad layout by [@ianriizky](https://github.com/ianriizky) in [#6914a5f](https://github.com/ianriizky/invitation/commit/6914a5f0a22f5b27b5fac72bf7c8c5073853a441).
+- chore: update recommendations list on vscode extensions json by [@ianriizky](https://github.com/ianriizky) in [#5645781](https://github.com/ianriizky/invitation/commit/5645781b9879ac5981b408fd948c0470307686b5).
+- fix: wrong meta twitter image path by [@ianriizky](https://github.com/ianriizky) in [#5c9b1bc](https://github.com/ianriizky/invitation/commit/5c9b1bc538886d86c309d513f48381ff23752658).
+- refactor: html element at kehadiran on akad layout by [@ianriizky](https://github.com/ianriizky) in [#a648418](https://github.com/ianriizky/invitation/commit/a64841838d940f50783c8212bb9314685c88a7a3).
+- feat: add render() on JoiValidationException class by [@ianriizky](https://github.com/ianriizky) in [#b738ca5](https://github.com/ianriizky/invitation/commit/b738ca52a24d4c3a82b5a9952931df025d795df2).
+- fix: undefined phone_number arguments on GuestRepository create by [@ianriizky](https://github.com/ianriizky) in [#547a92a](https://github.com/ianriizky/invitation/commit/547a92ac28c691093544dc9623d67e2f077becd2).
+- feat: create flash message using express session by [@ianriizky](https://github.com/ianriizky) in [#24f7abe](https://github.com/ianriizky/invitation/commit/24f7abe585e2bff8af4ad53d6b1c913e213d29cb).
+- fix: omit "select", "include", and "distinct" property when running repository paginate query by [@ianriizky](https://github.com/ianriizky) in [#5792d25](https://github.com/ianriizky/invitation/commit/5792d25ebc9f20bbde5044442869b89db0014c94).
+- chore: increase take number on MessageRepository.findManyByEventSlug() into 50 by [@ianriizky](https://github.com/ianriizky) in [#b56d12a](https://github.com/ianriizky/invitation/commit/b56d12a43b8488711cbe223595d8cfffb569d77d).
+- refactor: rename whatsapp method name from "link" into "url" by [@ianriizky](https://github.com/ianriizky) in [#c19a7ad](https://github.com/ianriizky/invitation/commit/c19a7adb4dfe2349b186977c6e3804f706dbb3d6).
+- chore: add cookie configuration value by [@ianriizky](https://github.com/ianriizky) in [#0aa08fd](https://github.com/ianriizky/invitation/commit/0aa08fd919a138856c5f8ebc3f5cda7aa2c46c22).
+- feat: enable HTTP verbs such as PUT or DELETE on html form by [@ianriizky](https://github.com/ianriizky) in [#4e4680e](https://github.com/ianriizky/invitation/commit/4e4680ef28858b64a19e01b167fe9493a59de569).
+- feat: create event guest page to handle create and delete data by [@ianriizky](https://github.com/ianriizky) in [#403a52b](https://github.com/ianriizky/invitation/commit/403a52b30932576c3cf6f1adba7c72d5bf48e6d8).
 
 ## [0.6.0](https://github.com/ianriizky/invitation/releases/tag/0.6.0) - 2024-01-19
 
