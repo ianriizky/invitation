@@ -5,6 +5,7 @@ import connectFlash from "connect-flash";
 import cookieParser from "cookie-parser";
 import express from "express";
 import expressSession from "express-session";
+import methodOverride from "method-override";
 
 export class Handler {
   /**
@@ -35,6 +36,17 @@ export class Handler {
       }),
     );
     app.use(connectFlash());
+    app.use(
+      methodOverride(function (req) {
+        if (req.body && typeof req.body === "object" && "_method" in req.body) {
+          const method = req.body._method;
+
+          delete req.body._method;
+
+          return method;
+        }
+      }),
+    );
   }
 
   /**

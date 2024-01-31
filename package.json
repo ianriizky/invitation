@@ -79,6 +79,7 @@
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
     "minimist": "^1.2.8",
     "morgan": "~1.9.1",
     "nunjucks": "^3.2.4",
