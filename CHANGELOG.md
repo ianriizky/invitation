@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/0.7.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/0.7.1...develop)
+
+## [0.7.1](https://github.com/ianriizky/invitation/releases/tag/0.7.1) - 2024-01-31
+
+- fix: create dummy for CSRF_KEY, COOKIE_KEY, SESSION_KEY, BASIC_USERNAME, and BASIC_PASSWORD on github actions by [@ianriizky](https://github.com/ianriizky) in [#a6fb084](https://github.com/ianriizky/invitation/commit/a6fb0845d09440a0cfd83a4dfc5fd10ed8d3d431).
 
 ## [0.7.0](https://github.com/ianriizky/invitation/releases/tag/0.7.0) - 2024-01-31
 

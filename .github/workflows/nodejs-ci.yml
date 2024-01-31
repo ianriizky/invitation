@@ -36,9 +36,14 @@ jobs:
     env:
       APP_PORT: 3000
       APP_KEY: base64:xoVknoI8KRqqVeI8893bF0lU4i1ecIkT96URIIhDND0=
+      CSRF_KEY: LxEwO6Oo4o68LTcoUrOcgANigu1085tN
+      COOKIE_KEY: b6k9SmkeAygYcsvcXurecRoFSAgRBxUq
+      SESSION_KEY: J1lGJH7WrSvPVOrap6l9MfnSZ5GMOxgV
       DATABASE_URL: mysql://root@localhost:3306/ianriizky_invitation
       API_KEY_SANDBOX: 12345
       API_KEY_PROD: 54321
+      BASIC_USERNAME: 12345
+      BASIC_PASSWORD: 54321
 
     strategy:
       matrix:
