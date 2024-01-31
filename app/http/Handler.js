@@ -25,10 +25,11 @@ export class Handler {
         limit: config.maximum_request_body_size,
       }),
     );
-    app.use(cookieParser());
+    app.use(cookieParser(config.cookie_key));
     app.use(
       expressSession({
         secret: config.session_key,
+        cookie: { maxAge: config.cookie_max_age },
         saveUninitialized: true,
         resave: true,
       }),
