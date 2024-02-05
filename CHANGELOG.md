@@ -4,7 +4,9 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/0.9.0...develop)
 
-## [0.9.0](https://github.com/ianriizky/invitation/releases/tag/0.9.0) - 2024-01-31
+## [0.9.0](https://github.com/ianriizky/invitation/releases/tag/0.9.0) - 2024-02-05
+
+- chore: set default formatter for prisma on vscode settings by [@ianriizky](https://github.com/ianriizky) in [#1f07308](https://github.com/ianriizky/invitation/commit/1f07308951317e4c3db296b079f0135bebd35f33).
 
 ## [0.8.0](https://github.com/ianriizky/invitation/releases/tag/0.8.0) - 2024-01-31
 
