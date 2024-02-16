@@ -12,6 +12,8 @@
     "nunjucks": "html"
   },
   "eslint.probe": ["javascript"],
-  "jest.autoRun": "off",
+  "jest.runMode": {
+    "type": "on-demand"
+  },
   "nunjucksFormat.spaceclose": true
 }
