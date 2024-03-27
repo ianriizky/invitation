@@ -2,6 +2,9 @@
   "[nunjucks]": {
     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -9,6 +12,8 @@
     "nunjucks": "html"
   },
   "eslint.probe": ["javascript"],
-  "jest.autoRun": "off",
+  "jest.runMode": {
+    "type": "on-demand"
+  },
   "nunjucksFormat.spaceclose": true
 }
