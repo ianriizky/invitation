@@ -57,7 +57,7 @@
                         class="w-100 input-t"
                         id="guest_name"
                         name="guest[name]"
-                        value="{{ body["guest[name]"] }}"
+                        value="{{ body["guest[name]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -75,43 +75,43 @@
                   </div>
                   <div class="form-wrap mt-2">
                     <div class="label text-transform-uppercase">Domisili</div>
-                      <div class="input-form">
-                        <input
+                    <div class="input-form">
+                      <input
                         type="text"
                         class="w-100 input-t"
                         id="guest_domicile"
                         name="guest[domicile]"
                         value="{{ body["guest[domicile]"] }}" />
-                      </div>
                     </div>
-                    <div class="form-wrap mt-2">
-                      <div class="label text-transform-uppercase">Nomor Telepon / WhatsApp</div>
-                      <div class="input-form">
-                        <input
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label text-transform-uppercase">Nomor Telepon / WhatsApp</div>
+                    <div class="input-form">
+                      <input
                         type="tel"
                         class="w-100 input-t"
                         id="guest_phone_number"
                         name="guest[phone_number]"
                         value="{{ body["guest[phone_number]"] }}" />
-                      </div>
                     </div>
-                    <div class="form-wrap mt-2">
-                      <div class="label text-transform-uppercase">Keterangan</div>
-                      <div class="input-form">
-                        <textarea
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label text-transform-uppercase">Keterangan</div>
+                    <div class="input-form">
+                      <textarea
                         type="text"
                         class="w-100 input-t"
                         id="guest_description"
                         name="guest[description]"
                         rows="8"
                       >{{ body["guest[description]"] }}</textarea>
-                      </div>
                     </div>
-                    <div class="form-wrap mt-2">
-                      <div class="label text-transform-uppercase">Menggunakan Musik?</div>
-                      <div class="input-form">
-                        <div class="wrap-radio">
-                          <input
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label text-transform-uppercase">Menggunakan Musik?</div>
+                    <div class="input-form">
+                      <div class="wrap-radio">
+                        <input
                           type="radio"
                           class="specifyColor"
                           id="event_guest_use_music_yes"
@@ -119,12 +119,12 @@
                           value="1"
                           {% if body["event_guest[use_music]"] === "1" %}checked{% endif %}
                           required />
-                          <label class="btn-click" for="event_guest_use_music_yes">Iya</label>
-                        </div>
+                        <label class="btn-click" for="event_guest_use_music_yes">Iya</label>
                       </div>
-                      <div class="input-form">
-                        <div class="wrap-radio">
-                          <input
+                    </div>
+                    <div class="input-form">
+                      <div class="wrap-radio">
+                        <input
                           type="radio"
                           class="specifyColor"
                           id="event_guest_use_music_no"
@@ -132,19 +132,19 @@
                           value="0"
                           {% if body["event_guest[use_music]"] === "0" %}checked{% endif %}
                           required />
-                          <label class="btn-click" for="event_guest_use_music_no">Tidak</label>
-                        </div>
+                        <label class="btn-click" for="event_guest_use_music_no">Tidak</label>
                       </div>
                     </div>
-                    <button type="submit" class="btn-send">
-                      <span class="button__text text-transform-uppercase">Simpan</span>
-                    </button>
                   </div>
-                </form>
-              </div>
+                  <button type="submit" class="btn-send">
+                    <span class="button__text text-transform-uppercase">Simpan</span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </body>
-  </html>
+    </div>
+  </body>
+</html>
