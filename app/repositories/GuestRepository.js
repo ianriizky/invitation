@@ -10,6 +10,9 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.GuestDelegate} Model
  */
 export class GuestRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
@@ -17,9 +20,8 @@ export class GuestRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    prisma = this.appendExtension(prisma || defaultModel);
-
-    this.model = prisma.guest;
+    this.prisma = this.appendExtension(prisma || defaultModel);
+    this.model = this.prisma.guest;
   }
 
   /**

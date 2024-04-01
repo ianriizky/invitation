@@ -8,6 +8,9 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.PresenceDelegate} Model
  */
 export class PresenceRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
@@ -15,7 +18,8 @@ export class PresenceRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    this.model = (prisma || defaultModel).presence;
+    this.prisma = prisma || defaultModel;
+    this.model = this.prisma.presence;
   }
 
   /**

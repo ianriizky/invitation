@@ -12,6 +12,9 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.EventDelegate} Model
  */
 export class EventRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
@@ -19,9 +22,8 @@ export class EventRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    prisma = this.appendExtension(prisma || defaultModel);
-
-    this.model = prisma.event;
+    this.prisma = this.appendExtension(prisma || defaultModel);
+    this.model = this.prisma.event;
   }
 
   /**
