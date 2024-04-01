@@ -22,7 +22,7 @@ Share your happiest day to all of your friends through the power of web 😁.
 
 ## Requirement
 
-- Node.js ^20.10.0
+- Node.js ^20.9.0
 - MySQL ^8.2.0
 
 ## Instalation
