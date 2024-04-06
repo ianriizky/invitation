@@ -1,3 +1,4 @@
+import { createFlash } from "../http/middleware/flash.js";
 import { winstonLogger } from "../http/middleware/logger.js";
 import { JoiValidationException } from "./JoiValidationException.js";
 import { NotFoundException } from "./NotFoundException.js";
@@ -50,15 +51,21 @@ export class Handler {
     const status =
       err?.statusCode || err?.status || StatusCodes.INTERNAL_SERVER_ERROR;
 
-    if (res.headersSent || !["application/json"].includes(req.headers.accept)) {
-      const message = err?.render ? err?.render() : err.message;
+    if (res.headersSent || !req.headers.accept.includes("application/json")) {
+      if (err instanceof JoiValidationException) {
+        createFlash(req, err.result);
+      } else {
+        createFlash(req, { color: "red", message: err.message });
+      }
 
-      req.flash("message", { color: "red", message });
+      if (req.headers.accept.includes("text/html")) {
+        return res.redirect("back");
+      }
 
       return res
         .status(status)
         .header("content-type", "text/html")
-        .send(message);
+        .send(err?.render ? err?.render() : err.message);
     }
 
     return res.status(status).formattedJson({

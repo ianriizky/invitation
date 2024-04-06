@@ -36,14 +36,17 @@
               <span class="title-section newyork-font font-black">
                 Buat Tamu
               </span>
-              {% if flash %}
-                <div class="alert-{{ flash?.color }}" style="margin-bottom: 20px;">{{ flash?.message }}</div>
-              {% endif %}
               <span>
                 <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
                   Daftar Tamu
                 </a>
               </span>
+              {% for detail in flash.error.details %}
+                <div class="alert-red" style="margin: 10px 20px; padding: 5px; border-radius: 5px;">{{ detail.message }}</div>
+              {% endfor %}
+              {% if flash %}
+                <div class="alert-{{ flash.color }}" style="margin: 10px 20px; padding: 5px; border-radius: 5px;">{{ flash.message }}</div>
+              {% endif %}
               <form action="{{ store_url }}" method="post" class="form-data font-black">
                 <input type="hidden" name="_csrf" value="{{ csrf_token }}">
                 <div class="w-100">
