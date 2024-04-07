@@ -72,8 +72,8 @@ export default async function () {
       phone_number: "628111000111",
       description: "lorem ipsum",
       event_guests: {
-        create: {
-          event: { connect: { id: eventAkad.id } },
+        createMany: {
+          data: [{ event_id: eventAkad.id }],
         },
       },
     },
@@ -86,9 +86,13 @@ export default async function () {
       phone_number: "628111000111",
       description: "lorem ipsum",
       event_guests: {
-        create: {
-          view_path: eventAkad.view_data.silent_view_path,
-          event: { connect: { id: eventAkad.id } },
+        createMany: {
+          data: [
+            {
+              event_id: eventAkad.id,
+              view_path: eventAkad.view_data.silent_view_path,
+            },
+          ],
         },
       },
     },
