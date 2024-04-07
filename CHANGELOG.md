@@ -4,7 +4,15 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/1.1.0...develop)
 
-## [1.1.0](https://github.com/ianriizky/invitation/releases/tag/1.1.0) - 2024-04-01
+## [1.1.0](https://github.com/ianriizky/invitation/releases/tag/1.1.0) - 2024-04-07
+
+- chore: change node version into 20.9.0 by [@ianriizky](https://github.com/ianriizky) in [#df9db36](https://github.com/ianriizky/invitation/commit/df9db36def997cbacb15896317498f20bcdff9b5).
+- chore: change mysql version into 8.3.0 by [@ianriizky](https://github.com/ianriizky) in [#6e39d26](https://github.com/ianriizky/invitation/commit/6e39d261fdba496a71318fdd85d56bcec6ccf644).
+- chore: change copy of Bapak/Ibu/Saudara by [@ianriizky](https://github.com/ianriizky) in [#377939f](https://github.com/ianriizky/invitation/commit/377939f70d87553bb54263ec8cd95216b4f97b28).
+- refactor: set html tag on event guest create layout by [@ianriizky](https://github.com/ianriizky) in [#7e53e3a](https://github.com/ianriizky/invitation/commit/7e53e3aac1f13b57fce91bb5df844034ec23f27d).
+- chore: add prisma property on repository class by [@ianriizky](https://github.com/ianriizky) in [#9e10c9f](https://github.com/ianriizky/invitation/commit/9e10c9fcc8c759a1a8f75d967d9a476e958b4548).
+- fix: handle joi validation exception handler for text/html request header accept by [@ianriizky](https://github.com/ianriizky) in [#0178b9d](https://github.com/ianriizky/invitation/commit/0178b9d8765733cd1eca478e2af200225bd21a7f).
+- feat: create feature to search guest and create invitation using existed guest data by [@ianriizky](https://github.com/ianriizky) in [#209e260](https://github.com/ianriizky/invitation/commit/209e2600e6315202db0e12f9521266653a127c8c).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 
