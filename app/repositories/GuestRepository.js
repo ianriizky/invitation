@@ -86,7 +86,8 @@ export class GuestRepository {
     const view_path =
       body["event_guest[use_music]"] === "1"
         ? undefined
-        : "web/event/akad/show-silent.njk";
+        : event.view_data?.silent_view ||
+          "web/event-guest/akad/show-silent.njk";
 
     if (body["guest[name_select]"]) {
       const guest = await this.model.findFirstOrThrow({

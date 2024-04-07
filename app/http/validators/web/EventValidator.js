@@ -2,26 +2,24 @@ import { Validator } from "../Validator.js";
 
 /**
  * @typedef {{
- *   event_slug: import("../../../repositories/EventRepository.js").Event["slug"];
- *   guest_slug: import("../../../repositories/GuestRepository.js").Guest["slug"];
- * }} ShowRequestParam
+ *   search?: string;
+ *   page: import("../../../supports/Pagination.js").RequestQuery["page"];
+ * }} IndexRequestQuery
  * @typedef {{
- *   presence_status: import("../../../repositories/MessageRepository.js").Message["presence_status"];
- *   content: import("../../../repositories/MessageRepository.js").Message["content"];
- * }} PostMessageRequestBody
+ *   event_slug: import("../../../repositories/EventRepository.js").Event["slug"];
+ * }} ShowRequestParam
  */
 export class EventValidator extends Validator {
-  show = this.validator.params(
+  index = this.validator.query(
     this.joi.object({
-      event_slug: this.joi.string().required(),
-      guest_slug: this.joi.string().required(),
+      search: this.joi.string().optional(),
+      page: this.joi.number().min(1).optional(),
     }),
   );
 
-  postMessage = this.validator.body(
+  show = this.validator.params(
     this.joi.object({
-      presence_status: this.joi.string().required(),
-      content: this.joi.string().required(),
+      event_slug: this.joi.string().required(),
     }),
   );
 }

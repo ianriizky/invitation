@@ -15,8 +15,8 @@ export default defineConfig({
     laravel({
       buildDirectory: "build-pg3UKx",
       input: [
-        "resources/js/event/akad/music/app.js",
-        "resources/css/event/akad/music/app.scss",
+        "resources/js/event-guest/akad/music/app.js",
+        "resources/css/event-guest/akad/music/app.scss",
       ],
     }),
   ],

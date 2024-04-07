@@ -1,7 +1,18 @@
 import config from "../../../config/app.js";
 import { EventRepository } from "../../repositories/EventRepository.js";
+import { format } from "date-fns";
+import { id as idLocale } from "date-fns/locale/id";
 import _ from "lodash";
 
+/**
+ * @typedef {{
+ *   date: string;
+ *   message_url: {
+ *     display: string;
+ *     insert: string;
+ *   };
+ * }} ViewData
+ */
 export class EventGuestPresenter {
   /**
    * @template {import("../validators/web/EventGuestValidator.js").IndexRequestQuery} RequestQuery
@@ -11,34 +22,96 @@ export class EventGuestPresenter {
    */
   index(paginated, event, req) {
     const { data: event_guests, pagination } = paginated;
-    const index_url = `${config.url}/event/${event.slug}/guest`;
     const search = req.query?.search;
 
-    return _.merge(_.clone(event.view_data), {
+    const x = _.merge(_.clone(event.view_data), {
       event_guests: event_guests.map(event_guest => {
         event_guest.url = EventRepository.getUrl(event, event_guest.guest);
         event_guest.whatsapp_message_url =
           EventRepository.getWhatsappMessageShortUrl(event, event_guest.guest);
-        event_guest.use_music =
-          event_guest.view_path !== "web/event/akad/show-silent.njk";
+        event_guest.use_music = [
+          event.view_data?.silent_view,
+          "web/event-guest/akad/show-silent.njk",
+        ].includes(event_guest.view_path);
         event_guest.destroy_url = `${config.url}/event/${event.slug}/guest/${event_guest.guest.slug}`;
 
         return event_guest;
       }),
       pagination: {
         ...pagination,
-        first_page_url: `${index_url}${search && `?search=${req.query.search}`}`,
-        prev_page_url:
-          pagination.currentPage !== 1 &&
-          `${index_url}?page=${pagination.prev}${search && `&search=${req.query.search}`}`,
-        next_page_url:
-          pagination.currentPage !== pagination.lastPage &&
-          `${index_url}?page=${pagination.next}${search && `&search=${req.query.search}`}`,
-        last_page_url: `${index_url}?page=${pagination.lastPage}${search && `&search=${req.query.search}`}`,
+        firstPageUrl: `${pagination.firstPageUrl}${search ? `?search=${search}` : ""}`,
+        prevPageUrl:
+          pagination.prevPageUrl !== undefined
+            ? `${pagination.prevPageUrl}${search ? `&search=${search}` : ""}`
+            : undefined,
+        nextPageUrl:
+          pagination.nextPageUrl !== undefined
+            ? `${pagination.nextPageUrl}${search ? `&search=${search}` : ""}`
+            : undefined,
+        lastPageUrl: `${pagination.lastPageUrl}${search ? `&search=${search}` : ""}`,
       },
-      index_url,
+      index_url: `${config.url}/event/${event.slug}/guest`,
       create_url: `${config.url}/event/${event.slug}/guest/create`,
       search,
     });
+
+    console.log("coeg", x);
+    return x;
+  }
+
+  /**
+   * @param {ReturnType<import("../../repositories/EventRepository.js").EventRepository["findByGuestSlug"]>} event
+   * @param {import("../../repositories/EventRepository.js").EventGuest} event_guest
+   */
+  show(event, event_guest) {
+    return _.merge(
+      _.clone(event_guest.current_view_data),
+      {
+        date_readable: format(event.date, "EEEE, d LLLL yyyy", {
+          locale: idLocale,
+        }),
+        date_dmy: format(event.date, "dd.MM.yyyy", {
+          locale: idLocale,
+        }),
+        time_readable: `${format(event.date, "HH:mm", {
+          locale: idLocale,
+        })} WIB - Selesai`,
+        reception_start_date_readable: format(
+          event.view_data.reception_start_date,
+          "EEEE, d LLLL yyyy",
+          {
+            locale: idLocale,
+          },
+        ),
+        reception_start_time_readable: `${format(
+          event.view_data.reception_start_date,
+          "HH:mm",
+          {
+            locale: idLocale,
+          },
+        )} WIB`,
+        reception_date_readable: format(
+          event.view_data.reception_start_date,
+          "EEEE, d LLLL yyyy",
+          {
+            locale: idLocale,
+          },
+        ),
+        reception_time_readable: `${format(
+          event.view_data.reception_start_date,
+          "HH:mm",
+          {
+            locale: idLocale,
+          },
+        )} WIB - ${format(event.view_data.reception_end_date, "HH:mm", {
+          locale: idLocale,
+        })} WIB`,
+        message_url: {
+          display: `${event_guest.url}/message`,
+          insert: `${event_guest.url}/message`,
+        },
+      },
+      { event, guest: event_guest.guest },
+    );
   }
 }

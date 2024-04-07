@@ -123,7 +123,7 @@ export class EventRepository {
    * @param {import("./GuestRepository.js").Guest} guest
    */
   static getWhatsappMessage(view, event, guest) {
-    return view.render("whatsapp/event/akad/show.njk", {
+    return view.render("whatsapp/event-guest/akad/show.njk", {
       guest_name: guest.name,
       bride_full_name: "Eka Budiarti & Septianata Rizky Pratama",
       url: this.getUrl(event, guest),

@@ -11,8 +11,9 @@ export default async function () {
       name: "wedding",
       description: "The Wedding of",
       date,
-      view_path: "web/event/akad/show-music.njk",
+      view_path: "web/event-guest/akad/show-music.njk",
       view_data: {
+        silent_view_path: "web/event-guest/akad/show-silent.njk",
         title: "The Wedding of",
         subtitle: "The Wedding of",
         description: format(date, "EEEE, d LLLL yyyy", {
@@ -86,7 +87,7 @@ export default async function () {
       description: "lorem ipsum",
       event_guests: {
         create: {
-          view_path: "web/event/akad/show-silent.njk",
+          view_path: eventAkad.view_data.silent_view_path,
           event: { connect: { id: eventAkad.id } },
         },
       },

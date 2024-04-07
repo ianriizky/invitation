@@ -3,10 +3,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import $ from "jquery";
 import "particles.js";
-import "select2";
 import "slick-carousel";
 
-/** @type {import("../../../../app/http/presenters/EventPresenter.js").ViewData} */
+/** @type {import("../../../../app/http/presenters/EventGuestPresenter.js").ViewData} */
 // eslint-disable-next-line no-undef
 const data = viewData;
 
@@ -114,8 +113,6 @@ $(function () {
   } else {
     $("#id02").show();
   }
-
-  $(".select2").select2();
 });
 
 $("#quran-button").on("click", function () {

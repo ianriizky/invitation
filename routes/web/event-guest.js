@@ -45,5 +45,25 @@ router.delete(
   [authenticateBasicMiddleware, new EventGuestValidator().show, csrf],
   asyncHandler(new EventGuestController().destroy),
 );
+router.get(
+  "/event/:event_slug/:guest_slug",
+  [new EventGuestValidator().show, csrf, csrfMiddleware],
+  asyncHandler(new EventGuestController().show),
+);
+router.get(
+  "/event/:event_slug/:guest_slug/whatsapp-message",
+  [authenticateBasicMiddleware, new EventGuestValidator().show],
+  asyncHandler(new EventGuestController().showWhatsappMessage),
+);
+router.get(
+  "/event/:event_slug/:guest_slug/message",
+  new EventGuestValidator().show,
+  asyncHandler(new EventGuestController().getMessages),
+);
+router.post(
+  "/event/:event_slug/:guest_slug/message",
+  [new EventGuestValidator().show, new EventGuestValidator().postMessage, csrf],
+  asyncHandler(new EventGuestController().postMessage),
+);
 
 export default router;
