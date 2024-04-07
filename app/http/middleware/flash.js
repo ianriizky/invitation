@@ -7,12 +7,10 @@ export default function (req, res, next) {
   if (req?.flash) {
     const flash = getFlash(req);
 
-    if (flash.length > 0) {
-      /** @type {import("nunjucks").Environment} */
-      const view = req.app.get("nunjucks");
+    /** @type {import("nunjucks").Environment} */
+    const view = req.app.get("nunjucks");
 
-      view.addGlobal("flash", flash[0]);
-    }
+    view.addGlobal("flash", flash.length > 0 ? flash[0] : undefined);
   }
 
   return next();
