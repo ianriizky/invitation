@@ -13,8 +13,8 @@
     <meta property="og:description" content="Guest List">
     <meta property="og:url" content="{{ url }}">
     <meta property="og:site_name" content="Guest List">
-    <meta property="og:image" content="{{ base_url }}/logo-wide.png">
-    <meta property="og:image:secure_url" content="{{ base_url }}/logo-wide.png">
+    <meta property="og:image" content="{{ base_url }}/{{ thumbnail_image_path }}">
+    <meta property="og:image:secure_url" content="{{ base_url }}/{{ thumbnail_image_path }}">
     <meta property="og:image:width" content="661">
     <meta property="og:image:height" content="452">
     <meta property="og:image:alt" content="Guest List">
@@ -22,9 +22,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Guest List">
     <meta name="twitter:description" content="Guest List">
-    <meta name="twitter:image" content="{{ base_url }}/logo-wide.png">
+    <meta name="twitter:image" content="{{ base_url }}/{{ thumbnail_image_path }}">
     <link rel="stylesheet" href="{{ base_url }}/build/app.css">
-    <link rel="icon" href="{{ base_url }}/logo.svg" />
+    <link rel="icon" href="{{ base_url }}/{{ icon_path }}" />
   </head>
   <body>
     <div class="layout-cover">
@@ -40,39 +40,61 @@
                   Buat Tamu
                 </a>
               </span>
+              {% for detail in flash.error.details %}
+                <div class="alert-red" style="margin: 10px 20px; padding: 5px; border-radius: 5px;">{{ detail.message }}</div>
+              {% endfor %}
               {% if flash %}
                 <div class="alert-{{ flash.color }}" style="margin: 10px 20px; padding: 5px; border-radius: 5px;">{{ flash.message }}</div>
               {% endif %}
-              <div class="form-data font-black">
+              <form action="{{ index_url }}" method="get" class="form-data font-black">
+                <div class="w-100">
+                  <div class="form-wrap mt-2">
+                    <div class="input-form">
+                      <input
+                        type="text"
+                        class="w-100 input-t"
+                        id="search"
+                        name="search"
+                        placeholder="Cari"
+                        value="{{ search }}" />
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn-send">
+                  <span class="button__text text-transform-uppercase" style="display: inline-block;">Cari</span>
+                </button>
+                <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: block; text-align: center;">
+                  Reset Pencarian
+                </a>
+              </form>
+              <div class="form-data font-black" style="margin-top: 10px;">
                 <div id="block-message" class="block-data-message mt-3">
-                  {% for guest in guests %}
+                  {% for event_guest in event_guests %}
                     <div class="data-message">
                       <div class="name-message mt-1">
-                        <p class="dancing-font" style="font-size: 22px;">{{ guest.name }}</p>
+                        <p class="dancing-font" style="font-size: 22px;">{{ event_guest.guest.name }}</p>
                         <p>
-                          <a href="{{ guest.url }}" target="_blank">{{ guest.url }}</a>
+                          <a href="{{ event_guest.url }}" target="_blank">{{ event_guest.url }}</a>
                         </p>
                         <p>
-                          <a href="{{ guest.whatsapp_message_url }}" target="_blank">{{ guest.whatsapp_message_url }}</a>
+                          <a href="{{ event_guest.whatsapp_message_url }}" target="_blank">{{ event_guest.whatsapp_message_url }}</a>
                         </p>
-                        <p>Lokasi: {{ guest.domicile }}</p>
-                        <p>Menggunakan Musik: {% if guest
-                            .event_guests[0]
-                            .use_music %}
+                        <p>Lokasi: {{ event_guest.guest.domicile }}</p>
+                        <p>Menggunakan Musik: {% if event_guest.use_music %}
                             Iya
                           {% else %} Tidak {% endif %}
                         </p>
-                        <p>Nomor Telepon: {% if guest.phone_number %}
-                            {{ guest.phone_number }}
+                        <p>Nomor Telepon: {% if event_guest.guest.phone_number %}
+                            {{ event_guest.guest.phone_number }}
                           {% else %} - {% endif %}
                         </p>
-                        <p>Keterangan: {% if guest.description %}
-                            {{ guest.description }}
+                        <p>Keterangan: {% if event_guest.guest.description %}
+                            {{ event_guest.guest.description }}
                           {% else %} - {% endif %}
                         </p>
                       </div>
                       <div class="location-and-present mt-1">
-                        <form action="{{ guest.event_guests[0].destroy_url }}" method="post" onsubmit="return confirm('Apa anda yakin ingin menghapus {{ guest.name }}?');">
+                        <form action="{{ event_guest.destroy_url }}" method="post" onsubmit="return confirm('Apa anda yakin ingin menghapus {{ event_guest.guest.name }}?');">
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_csrf" value="{{ csrf_token }}">
                           <button type="submit" class="hadir btn-send">
@@ -85,27 +107,29 @@
                 </div>
               </div>
               <span class="title-section">
-                <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                <a href="{{ pagination.first_page_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
                   ≪
                 </a>
-                {% if pagination.currentPage !== 1 %}
-                  <a href="{{ index_url }}?page={{ pagination.prev }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                {% if pagination.prev_page_url %}
+                  <a href="{{ pagination.prev_page_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
                     ＜
                   </a>
                 {% endif %}
-                {% if pagination.currentPage !== pagination.lastPage %}
-                  <a href="{{ index_url }}?page={{ pagination.next }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                {% if pagination.next_page_url %}
+                  <a href="{{ pagination.next_page_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
                     ＞
                   </a>
                 {% endif %}
-                <a href="{{ index_url }}?page={{ pagination.lastPage }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+                <a href="{{ pagination.last_page_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
                   ≫
                 </a>
               </span>
               <span class="newyork-font font-black" style="font-size: 18px;">
+                <p>Halaman Sekarang: {{ pagination.currentPage }}</p>
+                <br>
                 <p>Total Halaman: {{ pagination.lastPage }}</p>
                 <br>
-                <p>Halaman Sekarang: {{ pagination.currentPage }}</p>
+                <p>Total Data: {{ pagination.total }}</p>
               </span>
             </div>
           </div>

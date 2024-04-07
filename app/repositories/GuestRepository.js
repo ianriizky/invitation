@@ -1,3 +1,4 @@
+import { BadRequestException } from "../exceptions/BadRequestException.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
@@ -82,19 +83,51 @@ export class GuestRepository {
    * @param {import("../../app/http/validators/web/EventGuestValidator.js").StoreRequestBody} body
    */
   async createByEvent(event, body) {
+    const view_path =
+      body["event_guest[use_music]"] === "1"
+        ? undefined
+        : "web/event/akad/show-silent.njk";
+
+    if (body["guest[name_select]"]) {
+      const guest = await this.model.findFirstOrThrow({
+        where: { name: body["guest[name_select]"] },
+        include: {
+          event_guests: {
+            where: { event: { id: event.id } },
+            include: { event: true },
+          },
+        },
+      });
+
+      if (
+        guest.event_guests.some(
+          event_guest => event_guest.event.id === event.id,
+        )
+      ) {
+        throw new BadRequestException(
+          `Guest ${guest.name} for this event is already exists.`,
+        );
+      }
+
+      return this.prisma.eventGuest.create({
+        data: {
+          event_id: event.id,
+          guest_id: guest.id,
+          view_path,
+        },
+      });
+    }
+
     return this.model.create({
       data: {
-        name: body["guest[name]"],
+        name: body["guest[name_text]"],
         slug: body["guest[slug]"] || undefined,
         domicile: body["guest[domicile]"] || undefined,
         phone_number: body["guest[phone_number]"] || undefined,
         description: body["guest[description]"] || undefined,
         event_guests: {
           create: {
-            view_path:
-              body["event_guest[use_music]"] === "1"
-                ? undefined
-                : "web/event/akad/show-silent.njk",
+            view_path,
             event: { connect: { id: event.id } },
           },
         },

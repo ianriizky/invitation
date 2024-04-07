@@ -21,8 +21,8 @@
   },
   "resources/css/event/akad/app.scss": {
     "file": "app.css",
-    "isEntry": true,
-    "src": "resources/css/event/akad/app.scss"
+    "src": "resources/css/event/akad/app.scss",
+    "isEntry": true
   },
   "resources/font/NewYork.otf": {
     "file": "NewYork.otf",
@@ -46,7 +46,8 @@
   },
   "resources/js/event/akad/app.js": {
     "file": "app.js",
-    "isEntry": true,
-    "src": "resources/js/event/akad/app.js"
+    "name": "app",
+    "src": "resources/js/event/akad/app.js",
+    "isEntry": true
   }
 }

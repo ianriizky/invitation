@@ -106,6 +106,7 @@
     "prettier": "^3.0.3",
     "prisma": "^5.7.0",
     "sass": "^1.69.7",
+    "select2": "^4.1.0-rc.0",
     "slick-carousel": "^1.8.1",
     "supertest": "^6.3.3",
     "tsv-json": "^2.0.0",

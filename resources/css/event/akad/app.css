@@ -1191,6 +1191,17 @@ li span {
   background-color: #e9573f;
 }
 
+/* SELECT2 */
+
+.select2-container--default .select2-results > .select2-results__options {
+  color: #575757 !important;
+}
+
+.select2-results__option--selectable {
+  display: block;
+  text-transform: none;
+}
+
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1440px) {

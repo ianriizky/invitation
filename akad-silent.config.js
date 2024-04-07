@@ -30,6 +30,10 @@ export default defineConfig({
           src: "node_modules/oh-snap-notifications/ohsnap.js",
           dest: "",
         },
+        {
+          src: "node_modules/select2/dist/js/select2.min.js",
+          dest: "",
+        },
       ],
     }),
   ],

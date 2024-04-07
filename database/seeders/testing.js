@@ -22,6 +22,7 @@ export default async function () {
         thumbnail_image_width: 661,
         thumbnail_image_height: 452,
         thumbnail_image_mime_type: "image/png",
+        icon_path: "logo.svg",
         logo_path: "logo-black.svg",
         akad_title: "Akad Nikah",
         reception_title: "Resepsi Pernikahan",

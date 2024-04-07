@@ -1,5 +1,6 @@
 import config from "../../../../config/app.js";
 import { NotFoundException } from "../../../exceptions/NotFoundException.js";
+import { EventGuestRepository } from "../../../repositories/EventGuestRepository.js";
 import { EventRepository } from "../../../repositories/EventRepository.js";
 import { GuestRepository } from "../../../repositories/GuestRepository.js";
 import { createFlash } from "../../middleware/flash.js";
@@ -22,18 +23,31 @@ export class EventGuestController extends Controller {
       throw new NotFoundException("Event not found.");
     }
 
-    const paginated = await new GuestRepository().paginate(
+    const paginated = await new EventGuestRepository().paginate(
       { number: req.query.page },
       {
-        where: { event_guests: { some: { event: { id: event.id } } } },
-        include: { event_guests: { where: { event: { id: event.id } } } },
+        where: {
+          ...{ event: { id: event.id } },
+          ...(req.query?.search && {
+            guest: {
+              OR: [
+                { slug: { contains: req.query.search } },
+                { name: { contains: req.query.search } },
+                { domicile: { contains: req.query.search } },
+                { phone_number: { contains: req.query.search } },
+                { description: { contains: req.query.search } },
+              ],
+            },
+          }),
+        },
+        include: { guest: true },
         orderBy: { created_at: "desc" },
       },
     );
 
     return res.render(
       "web/event-guest/index.njk",
-      new EventGuestPresenter().index(paginated, event),
+      new EventGuestPresenter().index(paginated, event, req),
     );
   }
 
@@ -52,8 +66,15 @@ export class EventGuestController extends Controller {
       throw new NotFoundException("Event not found.");
     }
 
+    const guests = await new GuestRepository().model.findMany({
+      select: { slug: true, name: true },
+      orderBy: { created_at: "desc" },
+    });
+
     return res.render("web/event-guest/create.njk", {
+      ...event.view_data,
       event_slug,
+      guests,
       index_url: `${config.url}/event/${event.slug}/guest`,
       store_url: `${config.url}/event/${event.slug}/guest`,
     });

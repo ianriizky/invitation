@@ -2,6 +2,7 @@ import { Validator } from "../Validator.js";
 
 /**
  * @typedef {{
+ *   search?: string;
  *   page: import("../../../supports/Pagination.js").RequestQuery["page"];
  * }} IndexRequestQuery
  * @typedef {{
@@ -9,7 +10,8 @@ import { Validator } from "../Validator.js";
  * }} CreateRequestParam
  * @typedef {{
  *   "event_guest[use_music]": string,
- *   "guest[name]"?: string;
+ *   "guest[name_text]"?: string;
+ *   "guest[name_select]"?: string;
  *   "guest[slug]"?: string;
  *   "guest[domicile]"?: string;
  *   "guest[phone_number]"?: string;
@@ -23,6 +25,7 @@ import { Validator } from "../Validator.js";
 export class EventGuestValidator extends Validator {
   index = this.validator.query(
     this.joi.object({
+      search: this.joi.string().optional(),
       page: this.joi.number().min(1).optional(),
     }),
   );
@@ -34,15 +37,18 @@ export class EventGuestValidator extends Validator {
   );
 
   store = this.validator.body(
-    this.joi.object({
-      _csrf: this.joi.string().required(),
-      "event_guest[use_music]": this.joi.string().valid("1", "0"),
-      "guest[name]": this.joi.string().required(),
-      "guest[slug]": this.joi.string().empty(""),
-      "guest[domicile]": this.joi.string().empty(""),
-      "guest[phone_number]": this.joi.string().empty(""),
-      "guest[description]": this.joi.string().empty(""),
-    }),
+    this.joi
+      .object({
+        _csrf: this.joi.string().required(),
+        "event_guest[use_music]": this.joi.string().valid("1", "0"),
+        "guest[name_text]": this.joi.string().empty(""),
+        "guest[name_select]": this.joi.string().empty(""),
+        "guest[slug]": this.joi.string().empty(""),
+        "guest[domicile]": this.joi.string().empty(""),
+        "guest[phone_number]": this.joi.string().empty(""),
+        "guest[description]": this.joi.string().empty(""),
+      })
+      .xor("guest[name_text]", "guest[name_select]"),
   );
 
   show = this.validator.params(
