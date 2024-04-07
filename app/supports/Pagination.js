@@ -6,6 +6,7 @@ import _ from "lodash";
  * @typedef {{
  *   size: number;
  *   number: number;
+ *   url: string;
  * }} Page
  * @typedef {{
  *   [key: string]: any;
@@ -16,13 +17,17 @@ import _ from "lodash";
  * @typedef {string[]} Include
  * @typedef {{
  *   currentPage: Page["number"];
- *   from: number;
+ *   from?: number;
  *   lastPage: number;
  *   recordPerPage: number;
- *   to: number;
+ *   to?: number;
  *   total: number;
- *   prev: number;
- *   next: number;
+ *   prev?: number;
+ *   next?: number;
+ *   firstPageUrl: string;
+ *   prevPageUrl?: string;
+ *   nextPageUrl?: string;
+ *   lastPageUrl: string;
  *   filter?: Filter;
  *   sort?: Sort;
  * }} Meta
@@ -36,6 +41,7 @@ export class Pagination {
   static defaultPage = {
     size: 10,
     number: 1,
+    url: "/",
   };
 
   /** @type {Page} */
@@ -133,18 +139,28 @@ export class Pagination {
    * @returns {Meta}
    */
   generateMeta(total, recordPerPage) {
-    const skip = (this.page.number - 1) * this.page.size;
-    const lastPage = Math.ceil(total / this.page.size);
+    const currentPage = this.page.number;
+    const from = total > 0 ? (currentPage - 1) * recordPerPage + 1 : undefined;
+    const to = total > 0 ? from + recordPerPage - 1 : undefined;
+    const lastPage = Math.max(Number(Math.ceil(total / recordPerPage)), 1);
+    const next = currentPage < lastPage ? currentPage + 1 : undefined;
+    const prev = currentPage > 1 ? currentPage - 1 : undefined;
 
     return {
-      currentPage: this.page.number,
-      from: skip + 1,
+      currentPage,
+      from,
       lastPage,
       recordPerPage,
-      to: Math.min(skip + this.page.size, total),
+      to,
       total,
-      next: Math.min(this.page.number + 1, lastPage),
-      prev: Math.max(1, this.page.number - 1),
+      next: currentPage < lastPage ? currentPage + 1 : undefined,
+      prev: currentPage > 1 ? currentPage - 1 : undefined,
+      firstPageUrl: this.page.url,
+      prevPageUrl:
+        prev !== undefined ? `${this.page.url}?page=${prev}` : undefined,
+      nextPageUrl:
+        next !== undefined ? `${this.page.url}?page=${next}` : undefined,
+      lastPageUrl: `${this.page.url}?page=${lastPage}`,
     };
   }
 }
