@@ -14,6 +14,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 - fix: handle joi validation exception handler for text/html request header accept by [@ianriizky](https://github.com/ianriizky) in [#0178b9d](https://github.com/ianriizky/invitation/commit/0178b9d8765733cd1eca478e2af200225bd21a7f).
 - feat: create feature to search guest and create invitation using existed guest data by [@ianriizky](https://github.com/ianriizky) in [#209e260](https://github.com/ianriizky/invitation/commit/209e2600e6315202db0e12f9521266653a127c8c).
 - fix: pagination meta logic by [@ianriizky](https://github.com/ianriizky) in [#36c1f3a](https://github.com/ianriizky/invitation/commit/36c1f3acf147aa6e14060950f8e7cb26a94174f1).
+- feat: finish feature to handle multiple event page by [@ianriizky](https://github.com/ianriizky) in [#4b2786a](https://github.com/ianriizky/invitation/commit/4b2786a9b38430438080c8d6a681f9dcc912b34c).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 
