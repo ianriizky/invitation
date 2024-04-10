@@ -54,12 +54,12 @@ export class Handler {
     if (res.headersSent || !req.headers.accept.includes("application/json")) {
       if (err instanceof JoiValidationException) {
         createFlash(req, err.result);
+
+        if (req.headers.accept.includes("text/html")) {
+          return res.redirect("back");
+        }
       } else {
         createFlash(req, { color: "red", message: err.message });
-      }
-
-      if (req.headers.accept.includes("text/html")) {
-        return res.redirect("back");
       }
 
       return res
