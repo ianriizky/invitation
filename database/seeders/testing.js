@@ -4,19 +4,24 @@ import { format } from "date-fns";
 import { id as idLocale } from "date-fns/locale/id";
 
 export default async function () {
-  const date = new Date("2024-02-02, 08:00:00");
+  const view_data_akad = {
+    date: new Date("2024-02-02, 08:00:00"),
+    reception_start_date: new Date("2024-02-02, 11:00:00"),
+    reception_end_date: new Date("2024-02-02, 14:00:00"),
+  };
 
   const eventAkad = await new EventRepository().model.create({
     data: {
       name: "wedding",
       description: "The Wedding of",
-      date,
+      date: view_data_akad.date,
       view_path: "web/event-guest/akad/show-music.njk",
       view_data: {
         silent_view_path: "web/event-guest/akad/show-silent.njk",
+        message_view_path: "web/components/message.njk",
         title: "The Wedding of",
         subtitle: "The Wedding of",
-        description: format(date, "EEEE, d LLLL yyyy", {
+        description: format(view_data_akad.date, "EEEE, d LLLL yyyy", {
           locale: idLocale,
         }),
         thumbnail_image_path: "logo-wide.png",
@@ -27,8 +32,47 @@ export default async function () {
         logo_path: "logo-black.svg",
         akad_title: "Akad Nikah",
         reception_title: "Resepsi Pernikahan",
-        reception_start_date: new Date("2024-02-02, 11:00:00"),
-        reception_end_date: new Date("2024-02-02, 14:00:00"),
+        reception_start_date: view_data_akad.reception_start_date,
+        reception_start_date_readable: format(
+          view_data_akad.reception_start_date,
+          "EEEE, d LLLL yyyy",
+          {
+            locale: idLocale,
+          },
+        ),
+        reception_start_time_readable: `${format(
+          view_data_akad.reception_start_date,
+          "HH:mm",
+          {
+            locale: idLocale,
+          },
+        )} WIB`,
+        reception_date_readable: format(
+          view_data_akad.reception_start_date,
+          "EEEE, d LLLL yyyy",
+          {
+            locale: idLocale,
+          },
+        ),
+        reception_time_readable: `${format(
+          view_data_akad.reception_start_date,
+          "HH:mm",
+          {
+            locale: idLocale,
+          },
+        )} WIB - ${format(view_data_akad.reception_end_date, "HH:mm", {
+          locale: idLocale,
+        })} WIB`,
+        reception_end_date: view_data_akad.reception_end_date,
+        date_readable: format(view_data_akad.date, "EEEE, d LLLL yyyy", {
+          locale: idLocale,
+        }),
+        date_dmy: format(view_data_akad.date, "dd.MM.yyyy", {
+          locale: idLocale,
+        }),
+        time_readable: `${format(view_data_akad.date, "HH:mm", {
+          locale: idLocale,
+        })} WIB - Selesai`,
         bride: {
           nick_name: "",
           full_name: "",

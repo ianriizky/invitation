@@ -167,11 +167,17 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async getMessages(req, res, next) {
     const { event_slug } = req.params;
+    const event = await new EventRepository().findBySlug(event_slug);
+
+    if (!event || !event.view_data?.message_view_path) {
+      throw new NotFoundException("Event view path is not found.");
+    }
+
     const messages = await new MessageRepository().findManyByEventSlug(
       event_slug,
     );
 
-    return res.render("web/event-guest/akad/message.njk", { messages });
+    return res.render(event.view_data?.message_view_path, { messages });
   }
 
   /**
