@@ -24,7 +24,7 @@ export class EventGuestPresenter {
     const { data: event_guests, pagination } = paginated;
     const search = req.query?.search;
 
-    const x = _.merge(_.clone(event.view_data), {
+    return _.merge(_.clone(event.view_data), {
       event_guests: event_guests.map(event_guest => {
         event_guest.url = EventRepository.getUrl(event, event_guest.guest);
         event_guest.whatsapp_message_url =
@@ -54,9 +54,6 @@ export class EventGuestPresenter {
       create_url: `${config.url}/event/${event.slug}/guest/create`,
       search,
     });
-
-    console.log("coeg", x);
-    return x;
   }
 
   /**
