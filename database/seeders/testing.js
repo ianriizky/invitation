@@ -74,8 +74,8 @@ export default async function () {
           locale: idLocale,
         })} WIB - Selesai`,
         bride: {
-          nick_name: "",
-          full_name: "",
+          title: "",
+          fullname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putri pertama dari Bapak & Ibu",
@@ -89,20 +89,110 @@ export default async function () {
         },
         gifts: [
           {
-            image_path: "",
-            name: "",
+            image_path: "img/bank/bca.png",
+            button_name: "Kirim Kado Online",
+            name: "BCA",
             description: "",
-            owner_name: "",
+            owner_name: "a/n",
+          },
+          {
+            button_name: "Kirim Kado Offline",
+            name: "Rumah",
+            description: "",
+            owner_name: "a/n",
           },
         ],
         location: {
-          name: "Masjid Nurhidayah",
-          address:
-            "Jl. Demang Lebar Daun, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137",
+          name: "",
+          address: "",
           google_map: {
-            url: "https://goo.gl/maps/6SUxY1KZw3ZHRoKR7",
-            embed_url:
-              "https://maps.google.com/maps?q=masjid%20nurhidayah%20palembang&t=&z=13&ie=UTF8&iwloc=&output=embed",
+            url: "https://maps.app.goo.gl/",
+            embed_url: "https://www.google.com/maps/embed",
+          },
+        },
+      },
+    },
+  });
+
+  const view_data_resepsi = {
+    start_date: new Date("2024-02-02, 11:00:00"),
+    end_date: new Date("2024-02-02, 14:00:00"),
+  };
+  const eventResepsi = await new EventRepository().model.create({
+    data: {
+      name: "resepsi",
+      description: "The Wedding of",
+      date: view_data_resepsi.start_date,
+      view_path: "web/event-guest/resepsi/show-music.njk",
+      view_data: {
+        silent_view_path: "web/event-guest/resepsi/show-silent.njk",
+        message_view_path: "web/components/message.njk",
+        title: "The Wedding of",
+        subtitle: "The Wedding of",
+        description: format(view_data_resepsi.start_date, "EEEE, d LLLL yyyy", {
+          locale: idLocale,
+        }),
+        thumbnail_image_path: "resepsi/logo-wide.png",
+        thumbnail_image_width: 661,
+        thumbnail_image_height: 452,
+        thumbnail_image_mime_type: "image/png",
+        icon_path: "resepsi/logo.svg",
+        logo_path: "resepsi/logo-black.svg",
+        reception_title: "Resepsi Pernikahan",
+        reception_date_readable: format(
+          view_data_resepsi.start_date,
+          "EEEE, d LLLL yyyy",
+          {
+            locale: idLocale,
+          },
+        ),
+        reception_time_readable: `${format(
+          view_data_resepsi.start_date,
+          "HH:mm",
+          {
+            locale: idLocale,
+          },
+        )} WIB - ${format(view_data_resepsi.end_date, "HH:mm", {
+          locale: idLocale,
+        })} WIB`,
+        date_dmy: format(view_data_resepsi.start_date, "dd.MM.yyyy", {
+          locale: idLocale,
+        }),
+        bride: {
+          title: "",
+          fullname: "",
+          instagram_url: "https://www.instagram.com/",
+          instagram_username: "",
+          parent_description: "Putri pertama dari Bapak & Ibu",
+        },
+        groom: {
+          title: "",
+          fullname: "",
+          instagram_url: "https://www.instagram.com/",
+          instagram_username: "",
+          parent_description: "Putra pertama dari Bapak & Ibu",
+        },
+        gifts: [
+          {
+            image_path: "img/bank/bca.png",
+            button_name: "Kirim Kado Online",
+            name: "BCA",
+            description: "",
+            owner_name: "a/n",
+          },
+          {
+            button_name: "Kirim Kado Offline",
+            name: "Rumah",
+            description: "",
+            owner_name: "a/n",
+          },
+        ],
+        location: {
+          name: "",
+          address: "",
+          google_map: {
+            url: "https://maps.app.goo.gl/",
+            embed_url: "https://www.google.com/maps/embed",
           },
         },
       },
