@@ -660,7 +660,7 @@ a.btn-white:hover {
 
 #wedding-done,
 #wedding-running {
-  margin: 4rem 0 -4rem 0;
+  margin: 4rem 0;
   z-index: 1;
   display: none;
 }
@@ -859,7 +859,6 @@ span.w3-button:hover {
 }
 
 .scroll-up-down {
-  margin-top: 35px;
   transition: 0.4s;
   animation: up-down 1s ease-in-out infinite alternate-reverse both;
 }
