@@ -4,7 +4,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/1.1.0...develop)
 
-## [1.1.0](https://github.com/ianriizky/invitation/releases/tag/1.1.0) - 2024-04-10
+## [1.1.0](https://github.com/ianriizky/invitation/releases/tag/1.1.0) - 2024-04-12
 
 - chore: change node version into 20.9.0 by [@ianriizky](https://github.com/ianriizky) in [#df9db36](https://github.com/ianriizky/invitation/commit/df9db36def997cbacb15896317498f20bcdff9b5).
 - chore: change mysql version into 8.3.0 by [@ianriizky](https://github.com/ianriizky) in [#6e39d26](https://github.com/ianriizky/invitation/commit/6e39d261fdba496a71318fdd85d56bcec6ccf644).
@@ -18,6 +18,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 - chore: add new logo for resepsi by [@ianriizky](https://github.com/ianriizky) in [#85b028a](https://github.com/ianriizky/invitation/commit/85b028ad325c220a177e02e5cd7c54db4053703d).
 - fix: set redirect back on exception handler only on joi validation exception by [@ianriizky](https://github.com/ianriizky) in [#fa1cf09](https://github.com/ianriizky/invitation/commit/fa1cf0943aebe8806756dc794ceca86c4dc96757).
 - chore: update testing data and message view component path by [@ianriizky](https://github.com/ianriizky) in [#7149a4d](https://github.com/ianriizky/invitation/commit/7149a4df10f0b2d894539792dfb4f462c519dd69).
+- fix: overlap wedding done and running section on akad layout by [@ianriizky](https://github.com/ianriizky) in [#e6c4bf7](https://github.com/ianriizky/invitation/commit/e6c4bf72e3037c40e66c8cd7962ac2483efecaa1).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 
