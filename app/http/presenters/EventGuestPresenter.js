@@ -1,6 +1,6 @@
-import config from "../../../config/app.js";
 import { EventGuestRepository } from "../../repositories/EventGuestRepository.js";
 import { EventRepository } from "../../repositories/EventRepository.js";
+import { getBaseUrl } from "../../supports/helpers.js";
 import _ from "lodash";
 
 /**
@@ -25,14 +25,14 @@ export class EventGuestPresenter {
 
     return _.merge(_.clone(event.view_data), {
       event_guests: event_guests.map(event_guest => {
-        event_guest.url = EventRepository.getUrl(event, event_guest.guest);
+        event_guest.url = EventRepository.getUrl(event, event_guest.guest, req);
         event_guest.whatsapp_message_url =
           EventRepository.getWhatsappMessageShortUrl(event, event_guest.guest);
         event_guest.use_music = EventGuestRepository.isUseMusic(
           event_guest,
           event,
         );
-        event_guest.destroy_url = `${config.url}/event/${event.slug}/guest/${event_guest.guest.slug}`;
+        event_guest.destroy_url = `${getBaseUrl(req)}/event/${event.slug}/guest/${event_guest.guest.slug}`;
 
         return event_guest;
       }),
@@ -49,8 +49,8 @@ export class EventGuestPresenter {
             : undefined,
         lastPageUrl: `${pagination.lastPageUrl}${search ? `&search=${search}` : ""}`,
       },
-      index_url: `${config.url}/event/${event.slug}/guest`,
-      create_url: `${config.url}/event/${event.slug}/guest/create`,
+      index_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
+      create_url: `${getBaseUrl(req)}/event/${event.slug}/guest/create`,
       search,
     });
   }

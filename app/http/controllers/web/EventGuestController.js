@@ -4,6 +4,7 @@ import { EventGuestRepository } from "../../../repositories/EventGuestRepository
 import { EventRepository } from "../../../repositories/EventRepository.js";
 import { GuestRepository } from "../../../repositories/GuestRepository.js";
 import { MessageRepository } from "../../../repositories/MessageRepository.js";
+import { getBaseUrl } from "../../../supports/helpers.js";
 import { createFlash } from "../../middleware/flash.js";
 import { EventGuestPresenter } from "../../presenters/EventGuestPresenter.js";
 import { Controller } from "../Controller.js";
@@ -19,7 +20,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async index(req, res, next) {
     const { event_slug } = req.params;
-    const event = await new EventRepository().findBySlug(event_slug);
+    const event = await new EventRepository(req).findBySlug(event_slug);
 
     if (event === null) {
       throw new NotFoundException("Event not found.");
@@ -28,7 +29,7 @@ export class EventGuestController extends Controller {
     const paginated = await new EventGuestRepository().paginate(
       {
         number: req.query.page,
-        url: `${config.url}/event/${event.slug}/guest`,
+        url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
       },
       {
         where: {
@@ -65,7 +66,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async create(req, res, next) {
     const { event_slug } = req.params;
-    const event = await new EventRepository().findBySlug(event_slug);
+    const event = await new EventRepository(req).findBySlug(event_slug);
 
     if (event === null) {
       throw new NotFoundException("Event not found.");
@@ -80,8 +81,8 @@ export class EventGuestController extends Controller {
       ...event.view_data,
       event_slug,
       guests,
-      index_url: `${config.url}/event/${event.slug}/guest`,
-      store_url: `${config.url}/event/${event.slug}/guest`,
+      index_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
+      store_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
     });
   }
 
@@ -95,7 +96,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async store(req, res, next) {
     const { event_slug } = req.params;
-    const event = await new EventRepository().findBySlug(event_slug);
+    const event = await new EventRepository(req).findBySlug(event_slug);
 
     if (event === null) {
       throw new NotFoundException("Event not found.");
@@ -109,7 +110,7 @@ export class EventGuestController extends Controller {
 
     createFlash(req, { color: "green", message: "Data berhasil dibuat." });
 
-    return res.redirect(`${config.url}/event/${event_slug}/guest`);
+    return res.redirect(`${getBaseUrl(req)}/event/${event_slug}/guest`);
   }
 
   /**
@@ -121,7 +122,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async show(req, res, next) {
     const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository().findByGuestSlug(
+    const event = await new EventRepository(req).findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -145,7 +146,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async showWhatsappMessage(req, res, next) {
     const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository().findByGuestSlug(
+    const event = await new EventRepository(req).findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -159,6 +160,7 @@ export class EventGuestController extends Controller {
         req.app.get("nunjucks"),
         event,
         event.event_guests[0].guest,
+        req,
       ),
     );
   }
@@ -172,7 +174,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async getMessages(req, res, next) {
     const { event_slug } = req.params;
-    const event = await new EventRepository().findBySlug(event_slug);
+    const event = await new EventRepository(req).findBySlug(event_slug);
 
     if (!event || !event.view_data?.message_view_path) {
       throw new NotFoundException("Event view path is not found.");
@@ -197,7 +199,7 @@ export class EventGuestController extends Controller {
     const { event_slug, guest_slug } = req.params;
     const { presence_status, content } = req.body;
 
-    const event = await new EventRepository().findByGuestSlug(
+    const event = await new EventRepository(req).findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -235,7 +237,7 @@ export class EventGuestController extends Controller {
   // eslint-disable-next-line no-unused-vars
   async destroy(req, res, next) {
     const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository().findByGuestSlug(
+    const event = await new EventRepository(req).findByGuestSlug(
       event_slug,
       guest_slug,
     );
@@ -250,6 +252,6 @@ export class EventGuestController extends Controller {
 
     createFlash(req, { color: "green", message: "Data berhasil dihapus." });
 
-    return res.redirect(`${config.url}/event/${event_slug}/guest`);
+    return res.redirect(`${getBaseUrl(req)}/event/${event_slug}/guest`);
   }
 }
