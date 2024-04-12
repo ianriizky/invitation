@@ -24,6 +24,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 - feat: create middleware to get current url from request by [@ianriizky](https://github.com/ianriizky) in [#6c88581](https://github.com/ianriizky/invitation/commit/6c88581cc56ea78221905971e69237a0c6342a05).
 - chore: remove unnecessary data when show event guest presenter data by [@ianriizky](https://github.com/ianriizky) in [#8a4e231](https://github.com/ianriizky/invitation/commit/8a4e2317cb92e4b0cc7ba6627fd924612dbb3fd8).
 - feat: create middleware to get base url from request by [@ianriizky](https://github.com/ianriizky) in [#98f8491](https://github.com/ianriizky/invitation/commit/98f8491123c6a515dba574f617f36a404c75d70a).
+- feat: create config to enable trust proxy by [@ianriizky](https://github.com/ianriizky) in [#af6bc0f](https://github.com/ianriizky/invitation/commit/af6bc0f89a183100542e232674f13517cd584963).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 
