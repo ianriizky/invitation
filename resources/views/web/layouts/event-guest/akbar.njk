@@ -453,7 +453,7 @@
     <script src="{{ base_url }}/akbar/js/main.js"></script>
 
     <script>
-      $('#clock').countdown("{{ event.view_data.date_clockdown }}", function (event) {
+      $('#clock').countdown("{{ date_clockdown }}", function (event) {
         $(this).html(event.strftime('<div class="countdown_wrap d-flex"><div  class="single_countdown"><h3>%D</h3><span>Days</span></div><div class="single_countdown"><h3>%H</h3><span>Hours</span></div><div class="single_countdown"><h3>%M</h3><span>Minutes</span></div><div class="single_countdown"><h3>%S</h3><span>Seconds</span></div></div>'));
       });
     </script>
