@@ -1,4 +1,5 @@
 import config from "../../../config/app.js";
+import { EventGuestRepository } from "../../repositories/EventGuestRepository.js";
 import { EventRepository } from "../../repositories/EventRepository.js";
 import _ from "lodash";
 
@@ -27,10 +28,10 @@ export class EventGuestPresenter {
         event_guest.url = EventRepository.getUrl(event, event_guest.guest);
         event_guest.whatsapp_message_url =
           EventRepository.getWhatsappMessageShortUrl(event, event_guest.guest);
-        event_guest.use_music = [
-          event.view_data?.silent_view,
-          "web/event-guest/akad/show-silent.njk",
-        ].includes(event_guest.view_path);
+        event_guest.use_music = EventGuestRepository.isUseMusic(
+          event_guest,
+          event,
+        );
         event_guest.destroy_url = `${config.url}/event/${event.slug}/guest/${event_guest.guest.slug}`;
 
         return event_guest;

@@ -101,7 +101,12 @@ export class EventGuestController extends Controller {
       throw new NotFoundException("Event not found.");
     }
 
-    await new GuestRepository().createByEvent(event, req.body);
+    if (req.body["guest[name_select]"]) {
+      await new EventGuestRepository().createByEvent(event, req.body);
+    } else {
+      await new GuestRepository().createByEvent(event, req.body);
+    }
+
     createFlash(req, { color: "green", message: "Data berhasil dibuat." });
 
     return res.redirect(`${config.url}/event/${event_slug}/guest`);

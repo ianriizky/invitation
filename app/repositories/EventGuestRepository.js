@@ -1,3 +1,4 @@
+import { BadRequestException } from "../exceptions/BadRequestException.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import _ from "lodash";
@@ -39,5 +40,65 @@ export class EventGuestRepository {
     ]);
 
     return { data, pagination: pagination.generateMeta(total, data.length) };
+  }
+
+  /**
+   * @param {import("./EventRepository.js").Event} event
+   * @param {import("../../app/http/validators/web/EventGuestValidator.js").StoreRequestBody} body
+   */
+  async createByEvent(event, body) {
+    const guest = await this.prisma.guest.findFirstOrThrow({
+      where: { name: body["guest[name_select]"] },
+      include: {
+        event_guests: {
+          where: { event: { id: event.id } },
+          include: { event: true },
+        },
+      },
+    });
+
+    if (
+      guest.event_guests.some(event_guest => event_guest.event.id === event.id)
+    ) {
+      throw new BadRequestException(
+        `Guest ${guest.name} for this event is already exists.`,
+      );
+    }
+
+    return this.prisma.eventGuest.create({
+      data: {
+        event_id: event.id,
+        guest_id: guest.id,
+        ...EventGuestRepository.createView(
+          body["event_guest[use_music]"] === "1",
+          event,
+        ),
+      },
+    });
+  }
+
+  /**
+   * @param {EventGuest} model
+   * @param {import("./EventRepository.js").Event} event
+   */
+  static isUseMusic(model, event) {
+    return (
+      model.view_data?.use_music ||
+      model.view_path !== event?.view_data?.silent_view_path
+    );
+  }
+
+  /**
+   * @param {boolean} useMusic
+   * @param {import("./EventRepository.js").Event} event
+   */
+  static createView(useMusic, event) {
+    const view_data = !useMusic ? { use_music: false } : undefined;
+    const view_path =
+      !useMusic && event.view_data?.silent_view_path
+        ? event.view_data?.silent_view_path
+        : undefined;
+
+    return { view_path, view_data };
   }
 }
