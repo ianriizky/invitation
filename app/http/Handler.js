@@ -48,6 +48,15 @@ export class Handler {
         }
       }),
     );
+
+    /**
+     * Issue on Heroku when "https" protocol is not picked up by Express.js.
+     *
+     * @see https://stackoverflow.com/a/46475726/9539211
+     */
+    if (config.enable_trust_proxy) {
+      app.enable("trust proxy");
+    }
   }
 
   /**

@@ -21,6 +21,7 @@ export default {
   /** @type {import("../app/supports/Encrypter.js").CipherType} */
   cipher: "aes-256-cbc",
   version: process.env.npm_package_version,
+  enable_trust_proxy: (process.env.ENABLE_TRUST_PROXY || "false") === "true",
 
   /** @type {"OFF" | "ON"} */
   mute_logger: process.env.MUTE_LOGGER || "OFF",
