@@ -68,7 +68,10 @@ export class EventGuestPresenter {
           insert: `${event_guest.url}/message`,
         },
       },
-      { event, guest: event_guest.guest },
+      {
+        event: _.omit(event, ["view_data"]),
+        guest: _.omit(event_guest.guest, "view_data"),
+      },
     );
   }
 }
