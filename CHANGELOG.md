@@ -19,6 +19,10 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 - fix: set redirect back on exception handler only on joi validation exception by [@ianriizky](https://github.com/ianriizky) in [#fa1cf09](https://github.com/ianriizky/invitation/commit/fa1cf0943aebe8806756dc794ceca86c4dc96757).
 - chore: update testing data and message view component path by [@ianriizky](https://github.com/ianriizky) in [#7149a4d](https://github.com/ianriizky/invitation/commit/7149a4df10f0b2d894539792dfb4f462c519dd69).
 - fix: overlap wedding done and running section on akad layout by [@ianriizky](https://github.com/ianriizky) in [#e6c4bf7](https://github.com/ianriizky/invitation/commit/e6c4bf72e3037c40e66c8cd7962ac2483efecaa1).
+- fix: handle database when create event guest using music or not by [@ianriizky](https://github.com/ianriizky) in [#70273e5](https://github.com/ianriizky/invitation/commit/70273e57f7fe888ce99d318906b4c8c4f55ab69a).
+- chore: set title on event guest index page by [@ianriizky](https://github.com/ianriizky) in [#9f6659e](https://github.com/ianriizky/invitation/commit/9f6659e63b118a37bc61699d17a5143b1aabcd65).
+- feat: create middleware to get current url from request by [@ianriizky](https://github.com/ianriizky) in [#6c88581](https://github.com/ianriizky/invitation/commit/6c88581cc56ea78221905971e69237a0c6342a05).
+- chore: remove unnecessary data when show event guest presenter data by [@ianriizky](https://github.com/ianriizky) in [#8a4e231](https://github.com/ianriizky/invitation/commit/8a4e2317cb92e4b0cc7ba6627fd924612dbb3fd8).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 
