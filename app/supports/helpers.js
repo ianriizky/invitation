@@ -58,6 +58,13 @@ export function dateToUnixTimestamp(date) {
 /**
  * @param {import("express").Request} req
  */
+export function getBaseUrl(req) {
+  return getCurrentUrl(req).origin;
+}
+
+/**
+ * @param {import("express").Request} req
+ */
 export function getCurrentUrl(req) {
   return new URL(`${req.protocol}://${req.get("host")}${req.originalUrl}`);
 }

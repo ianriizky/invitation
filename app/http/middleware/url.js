@@ -1,4 +1,4 @@
-import { getCurrentUrl } from "../../supports/helpers.js";
+import { getBaseUrl, getCurrentUrl } from "../../supports/helpers.js";
 
 /**
  * @param {import("express").Request} req
@@ -8,7 +8,9 @@ import { getCurrentUrl } from "../../supports/helpers.js";
 export default function (req, res, next) {
   /** @type {import("nunjucks").Environment} */
   const view = req.app.get("nunjucks");
-  view.addGlobal("current_url", getCurrentUrl(req));
+  view
+    .addGlobal("base_url", getBaseUrl(req))
+    .addGlobal("current_url", getCurrentUrl(req));
 
   return next();
 }
