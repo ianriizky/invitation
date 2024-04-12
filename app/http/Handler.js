@@ -1,4 +1,5 @@
 import config from "../../config/app.js";
+import currentUrlMiddleware from "./middleware/current-url.js";
 import loggerMiddleware from "./middleware/logger.js";
 import responseMacroMiddleware from "./middleware/response-macro.js";
 import connectFlash from "connect-flash";
@@ -55,5 +56,6 @@ export class Handler {
   bootMiddlewareHandler(app) {
     app.use(loggerMiddleware);
     app.use(responseMacroMiddleware);
+    app.use(currentUrlMiddleware);
   }
 }
