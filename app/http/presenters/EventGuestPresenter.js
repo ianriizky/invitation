@@ -27,7 +27,11 @@ export class EventGuestPresenter {
       event_guests: event_guests.map(event_guest => {
         event_guest.url = EventRepository.getUrl(event, event_guest.guest, req);
         event_guest.whatsapp_message_url =
-          EventRepository.getWhatsappMessageShortUrl(event, event_guest.guest);
+          EventRepository.getWhatsappMessageShortUrl(
+            event,
+            event_guest.guest,
+            req,
+          );
         event_guest.use_music = EventGuestRepository.isUseMusic(
           event_guest,
           event,

@@ -1,4 +1,3 @@
-import config from "../../config/app.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
@@ -155,9 +154,10 @@ export class EventRepository {
   /**
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
    */
-  static getWhatsappMessageShortUrl(event, guest) {
-    return `${config.url}/event/${event.slug}/${guest.slug}/whatsapp-message`;
+  static getWhatsappMessageShortUrl(event, guest, req) {
+    return `${getBaseUrl(req)}/event/${event.slug}/${guest.slug}/whatsapp-message`;
   }
 
   /**
