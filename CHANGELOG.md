@@ -4,7 +4,7 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/2.0.0...develop)
 
-## [2.0.0](https://github.com/ianriizky/invitation/releases/tag/2.0.0) - 2024-04-12
+## [2.0.0](https://github.com/ianriizky/invitation/releases/tag/2.0.0) - 2024-04-20
 
 - chore: change node version into 20.9.0 by [@ianriizky](https://github.com/ianriizky) in [#df9db36](https://github.com/ianriizky/invitation/commit/df9db36def997cbacb15896317498f20bcdff9b5).
 - chore: change mysql version into 8.3.0 by [@ianriizky](https://github.com/ianriizky) in [#6e39d26](https://github.com/ianriizky/invitation/commit/6e39d261fdba496a71318fdd85d56bcec6ccf644).
