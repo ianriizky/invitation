@@ -2,7 +2,30 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/1.0.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.0.0...develop)
+
+## [2.0.0](https://github.com/ianriizky/invitation/releases/tag/2.0.0) - 2024-04-20
+
+- chore: change node version into 20.9.0 by [@ianriizky](https://github.com/ianriizky) in [#df9db36](https://github.com/ianriizky/invitation/commit/df9db36def997cbacb15896317498f20bcdff9b5).
+- chore: change mysql version into 8.3.0 by [@ianriizky](https://github.com/ianriizky) in [#6e39d26](https://github.com/ianriizky/invitation/commit/6e39d261fdba496a71318fdd85d56bcec6ccf644).
+- chore: change copy of Bapak/Ibu/Saudara by [@ianriizky](https://github.com/ianriizky) in [#377939f](https://github.com/ianriizky/invitation/commit/377939f70d87553bb54263ec8cd95216b4f97b28).
+- refactor: set html tag on event guest create layout by [@ianriizky](https://github.com/ianriizky) in [#7e53e3a](https://github.com/ianriizky/invitation/commit/7e53e3aac1f13b57fce91bb5df844034ec23f27d).
+- chore: add prisma property on repository class by [@ianriizky](https://github.com/ianriizky) in [#9e10c9f](https://github.com/ianriizky/invitation/commit/9e10c9fcc8c759a1a8f75d967d9a476e958b4548).
+- fix: handle joi validation exception handler for text/html request header accept by [@ianriizky](https://github.com/ianriizky) in [#0178b9d](https://github.com/ianriizky/invitation/commit/0178b9d8765733cd1eca478e2af200225bd21a7f).
+- feat: create feature to search guest and create invitation using existed guest data by [@ianriizky](https://github.com/ianriizky) in [#209e260](https://github.com/ianriizky/invitation/commit/209e2600e6315202db0e12f9521266653a127c8c).
+- fix: pagination meta logic by [@ianriizky](https://github.com/ianriizky) in [#36c1f3a](https://github.com/ianriizky/invitation/commit/36c1f3acf147aa6e14060950f8e7cb26a94174f1).
+- feat: finish feature to handle multiple event page by [@ianriizky](https://github.com/ianriizky) in [#4b2786a](https://github.com/ianriizky/invitation/commit/4b2786a9b38430438080c8d6a681f9dcc912b34c).
+- chore: add new logo for resepsi by [@ianriizky](https://github.com/ianriizky) in [#85b028a](https://github.com/ianriizky/invitation/commit/85b028ad325c220a177e02e5cd7c54db4053703d).
+- fix: set redirect back on exception handler only on joi validation exception by [@ianriizky](https://github.com/ianriizky) in [#fa1cf09](https://github.com/ianriizky/invitation/commit/fa1cf0943aebe8806756dc794ceca86c4dc96757).
+- chore: update testing data and message view component path by [@ianriizky](https://github.com/ianriizky) in [#7149a4d](https://github.com/ianriizky/invitation/commit/7149a4df10f0b2d894539792dfb4f462c519dd69).
+- fix: overlap wedding done and running section on akad layout by [@ianriizky](https://github.com/ianriizky) in [#e6c4bf7](https://github.com/ianriizky/invitation/commit/e6c4bf72e3037c40e66c8cd7962ac2483efecaa1).
+- fix: handle database when create event guest using music or not by [@ianriizky](https://github.com/ianriizky) in [#70273e5](https://github.com/ianriizky/invitation/commit/70273e57f7fe888ce99d318906b4c8c4f55ab69a).
+- chore: set title on event guest index page by [@ianriizky](https://github.com/ianriizky) in [#9f6659e](https://github.com/ianriizky/invitation/commit/9f6659e63b118a37bc61699d17a5143b1aabcd65).
+- feat: create middleware to get current url from request by [@ianriizky](https://github.com/ianriizky) in [#6c88581](https://github.com/ianriizky/invitation/commit/6c88581cc56ea78221905971e69237a0c6342a05).
+- chore: remove unnecessary data when show event guest presenter data by [@ianriizky](https://github.com/ianriizky) in [#8a4e231](https://github.com/ianriizky/invitation/commit/8a4e2317cb92e4b0cc7ba6627fd924612dbb3fd8).
+- feat: create middleware to get base url from request by [@ianriizky](https://github.com/ianriizky) in [#98f8491](https://github.com/ianriizky/invitation/commit/98f8491123c6a515dba574f617f36a404c75d70a).
+- feat: create config to enable trust proxy by [@ianriizky](https://github.com/ianriizky) in [#af6bc0f](https://github.com/ianriizky/invitation/commit/af6bc0f89a183100542e232674f13517cd584963).
+- fix: enable event repository to get current url by [@ianriizky](https://github.com/ianriizky) in [#b11bed8](https://github.com/ianriizky/invitation/commit/b11bed8871b4ea5c5ed8e2bd96a9eae228baab3c).
 
 ## [1.0.0](https://github.com/ianriizky/invitation/releases/tag/1.0.0) - 2024-03-27
 

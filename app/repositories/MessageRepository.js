@@ -8,6 +8,9 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.MessageDelegate} Model
  */
 export class MessageRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
@@ -15,7 +18,8 @@ export class MessageRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    this.model = (prisma || defaultModel).message;
+    this.prisma = prisma || defaultModel;
+    this.model = this.prisma.message;
   }
 
   /**

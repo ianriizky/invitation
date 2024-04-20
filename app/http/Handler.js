@@ -1,4 +1,5 @@
 import config from "../../config/app.js";
+import urlMiddleware from "./middleware/url.js";
 import loggerMiddleware from "./middleware/logger.js";
 import responseMacroMiddleware from "./middleware/response-macro.js";
 import connectFlash from "connect-flash";
@@ -47,6 +48,15 @@ export class Handler {
         }
       }),
     );
+
+    /**
+     * Issue on Heroku when "https" protocol is not picked up by Express.js.
+     *
+     * @see https://stackoverflow.com/a/46475726/9539211
+     */
+    if (config.enable_trust_proxy) {
+      app.enable("trust proxy");
+    }
   }
 
   /**
@@ -55,5 +65,6 @@ export class Handler {
   bootMiddlewareHandler(app) {
     app.use(loggerMiddleware);
     app.use(responseMacroMiddleware);
+    app.use(urlMiddleware);
   }
 }

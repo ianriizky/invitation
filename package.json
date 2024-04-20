@@ -1,15 +1,15 @@
 {
   "name": "@ianriizky/invitation",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "Share your happiest day to all of your friends through the power of web 😁.",
   "private": true,
   "engineStrict": true,
   "engines": {
-    "node": "20.10.0"
+    "node": "20.9.0"
   },
   "volta": {
-    "node": "20.10.0"
+    "node": "20.9.0"
   },
   "scripts": {
     "start": "node ./bin/www.js",
@@ -106,6 +106,7 @@
     "prettier": "^3.0.3",
     "prisma": "^5.7.0",
     "sass": "^1.69.7",
+    "select2": "^4.1.0-rc.0",
     "slick-carousel": "^1.8.1",
     "supertest": "^6.3.3",
     "tsv-json": "^2.0.0",

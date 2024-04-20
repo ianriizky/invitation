@@ -1,7 +1,7 @@
-import config from "../../config/app.js";
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
+import { getBaseUrl } from "../supports/helpers.js";
 import { GuestRepository } from "./GuestRepository.js";
 import _ from "lodash";
 
@@ -12,16 +12,23 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.EventDelegate} Model
  */
 export class EventRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
+  /** @type {import("express").Request} */
+  req;
+
   /**
+   * @param {import("express").Request} req
    * @param {PrismaClient} [prisma]
    */
-  constructor(prisma) {
-    prisma = this.appendExtension(prisma || defaultModel);
-
-    this.model = prisma.event;
+  constructor(req, prisma) {
+    this.req = req;
+    this.prisma = this.appendExtension(prisma || defaultModel);
+    this.model = this.prisma.event;
   }
 
   /**
@@ -63,8 +70,8 @@ export class EventRepository {
           },
           url: {
             needs: { event: true, guest: true },
-            compute({ event, guest }) {
-              return EventRepository.getUrl(event, guest);
+            compute: ({ event, guest }) => {
+              return EventRepository.getUrl(event, guest, this.req);
             },
           },
         },
@@ -110,21 +117,23 @@ export class EventRepository {
   /**
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
    */
-  static getUrl(event, guest) {
-    return `${config.url}/event/${event.slug}/${guest.slug}`;
+  static getUrl(event, guest, req) {
+    return `${getBaseUrl(req)}/event/${event.slug}/${guest.slug}`;
   }
 
   /**
    * @param {import("nunjucks").Environment} view
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
    */
-  static getWhatsappMessage(view, event, guest) {
-    return view.render("whatsapp/event/akad/show.njk", {
+  static getWhatsappMessage(view, event, guest, req) {
+    return view.render("whatsapp/event-guest/akad/show.njk", {
       guest_name: guest.name,
       bride_full_name: "Eka Budiarti & Septianata Rizky Pratama",
-      url: this.getUrl(event, guest),
+      url: this.getUrl(event, guest, req),
       bride_nick_name: "Eka & Ian",
     });
   }
@@ -133,20 +142,22 @@ export class EventRepository {
    * @param {import("nunjucks").Environment} view
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
    */
-  static getWhatsappMessageUrl(view, event, guest) {
+  static getWhatsappMessageUrl(view, event, guest, req) {
     return GuestRepository.getWhatsappUrl(
       guest,
-      this.getWhatsappMessage(view, event, guest),
+      this.getWhatsappMessage(view, event, guest, req),
     );
   }
 
   /**
    * @param {Event} event
    * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
    */
-  static getWhatsappMessageShortUrl(event, guest) {
-    return `${config.url}/event/${event.slug}/${guest.slug}/whatsapp-message`;
+  static getWhatsappMessageShortUrl(event, guest, req) {
+    return `${getBaseUrl(req)}/event/${event.slug}/${guest.slug}/whatsapp-message`;
   }
 
   /**

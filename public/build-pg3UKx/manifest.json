@@ -19,10 +19,10 @@
     "file": "slick.woff",
     "src": "node_modules/slick-carousel/slick/fonts/slick.woff"
   },
-  "resources/css/event/akad/music/app.scss": {
+  "resources/css/event-guest/akad/music/app.scss": {
     "file": "app.css",
-    "isEntry": true,
-    "src": "resources/css/event/akad/music/app.scss"
+    "src": "resources/css/event-guest/akad/music/app.scss",
+    "isEntry": true
   },
   "resources/font/NewYork.otf": {
     "file": "NewYork.otf",
@@ -44,9 +44,10 @@
     "file": "main-img.jpg",
     "src": "resources/img/main-img.jpg"
   },
-  "resources/js/event/akad/music/app.js": {
+  "resources/js/event-guest/akad/music/app.js": {
     "file": "app.js",
-    "isEntry": true,
-    "src": "resources/js/event/akad/music/app.js"
+    "name": "app",
+    "src": "resources/js/event-guest/akad/music/app.js",
+    "isEntry": true
   }
 }

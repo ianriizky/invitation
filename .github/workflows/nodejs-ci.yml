@@ -21,7 +21,7 @@ jobs:
 
     services:
       mysql:
-        image: mysql:8.2
+        image: mysql:8.3
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: ianriizky_invitation
@@ -48,7 +48,7 @@ jobs:
     strategy:
       matrix:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [20.10.0]
+        node-version: [20.9.0]
 
     steps:
       - uses: actions/checkout@v3

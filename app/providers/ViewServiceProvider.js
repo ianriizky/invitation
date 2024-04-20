@@ -43,9 +43,8 @@ export class ViewServiceProvider {
     );
 
     view
-      .addGlobal("base_url", config.url)
-      .addGlobal("base_url_port", config.url_port)
-      .addGlobal("url", config.url);
+      .addGlobal("config_url", config.url)
+      .addGlobal("config_url_port", config.url_port);
 
     this.app.set("nunjucks", view);
   }

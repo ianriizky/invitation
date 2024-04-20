@@ -1,6 +1,7 @@
 import { model as defaultModel } from "../models/index.js";
 import { Pagination } from "../supports/Pagination.js";
 import { Str } from "../supports/Str.js";
+import { EventGuestRepository } from "./EventGuestRepository.js";
 import googleLibphonenumber from "google-libphonenumber";
 import _ from "lodash";
 
@@ -10,6 +11,9 @@ import _ from "lodash";
  * @typedef {import("../models/index.js").prisma.Prisma.GuestDelegate} Model
  */
 export class GuestRepository {
+  /** @type {PrismaClient} */
+  prisma;
+
   /** @type {Model} */
   model;
 
@@ -17,9 +21,8 @@ export class GuestRepository {
    * @param {PrismaClient} [prisma]
    */
   constructor(prisma) {
-    prisma = this.appendExtension(prisma || defaultModel);
-
-    this.model = prisma.guest;
+    this.prisma = this.appendExtension(prisma || defaultModel);
+    this.model = this.prisma.guest;
   }
 
   /**
@@ -75,25 +78,24 @@ export class GuestRepository {
   }
 
   /**
-   *
-   * @param {import("../repositories/EventRepository.js").Event} event
+   * @param {import("./EventRepository.js").Event} event
    * @param {import("../../app/http/validators/web/EventGuestValidator.js").StoreRequestBody} body
    */
   async createByEvent(event, body) {
     return this.model.create({
       data: {
-        name: body["guest[name]"],
+        name: body["guest[name_text]"],
         slug: body["guest[slug]"] || undefined,
         domicile: body["guest[domicile]"] || undefined,
         phone_number: body["guest[phone_number]"] || undefined,
         description: body["guest[description]"] || undefined,
         event_guests: {
           create: {
-            view_path:
-              body["event_guest[use_music]"] === "1"
-                ? undefined
-                : "web/event/akad/show-silent.njk",
             event: { connect: { id: event.id } },
+            ...EventGuestRepository.createView(
+              body["event_guest[use_music]"] === "1",
+              event,
+            ),
           },
         },
       },

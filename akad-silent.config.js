@@ -16,8 +16,8 @@ export default defineConfig({
     laravel({
       buildDirectory: "build",
       input: [
-        "resources/js/event/akad/app.js",
-        "resources/css/event/akad/app.scss",
+        "resources/js/event-guest/akad/app.js",
+        "resources/css/event-guest/akad/app.scss",
       ],
     }),
     viteStaticCopy({
@@ -28,6 +28,10 @@ export default defineConfig({
         },
         {
           src: "node_modules/oh-snap-notifications/ohsnap.js",
+          dest: "",
+        },
+        {
+          src: "node_modules/select2/dist/js/select2.min.js",
           dest: "",
         },
       ],

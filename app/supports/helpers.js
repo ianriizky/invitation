@@ -54,3 +54,17 @@ export function generateKey(cipher) {
 export function dateToUnixTimestamp(date) {
   return Math.floor(date.getTime() / 1000);
 }
+
+/**
+ * @param {import("express").Request} req
+ */
+export function getBaseUrl(req) {
+  return getCurrentUrl(req).origin;
+}
+
+/**
+ * @param {import("express").Request} req
+ */
+export function getCurrentUrl(req) {
+  return new URL(`${req.protocol}://${req.get("host")}${req.originalUrl}`);
+}

@@ -5,14 +5,12 @@
  */
 export default function (req, res, next) {
   if (req?.flash) {
-    const flashes = getFlash(req);
+    const flash = getFlash(req);
 
-    if (flashes) {
-      /** @type {import("nunjucks").Environment} */
-      const view = req.app.get("nunjucks");
+    /** @type {import("nunjucks").Environment} */
+    const view = req.app.get("nunjucks");
 
-      view.addGlobal("flashes", flashes);
-    }
+    view.addGlobal("flash", flash.length > 0 ? flash[0] : undefined);
   }
 
   return next();
@@ -21,16 +19,14 @@ export default function (req, res, next) {
 /**
  * @param {import("express").Request} req
  * @param {any | any []} message
- * @param {string} key
  */
-export function createFlash(req, message, key = "flashes") {
-  req.flash(key, message);
+export function createFlash(req, message) {
+  req.flash("flash", message);
 }
 
 /**
  * @param {import("express").Request} req
- * @param {string} key
  */
-export function getFlash(req, key = "flashes") {
-  return req.flash(key);
+export function getFlash(req) {
+  return req.flash("flash");
 }

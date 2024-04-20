@@ -1,0 +1,30 @@
+{% macro button(pagination) %}
+  <span class="title-section">
+    <a href="{{ pagination.firstPageUrl }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+      ≪
+    </a>
+    {% if pagination.prevPageUrl %}
+      <a href="{{ pagination.prevPageUrl }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+      ＜
+    </a>
+    {% endif %}
+    {% if pagination.nextPageUrl %}
+      <a href="{{ pagination.nextPageUrl }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+      ＞
+    </a>
+    {% endif %}
+    <a href="{{ pagination.lastPageUrl }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
+      ≫
+    </a>
+  </span>
+{% endmacro %}
+
+{% macro information(pagination) %}
+  <span class="newyork-font font-black" style="font-size: 18px;">
+    <p>Halaman Sekarang: {{ pagination.currentPage }}</p>
+    <br>
+    <p>Total Halaman: {{ pagination.lastPage }}</p>
+    <br>
+    <p>Total Data: {{ pagination.total }}</p>
+  </span>
+{% endmacro %}
