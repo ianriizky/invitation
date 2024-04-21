@@ -4,7 +4,9 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [Unreleased](https://github.com/ianriizky/invitation/compare/2.1.0...develop)
 
-## [2.1.0](https://github.com/ianriizky/invitation/releases/tag/2.1.0) - 2024-04-20
+## [2.1.0](https://github.com/ianriizky/invitation/releases/tag/2.1.0) - 2024-04-21
+
+- feat: merge pull request from ianriizky/feature/vip by [@ianriizky](https://github.com/ianriizky) in [#1](https://github.com/ianriizky/invitation/pull/1).
 
 ## [2.0.0](https://github.com/ianriizky/invitation/releases/tag/2.0.0) - 2024-04-20
 
