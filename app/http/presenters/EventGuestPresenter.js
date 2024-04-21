@@ -2,6 +2,7 @@ import { EventGuestRepository } from "../../repositories/EventGuestRepository.js
 import { EventRepository } from "../../repositories/EventRepository.js";
 import { getBaseUrl } from "../../supports/helpers.js";
 import _ from "lodash";
+import QRCode from "qrcode";
 
 /**
  * @typedef {{
@@ -63,20 +64,24 @@ export class EventGuestPresenter {
   /**
    * @param {ReturnType<import("../../repositories/EventRepository.js").EventRepository["findByGuestSlug"]>} event
    * @param {import("../../repositories/EventRepository.js").EventGuest} event_guest
+   * @param {import("express").Request} req
    */
-  show(event, event_guest) {
-    return _.merge(
-      _.clone(event_guest.current_view_data),
-      {
-        message_url: {
-          display: `${event_guest.url}/message`,
-          insert: `${event_guest.url}/message`,
-        },
+  async show(event, event_guest, req) {
+    const url = EventRepository.getUrl(event, event.event_guests[0].guest, req);
+
+    return _.merge(_.clone(event_guest.current_view_data), {
+      message_url: {
+        display: `${event_guest.url}/message`,
+        insert: `${event_guest.url}/message`,
       },
-      {
-        event: _.omit(event, ["view_data"]),
-        guest: _.omit(event_guest.guest, "view_data"),
-      },
-    );
+      vip: EventGuestRepository.isVip(event_guest)
+        ? {
+            qrcode_dataurl: await QRCode.toDataURL(url, { margin: 1 }),
+            url,
+          }
+        : undefined,
+      event: _.omit(event, ["view_data"]),
+      guest: _.omit(event_guest.guest, "view_data"),
+    });
   }
 }
