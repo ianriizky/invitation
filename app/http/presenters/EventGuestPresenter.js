@@ -36,6 +36,7 @@ export class EventGuestPresenter {
           event_guest,
           event,
         );
+        event_guest.is_vip = EventGuestRepository.isVip(event_guest);
         event_guest.destroy_url = `${getBaseUrl(req)}/event/${event.slug}/guest/${event_guest.guest.slug}`;
 
         return event_guest;
