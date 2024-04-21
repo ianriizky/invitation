@@ -10,6 +10,7 @@ import { Validator } from "../Validator.js";
  * }} CreateRequestParam
  * @typedef {{
  *   "event_guest[use_music]": string,
+ *   "event_guest[is_vip]": string,
  *   "guest[name_text]"?: string;
  *   "guest[name_select]"?: string;
  *   "guest[slug]"?: string;
@@ -45,6 +46,7 @@ export class EventGuestValidator extends Validator {
       .object({
         _csrf: this.joi.string().required(),
         "event_guest[use_music]": this.joi.string().valid("1", "0"),
+        "event_guest[is_vip]": this.joi.string().valid("1", "0"),
         "guest[name_text]": this.joi.string().empty(""),
         "guest[name_select]": this.joi.string().empty(""),
         "guest[slug]": this.joi.string().empty(""),

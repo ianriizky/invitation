@@ -70,7 +70,10 @@ export class EventGuestRepository {
         event_id: event.id,
         guest_id: guest.id,
         ...EventGuestRepository.createView(
-          body["event_guest[use_music]"] === "1",
+          {
+            useMusic: body["event_guest[use_music]"] === "1",
+            isVip: body["event_guest[is_vip]"] === "1",
+          },
           event,
         ),
       },
@@ -89,13 +92,24 @@ export class EventGuestRepository {
   }
 
   /**
-   * @param {boolean} useMusic
+   * @param {EventGuest} model
+   */
+  static isVip(model) {
+    return model.view_data?.is_vip;
+  }
+
+  /**
+   * @param {{ useMusic?: boolean; isVip?: boolean }} data
    * @param {import("./EventRepository.js").Event} event
    */
-  static createView(useMusic, event) {
-    const view_data = !useMusic ? { use_music: false } : undefined;
+  static createView(data, event) {
+    const view_data = {
+      use_music: data?.useMusic,
+      is_vip: data?.isVip,
+    };
+
     const view_path =
-      !useMusic && event.view_data?.silent_view_path
+      !data.useMusic && event.view_data?.silent_view_path
         ? event.view_data?.silent_view_path
         : undefined;
 

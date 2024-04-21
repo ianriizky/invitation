@@ -133,7 +133,7 @@ export class EventGuestController extends Controller {
 
     return res.render(
       event.event_guests[0].current_view_path,
-      new EventGuestPresenter().show(event, event.event_guests[0]),
+      await new EventGuestPresenter().show(event, event.event_guests[0], req),
     );
   }
 
