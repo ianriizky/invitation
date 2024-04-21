@@ -155,6 +155,35 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-wrap mt-2">
+                    <div class="label text-transform-uppercase">Tamu VIP?</div>
+                    <div class="input-form">
+                      <div class="wrap-radio">
+                        <input
+                          type="radio"
+                          class="specifyColor"
+                          id="event_guest_is_vip_yes"
+                          name="event_guest[is_vip]"
+                          value="1"
+                          {% if body["event_guest[is_vip]"] === "1" %}checked{% endif %}
+                          required />
+                        <label class="btn-click" for="event_guest_is_vip_yes">Iya</label>
+                      </div>
+                    </div>
+                    <div class="input-form">
+                      <div class="wrap-radio">
+                        <input
+                          type="radio"
+                          class="specifyColor"
+                          id="event_guest_is_vip_no"
+                          name="event_guest[is_vip]"
+                          value="0"
+                          {% if body["event_guest[is_vip]"] === "0" %}checked{% endif %}
+                          required />
+                        <label class="btn-click" for="event_guest_is_vip_no">Tidak</label>
+                      </div>
+                    </div>
+                  </div>
                   <button type="submit" class="btn-send">
                     <span class="button__text text-transform-uppercase">Simpan</span>
                   </button>

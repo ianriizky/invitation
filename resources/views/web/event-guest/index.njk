@@ -57,6 +57,10 @@
                     Iya
                   {% else %} Tidak {% endif %}
                   </p>
+                  <p>Tamu VIP: {% if event_guest.is_vip %}
+                    Iya
+                  {% else %} Tidak {% endif %}
+                  </p>
                   <p>Nomor Telepon: {% if event_guest.guest.phone_number %}
                       {{ event_guest.guest.phone_number }}
                     {% else %} - {% endif %}
