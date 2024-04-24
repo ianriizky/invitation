@@ -60,7 +60,7 @@
                         class="w-100 input-t"
                         id="guest_name_text"
                         name="guest[name_text]"
-                        value="{{ body["guest[name_text]"] }}" />
+                        value="{{ flash.value["guest[name_text]"] }}" />
                     </div>
                     <p>atau pilih daftar tamu di bawah ini</p>
                     <div class="input-form">
@@ -74,7 +74,7 @@
                         title="Nama" >
                         <option value=""></option>
                         {% for guest in guests %}
-                          <option value="{{ guest.name }}">{{ guest.name }} ({{ guest.slug }})</option>
+                          <option value="{{ guest.name }}" {% if flash.value["guest[name_select]"] === guest.name %} selected="selected" {% endif %}>{{ guest.name }} ({{ guest.slug }})</option>
                         {% endfor %}
                       </select>
                     </div>
@@ -89,7 +89,7 @@
                         class="w-100 input-t"
                         id="guest_slug"
                         name="guest[slug]"
-                        value="{{ body["guest[slug]"] }}" />
+                        value="{{ flash.value["guest[slug]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -100,7 +100,7 @@
                         class="w-100 input-t"
                         id="guest_domicile"
                         name="guest[domicile]"
-                        value="{{ body["guest[domicile]"] }}" />
+                        value="{{ flash.value["guest[domicile]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -111,7 +111,7 @@
                         class="w-100 input-t"
                         id="guest_phone_number"
                         name="guest[phone_number]"
-                        value="{{ body["guest[phone_number]"] }}" />
+                        value="{{ flash.value["guest[phone_number]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -123,7 +123,21 @@
                         id="guest_description"
                         name="guest[description]"
                         rows="8"
-                      >{{ body["guest[description]"] }}</textarea>
+                      >{{ flash.value["guest[description]"] }}</textarea>
+                    </div>
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <label for="event_guest_number_of_attendees" class="label">
+                      <span class="text-transform-uppercase">Jumlah Kehadiran</span> (orang)</label>
+                    <div class="input-form">
+                      <input
+                        type="number"
+                        class="w-100 input-t"
+                        id="event_guest_number_of_attendees"
+                        name="event_guest[number_of_attendees]"
+                        min="1"
+                        step="1"
+                        value="{% if flash.value["event_guest[number_of_attendees]"] %}{{ flash.value["event_guest[number_of_attendees]"] }}{% else %}1{% endif %}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -136,7 +150,7 @@
                           id="event_guest_use_music_yes"
                           name="event_guest[use_music]"
                           value="1"
-                          {% if body["event_guest[use_music]"] === "1" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "1" %}checked{% endif %}
                           required />
                         <label for="event_guest_use_music_yes" class="btn-click">Iya</label>
                       </div>
@@ -149,7 +163,7 @@
                           id="event_guest_use_music_no"
                           name="event_guest[use_music]"
                           value="0"
-                          {% if body["event_guest[use_music]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "0" %}checked{% endif %}
                           required />
                         <label for="event_guest_use_music_no" class="btn-click">Tidak</label>
                       </div>
@@ -178,7 +192,7 @@
                           id="event_guest_is_vip_no"
                           name="event_guest[is_vip]"
                           value="0"
-                          {% if body["event_guest[is_vip]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[is_vip]"] === "0" %}checked{% endif %}
                           required />
                         <label for="event_guest_is_vip_no" class="btn-click">Tidak</label>
                       </div>

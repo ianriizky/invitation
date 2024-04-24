@@ -92,6 +92,7 @@ export class GuestRepository {
         event_guests: {
           create: {
             event: { connect: { id: event.id } },
+            number_of_attendees: body["event_guest[number_of_attendees]"] || 1,
             ...EventGuestRepository.createView(
               {
                 useMusic: body["event_guest[use_music]"] === "1",

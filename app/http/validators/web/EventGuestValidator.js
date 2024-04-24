@@ -17,6 +17,7 @@ import { Validator } from "../Validator.js";
  *   "guest[domicile]"?: string;
  *   "guest[phone_number]"?: string;
  *   "guest[description]"?: string;
+ *   "event_guest[number_of_attendees]"?: number;
  * }} StoreRequestBody
  * @typedef {{
  *   event_slug: import("../../../repositories/EventRepository.js").Event["slug"];
@@ -53,6 +54,7 @@ export class EventGuestValidator extends Validator {
         "guest[domicile]": this.joi.string().empty(""),
         "guest[phone_number]": this.joi.string().empty(""),
         "guest[description]": this.joi.string().empty(""),
+        "event_guest[number_of_attendees]": this.joi.number().min(1),
       })
       .xor("guest[name_text]", "guest[name_select]"),
   );
