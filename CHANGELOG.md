@@ -2,7 +2,13 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.1.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.2.0...develop)
+
+## [2.2.0](https://github.com/ianriizky/invitation/releases/tag/2.2.0) - 2024-04-24
+
+- fix: css typo on event guest create page by [@ianriizky](https://github.com/ianriizky) in [#e360ffc](https://github.com/ianriizky/invitation/commit/e360ffcefb196febb6a7d84c5f6faa622e723839).
+- style: use label tag on event guest create page by [@ianriizky](https://github.com/ianriizky) in [#0b42cb3](https://github.com/ianriizky/invitation/commit/0b42cb3c66b814658fc5e1d1ef8c3523df3ef0ba).
+- feat: add input form for number_of_attendees on event guest data by [@ianriizky](https://github.com/ianriizky) in [#86ba766](https://github.com/ianriizky/invitation/commit/86ba766942bc9759ac258bf050d8eeb31a5a4b00).
 
 ## [2.1.0](https://github.com/ianriizky/invitation/releases/tag/2.1.0) - 2024-04-21
 

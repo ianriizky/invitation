@@ -69,6 +69,10 @@
                       {{ event_guest.guest.description }}
                     {% else %} - {% endif %}
                   </p>
+                  <p>Jumlah Kehadiran: {% if event_guest.number_of_attendees %}
+                      {{ event_guest.number_of_attendees }}
+                    {% else %} - {% endif %} orang
+                  </p>
                 </div>
                 <div class="location-and-present mt-1">
                   <form action="{{ event_guest.destroy_url }}" method="post" onsubmit="return confirm('Apa anda yakin ingin menghapus {{ event_guest.guest.name }}?');">

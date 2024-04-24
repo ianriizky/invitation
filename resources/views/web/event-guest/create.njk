@@ -51,16 +51,16 @@
                 <input type="hidden" name="_csrf" value="{{ csrf_token }}">
                 <div class="w-100">
                   <div class="form-wrap mt-2">
-                    <div class="label">
+                    <label for="guest_name_text" class="label">
                       <span class="text-transform-uppercase">Nama</span> (wajib diisi)
-                    </div>
+                    </label>
                     <div class="input-form">
                       <input
                         type="text"
                         class="w-100 input-t"
                         id="guest_name_text"
                         name="guest[name_text]"
-                        value="{{ body["guest[name_text]"] }}" />
+                        value="{{ flash.value["guest[name_text]"] }}" />
                     </div>
                     <p>atau pilih daftar tamu di bawah ini</p>
                     <div class="input-form">
@@ -68,54 +68,54 @@
                         class="select2"
                         id="guest_name_select"
                         name="guest[name_select]"
-                        style="width: 100%; display: blockl"
+                        style="width: 100%; display: block"
                         data-allow-clear="true"
                         data-placeholder="-- Pilih Salah Satu --"
                         title="Nama" >
                         <option value=""></option>
                         {% for guest in guests %}
-                          <option value="{{ guest.name }}">{{ guest.name }} ({{ guest.slug }})</option>
+                          <option value="{{ guest.name }}" {% if flash.value["guest[name_select]"] === guest.name %} selected="selected" {% endif %}>{{ guest.name }} ({{ guest.slug }})</option>
                         {% endfor %}
                       </select>
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label">
+                    <label for="guest_slug" class="label">
                       <span class="text-transform-uppercase">Format URL</span> (opsional)
-                    </div>
+                    </label>
                     <div class="input-form">
                       <input
                         type="text"
                         class="w-100 input-t"
                         id="guest_slug"
                         name="guest[slug]"
-                        value="{{ body["guest[slug]"] }}" />
+                        value="{{ flash.value["guest[slug]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label text-transform-uppercase">Domisili</div>
+                    <label for="guest_domicile" class="label text-transform-uppercase">Domisili</label>
                     <div class="input-form">
                       <input
                         type="text"
                         class="w-100 input-t"
                         id="guest_domicile"
                         name="guest[domicile]"
-                        value="{{ body["guest[domicile]"] }}" />
+                        value="{{ flash.value["guest[domicile]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label text-transform-uppercase">Nomor Telepon / WhatsApp</div>
+                    <label for="guest_phone_number" class="label text-transform-uppercase">Nomor Telepon / WhatsApp</label>
                     <div class="input-form">
                       <input
                         type="tel"
                         class="w-100 input-t"
                         id="guest_phone_number"
                         name="guest[phone_number]"
-                        value="{{ body["guest[phone_number]"] }}" />
+                        value="{{ flash.value["guest[phone_number]"] }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label text-transform-uppercase">Keterangan</div>
+                    <label for="guest_description" class="label text-transform-uppercase">Keterangan</label>
                     <div class="input-form">
                       <textarea
                         type="text"
@@ -123,11 +123,25 @@
                         id="guest_description"
                         name="guest[description]"
                         rows="8"
-                      >{{ body["guest[description]"] }}</textarea>
+                      >{{ flash.value["guest[description]"] }}</textarea>
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label text-transform-uppercase">Menggunakan Musik?</div>
+                    <label for="event_guest_number_of_attendees" class="label">
+                      <span class="text-transform-uppercase">Jumlah Kehadiran</span> (orang)</label>
+                    <div class="input-form">
+                      <input
+                        type="number"
+                        class="w-100 input-t"
+                        id="event_guest_number_of_attendees"
+                        name="event_guest[number_of_attendees]"
+                        min="1"
+                        step="1"
+                        value="{% if flash.value["event_guest[number_of_attendees]"] %}{{ flash.value["event_guest[number_of_attendees]"] }}{% else %}1{% endif %}" />
+                    </div>
+                  </div>
+                  <div class="form-wrap mt-2">
+                    <label for="event_guest_use_music" class="label text-transform-uppercase">Menggunakan Musik?</label>
                     <div class="input-form">
                       <div class="wrap-radio">
                         <input
@@ -136,9 +150,9 @@
                           id="event_guest_use_music_yes"
                           name="event_guest[use_music]"
                           value="1"
-                          {% if body["event_guest[use_music]"] === "1" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "1" %}checked{% endif %}
                           required />
-                        <label class="btn-click" for="event_guest_use_music_yes">Iya</label>
+                        <label for="event_guest_use_music_yes" class="btn-click">Iya</label>
                       </div>
                     </div>
                     <div class="input-form">
@@ -149,14 +163,14 @@
                           id="event_guest_use_music_no"
                           name="event_guest[use_music]"
                           value="0"
-                          {% if body["event_guest[use_music]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "0" %}checked{% endif %}
                           required />
-                        <label class="btn-click" for="event_guest_use_music_no">Tidak</label>
+                        <label for="event_guest_use_music_no" class="btn-click">Tidak</label>
                       </div>
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
-                    <div class="label text-transform-uppercase">Tamu VIP?</div>
+                    <label for="event_guest_is_vip" class="label text-transform-uppercase">Tamu VIP?</label>
                     <div class="input-form">
                       <div class="wrap-radio">
                         <input
@@ -165,9 +179,9 @@
                           id="event_guest_is_vip_yes"
                           name="event_guest[is_vip]"
                           value="1"
-                          {% if body["event_guest[is_vip]"] === "1" %}checked{% endif %}
+                          {% if flash.value["event_guest[is_vip]"] === "1" %}checked{% endif %}
                           required />
-                        <label class="btn-click" for="event_guest_is_vip_yes">Iya</label>
+                        <label for="event_guest_is_vip_yes" class="btn-click">Iya</label>
                       </div>
                     </div>
                     <div class="input-form">
@@ -178,9 +192,9 @@
                           id="event_guest_is_vip_no"
                           name="event_guest[is_vip]"
                           value="0"
-                          {% if body["event_guest[is_vip]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[is_vip]"] === "0" %}checked{% endif %}
                           required />
-                        <label class="btn-click" for="event_guest_is_vip_no">Tidak</label>
+                        <label for="event_guest_is_vip_no" class="btn-click">Tidak</label>
                       </div>
                     </div>
                   </div>
