@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.2.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.3.0...develop)
+
+## [2.3.0](https://github.com/ianriizky/invitation/releases/tag/2.3.0) - 2024-04-26
+
+- feat: use different whatsapp message view template from view data by [@ianriizky](https://github.com/ianriizky) in [#556a422](https://github.com/ianriizky/invitation/commit/556a4226c0cc138d139bfcaf5644db02d29377b9).
+- style: update resepsi template for VIP by [@ianriizky](https://github.com/ianriizky) in [#f7396b2](https://github.com/ianriizky/invitation/commit/f7396b26377aaaf4284d75714bb2f4cd244faaf2).
 
 ## [2.2.0](https://github.com/ianriizky/invitation/releases/tag/2.2.0) - 2024-04-24
 

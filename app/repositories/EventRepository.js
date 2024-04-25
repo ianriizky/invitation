@@ -130,11 +130,10 @@ export class EventRepository {
    * @param {import("express").Request} req
    */
   static getWhatsappMessage(view, event, guest, req) {
-    return view.render("whatsapp/event-guest/akad/show.njk", {
+    return view.render(event?.view_data?.whatsapp_message_view_path, {
       guest_name: guest.name,
-      bride_full_name: "Eka Budiarti & Septianata Rizky Pratama",
       url: this.getUrl(event, guest, req),
-      bride_nick_name: "Eka & Ian",
+      view_data: event?.view_data,
     });
   }
 

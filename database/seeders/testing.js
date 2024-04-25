@@ -54,6 +54,7 @@ function akad() {
       view_data: {
         silent_view_path: "web/event-guest/akad/show-silent.njk",
         message_view_path: "web/components/message.njk",
+        whatsapp_message_view_path: "whatsapp/event-guest/akad/show.njk",
         title: "The Wedding of",
         subtitle: "The Wedding of",
         description: format(view_data.date, "EEEE, d LLLL yyyy", {
@@ -111,6 +112,7 @@ function akad() {
         bride: {
           title: "",
           fullname: "",
+          nickname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putri pertama dari Bapak & Ibu",
@@ -118,6 +120,7 @@ function akad() {
         groom: {
           title: "",
           fullname: "",
+          nickname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putra pertama dari Bapak & Ibu",
@@ -164,6 +167,7 @@ function resepsi() {
       view_data: {
         silent_view_path: "web/event-guest/resepsi/show-silent.njk",
         message_view_path: "web/components/message.njk",
+        whatsapp_message_view_path: "whatsapp/event-guest/resepsi/show.njk",
         title: "The Wedding of",
         subtitle: "The Wedding of",
         description: format(view_data.start_date, "EEEE, d LLLL yyyy", {
@@ -194,6 +198,7 @@ function resepsi() {
         bride: {
           title: "",
           fullname: "",
+          nickname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putri pertama dari Bapak & Ibu",
@@ -201,6 +206,7 @@ function resepsi() {
         groom: {
           title: "",
           fullname: "",
+          nickname: "",
           instagram_url: "https://www.instagram.com/",
           instagram_username: "",
           parent_description: "Putra pertama dari Bapak & Ibu",
