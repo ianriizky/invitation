@@ -2,7 +2,12 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.3.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.4.0...develop)
+
+## [2.4.0](https://github.com/ianriizky/invitation/releases/tag/2.4.0) - 2024-04-26
+
+- feat: create auth basic credentials for admin by [@ianriizky](https://github.com/ianriizky) in [#d736c61](https://github.com/ianriizky/invitation/commit/d736c6156dbcbdb56aa69c45bc847d6d68c1944b).
+- feat: handle edit and update for event guest data by [@ianriizky](https://github.com/ianriizky) in [#9c30bd6](https://github.com/ianriizky/invitation/commit/9c30bd69fb33e400b6a455166c7f68eb1cabdc37).
 
 ## [2.3.0](https://github.com/ianriizky/invitation/releases/tag/2.3.0) - 2024-04-26
 

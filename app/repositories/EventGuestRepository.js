@@ -69,7 +69,7 @@ export class EventGuestRepository {
       data: {
         event_id: event.id,
         guest_id: guest.id,
-        number_of_attendees: body["event_guest[number_of_attendees]"] || 1,
+        number_of_attendees: body["event_guest[number_of_attendees]"],
         ...EventGuestRepository.createView(
           {
             useMusic: body["event_guest[use_music]"] === "1",
@@ -77,6 +77,36 @@ export class EventGuestRepository {
           },
           event,
         ),
+      },
+    });
+  }
+
+  /**
+   * @param {EventGuest} model
+   * @param {import("./EventRepository.js").Event} event
+   * @param {import("../../app/http/validators/web/EventGuestValidator.js").UpdateRequestBody} body
+   */
+  update(model, event, body) {
+    return this.prisma.eventGuest.update({
+      where: { id: model.id },
+      data: {
+        number_of_attendees: body["event_guest[number_of_attendees]"],
+        ...EventGuestRepository.createView(
+          {
+            useMusic: body["event_guest[use_music]"] === "1",
+            isVip: body["event_guest[is_vip]"] === "1",
+          },
+          event,
+        ),
+        guest: {
+          update: {
+            name: body["guest[name_text]"],
+            slug: body["guest[slug]"],
+            domicile: body["guest[domicile]"],
+            phone_number: body["guest[phone_number]"],
+            description: body["guest[description]"],
+          },
+        },
       },
     });
   }

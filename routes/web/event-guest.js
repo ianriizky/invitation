@@ -11,7 +11,7 @@ const router = Router();
 router.get(
   "/event/:event_slug/guest",
   [
-    authenticateBasicMiddleware,
+    authenticateBasicMiddleware(["admin", "default"]),
     new EventGuestValidator().index,
     csrf,
     csrfMiddleware,
@@ -22,7 +22,7 @@ router.get(
 router.get(
   "/event/:event_slug/guest/create",
   [
-    authenticateBasicMiddleware,
+    authenticateBasicMiddleware(["admin"]),
     new EventGuestValidator().create,
     csrf,
     csrfMiddleware,
@@ -33,16 +33,40 @@ router.get(
 router.post(
   "/event/:event_slug/guest",
   [
-    authenticateBasicMiddleware,
+    authenticateBasicMiddleware(["admin"]),
     new EventGuestValidator().create,
     new EventGuestValidator().store,
     csrf,
   ],
   asyncHandler(new EventGuestController().store),
 );
+router.get(
+  "/event/:event_slug/guest/:guest_slug/edit",
+  [
+    authenticateBasicMiddleware(["admin"]),
+    new EventGuestValidator().show,
+    csrf,
+    csrfMiddleware,
+  ],
+  asyncHandler(new EventGuestController().edit),
+);
+router.put(
+  "/event/:event_slug/guest/:guest_slug",
+  [
+    authenticateBasicMiddleware(["admin"]),
+    new EventGuestValidator().show,
+    new EventGuestValidator().update,
+    csrf,
+  ],
+  asyncHandler(new EventGuestController().update),
+);
 router.delete(
   "/event/:event_slug/guest/:guest_slug",
-  [authenticateBasicMiddleware, new EventGuestValidator().show, csrf],
+  [
+    authenticateBasicMiddleware(["admin"]),
+    new EventGuestValidator().show,
+    csrf,
+  ],
   asyncHandler(new EventGuestController().destroy),
 );
 router.get(
@@ -52,7 +76,7 @@ router.get(
 );
 router.get(
   "/event/:event_slug/:guest_slug/whatsapp-message",
-  [authenticateBasicMiddleware, new EventGuestValidator().show],
+  [authenticateBasicMiddleware(["default"]), new EventGuestValidator().show],
   asyncHandler(new EventGuestController().showWhatsappMessage),
 );
 router.get(

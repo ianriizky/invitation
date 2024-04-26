@@ -85,14 +85,14 @@ export class GuestRepository {
     return this.model.create({
       data: {
         name: body["guest[name_text]"],
-        slug: body["guest[slug]"] || undefined,
-        domicile: body["guest[domicile]"] || undefined,
-        phone_number: body["guest[phone_number]"] || undefined,
-        description: body["guest[description]"] || undefined,
+        slug: body["guest[slug]"],
+        domicile: body["guest[domicile]"],
+        phone_number: body["guest[phone_number]"],
+        description: body["guest[description]"],
         event_guests: {
           create: {
             event: { connect: { id: event.id } },
-            number_of_attendees: body["event_guest[number_of_attendees]"] || 1,
+            number_of_attendees: body["event_guest[number_of_attendees]"],
             ...EventGuestRepository.createView(
               {
                 useMusic: body["event_guest[use_music]"] === "1",
