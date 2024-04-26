@@ -44,6 +44,8 @@ jobs:
       API_KEY_PROD: 54321
       BASIC_USERNAME: 12345
       BASIC_PASSWORD: 54321
+      BASIC_ADMIN_USERNAME: 12345
+      BASIC_ADMIN_PASSWORD: 54321
 
     strategy:
       matrix:
