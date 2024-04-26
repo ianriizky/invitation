@@ -36,7 +36,7 @@
           <button type="submit" class="btn-send">
             <span class="button__text text-transform-uppercase" style="display: inline-block;">Cari</span>
           </button>
-          <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: block; text-align: center;">
+          <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: block; text-align: center; letter-spacing: 0;">
             Reset Pencarian
           </a>
         </form>
@@ -74,11 +74,14 @@
                     {% else %} - {% endif %} orang
                   </p>
                 </div>
-                <div class="location-and-present mt-1">
+                <div class="location-and-present">
+                  <a href="{{ event_guest.edit_url }}" class="btn-white" style="text-align: center; letter-spacing: 0;">
+                    Edit Data
+                  </a>
                   <form action="{{ event_guest.destroy_url }}" method="post" onsubmit="return confirm('Apa anda yakin ingin menghapus {{ event_guest.guest.name }}?');">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_csrf" value="{{ csrf_token }}">
-                    <button type="submit" class="hadir btn-send">
+                    <button type="submit" class="btn-send">
                       Hapus Data
                     </button>
                   </form>

@@ -27,6 +27,7 @@ export class EventGuestPresenter {
     return _.merge(_.clone(event.view_data), {
       event_guests: event_guests.map(event_guest => {
         event_guest.url = EventRepository.getUrl(event, event_guest.guest, req);
+        event_guest.edit_url = `${getBaseUrl(req)}/event/${event.slug}/guest/${event_guest.guest.slug}/edit`;
         event_guest.whatsapp_message_url =
           EventRepository.getWhatsappMessageShortUrl(
             event,

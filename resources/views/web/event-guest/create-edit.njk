@@ -34,7 +34,7 @@
           <div class="welcome">
             <div id="message-id" class="block-message mt-2">
               <span class="title-section newyork-font font-black">
-                Buat Tamu
+                {{ title_section }}
               </span>
               <span>
                 <a href="{{ index_url }}" class="btn-white text-transform-uppercase" style="display: inline-block; text-align: center;">
@@ -47,7 +47,10 @@
               {% if flash %}
                 <div class="alert-{{ flash.color }}" style="margin: 10px 20px; padding: 5px; border-radius: 5px;">{{ flash.message }}</div>
               {% endif %}
-              <form action="{{ store_url }}" method="post" class="form-data font-black">
+              <form action="{{ action_url }}" method="post" class="form-data font-black">
+                {% if http_verb %}
+                  <input type="hidden" name="_method" value="{{ http_verb }}">
+                {% endif %}
                 <input type="hidden" name="_csrf" value="{{ csrf_token }}">
                 <div class="w-100">
                   <div class="form-wrap mt-2">
@@ -60,24 +63,26 @@
                         class="w-100 input-t"
                         id="guest_name_text"
                         name="guest[name_text]"
-                        value="{{ flash.value["guest[name_text]"] }}" />
+                        value="{{ flash.value["guest[name_text]"] if flash.value["guest[name_text]"] else event_guest.guest.name }}" />
                     </div>
-                    <p>atau pilih daftar tamu di bawah ini</p>
-                    <div class="input-form">
-                      <select
-                        class="select2"
-                        id="guest_name_select"
-                        name="guest[name_select]"
-                        style="width: 100%; display: block"
-                        data-allow-clear="true"
-                        data-placeholder="-- Pilih Salah Satu --"
-                        title="Nama" >
-                        <option value=""></option>
-                        {% for guest in guests %}
-                          <option value="{{ guest.name }}" {% if flash.value["guest[name_select]"] === guest.name %} selected="selected" {% endif %}>{{ guest.name }} ({{ guest.slug }})</option>
-                        {% endfor %}
-                      </select>
-                    </div>
+                    {% if guests %}
+                      <p>atau pilih daftar tamu di bawah ini</p>
+                      <div class="input-form">
+                        <select
+                          class="select2"
+                          id="guest_name_select"
+                          name="guest[name_select]"
+                          style="width: 100%; display: block"
+                          data-allow-clear="true"
+                          data-placeholder="-- Pilih Salah Satu --"
+                          title="Nama" >
+                          <option value=""></option>
+                          {% for guest in guests %}
+                            <option value="{{ guest.name }}" {% if [flash.value["guest[name_select]"], event_guest.guest.name].includes(guest.name) %} selected="selected" {% endif %}>{{ guest.name }} ({{ guest.slug }})</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    {% endif %}
                   </div>
                   <div class="form-wrap mt-2">
                     <label for="guest_slug" class="label">
@@ -89,7 +94,7 @@
                         class="w-100 input-t"
                         id="guest_slug"
                         name="guest[slug]"
-                        value="{{ flash.value["guest[slug]"] }}" />
+                        value="{{ flash.value["guest[slug]"] if flash.value["guest[slug]"] else event_guest.guest.slug }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -100,7 +105,7 @@
                         class="w-100 input-t"
                         id="guest_domicile"
                         name="guest[domicile]"
-                        value="{{ flash.value["guest[domicile]"] }}" />
+                        value="{{ flash.value["guest[domicile]"] if flash.value["guest[domicile]"] else event_guest.guest.domicile }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -111,7 +116,7 @@
                         class="w-100 input-t"
                         id="guest_phone_number"
                         name="guest[phone_number]"
-                        value="{{ flash.value["guest[phone_number]"] }}" />
+                        value="{{ flash.value["guest[phone_number]"] if flash.value["guest[phone_number]"] else event_guest.guest.phone_number }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -123,7 +128,7 @@
                         id="guest_description"
                         name="guest[description]"
                         rows="8"
-                      >{{ flash.value["guest[description]"] }}</textarea>
+                      >{{ flash.value["guest[description]"] if flash.value["guest[description]"] else event_guest.guest.description }}</textarea>
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -137,7 +142,7 @@
                         name="event_guest[number_of_attendees]"
                         min="1"
                         step="1"
-                        value="{% if flash.value["event_guest[number_of_attendees]"] %}{{ flash.value["event_guest[number_of_attendees]"] }}{% else %}1{% endif %}" />
+                        value="{{ flash.value["event_guest[number_of_attendees]"] if flash.value["event_guest[number_of_attendees]"] else event_guest.number_of_attendees }}" />
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
@@ -150,7 +155,7 @@
                           id="event_guest_use_music_yes"
                           name="event_guest[use_music]"
                           value="1"
-                          {% if flash.value["event_guest[use_music]"] === "1" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "1" or event_guest.view_data.use_music %}checked{% endif %}
                           required />
                         <label for="event_guest_use_music_yes" class="btn-click">Iya</label>
                       </div>
@@ -163,7 +168,7 @@
                           id="event_guest_use_music_no"
                           name="event_guest[use_music]"
                           value="0"
-                          {% if flash.value["event_guest[use_music]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[use_music]"] === "1" or not event_guest.view_data.use_music %}checked{% endif %}
                           required />
                         <label for="event_guest_use_music_no" class="btn-click">Tidak</label>
                       </div>
@@ -179,7 +184,7 @@
                           id="event_guest_is_vip_yes"
                           name="event_guest[is_vip]"
                           value="1"
-                          {% if flash.value["event_guest[is_vip]"] === "1" %}checked{% endif %}
+                          {% if flash.value["event_guest[is_vip]"] === "1" or event_guest.view_data.is_vip %}checked{% endif %}
                           required />
                         <label for="event_guest_is_vip_yes" class="btn-click">Iya</label>
                       </div>
@@ -192,7 +197,7 @@
                           id="event_guest_is_vip_no"
                           name="event_guest[is_vip]"
                           value="0"
-                          {% if flash.value["event_guest[is_vip]"] === "0" %}checked{% endif %}
+                          {% if flash.value["event_guest[is_vip]"] === "0" or not event_guest.view_data.is_vip %}checked{% endif %}
                           required />
                         <label for="event_guest_is_vip_no" class="btn-click">Tidak</label>
                       </div>

@@ -77,12 +77,13 @@ export class EventGuestController extends Controller {
       orderBy: { created_at: "desc" },
     });
 
-    return res.render("web/event-guest/create.njk", {
+    return res.render("web/event-guest/create-edit.njk", {
+      title_section: "Buat Tamu",
       ...event.view_data,
       event_slug,
       guests,
       index_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
-      store_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
+      action_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
     });
   }
 
@@ -135,6 +136,92 @@ export class EventGuestController extends Controller {
       event.event_guests[0].current_view_path,
       await new EventGuestPresenter().show(event, event.event_guests[0], req),
     );
+  }
+
+  /**
+   * @template {import("../../validators/web/EventGuestValidator.js").ShowRequestParam} RequestParam
+   * @param {import("express").Request<RequestParam>} req
+   * @param {import("express").Response} res
+   * @param {import("express").NextFunction} next
+   */
+  // eslint-disable-next-line no-unused-vars
+  async edit(req, res, next) {
+    const { event_slug, guest_slug } = req.params;
+    const event = await new EventRepository(req).findByGuestSlug(
+      event_slug,
+      guest_slug,
+    );
+
+    if (event === null) {
+      throw new NotFoundException("Event not found.");
+    }
+
+    const event_guest = event.event_guests[0];
+
+    return res.render("web/event-guest/create-edit.njk", {
+      title_section: "Edit Tamu",
+      ...event.view_data,
+      event_guest,
+      event_slug,
+      index_url: `${getBaseUrl(req)}/event/${event.slug}/guest`,
+      action_url: `${getBaseUrl(req)}/event/${event.slug}/guest/${event_guest.guest.slug}`,
+      http_verb: "PUT",
+    });
+  }
+
+  /**
+   * @template {import("../../validators/web/EventGuestValidator.js").ShowRequestParam} RequestParam
+   * @template {import("../../validators/web/EventGuestValidator.js").UpdateRequestBody} RequestBody
+   * @param {import("express").Request<RequestParam,,RequestBody>} req
+   * @param {import("express").Response} res
+   * @param {import("express").NextFunction} next
+   */
+  // eslint-disable-next-line no-unused-vars
+  async update(req, res, next) {
+    const { event_slug, guest_slug } = req.params;
+    const event = await new EventRepository(req).findByGuestSlug(
+      event_slug,
+      guest_slug,
+    );
+
+    if (event === null) {
+      throw new NotFoundException("Event not found.");
+    }
+
+    const event_guest = event.event_guests[0];
+
+    await new EventGuestRepository().update(event_guest, event, req.body);
+
+    createFlash(req, { color: "green", message: "Data berhasil diedit." });
+
+    return res.redirect(`${getBaseUrl(req)}/event/${event_slug}/guest`);
+  }
+
+  /**
+   * @template {import("../../validators/web/EventGuestValidator.js").ShowRequestParam} RequestParam
+   * @param {import("express").Request<RequestParam>} req
+   * @param {import("express").Response} res
+   * @param {import("express").NextFunction} next
+   */
+  // eslint-disable-next-line no-unused-vars
+  async destroy(req, res, next) {
+    const { event_slug, guest_slug } = req.params;
+    const event = await new EventRepository(req).findByGuestSlug(
+      event_slug,
+      guest_slug,
+    );
+
+    if (event === null) {
+      throw new NotFoundException("Event not found.");
+    }
+
+    await new GuestRepository().model.delete({
+      where: { slug: guest_slug },
+    });
+
+    createFlash(req, { color: "green", message: "Data berhasil dihapus." });
+
+    return res.redirect(`${getBaseUrl(req)}/event/${event_slug}/guest`);
   }
 
   /**
@@ -226,32 +313,5 @@ export class EventGuestController extends Controller {
         color: "red",
       });
     }
-  }
-
-  /**
-   * @template {import("../../validators/web/EventGuestValidator.js").ShowRequestParam} RequestParam
-   * @param {import("express").Request<RequestParam>} req
-   * @param {import("express").Response} res
-   * @param {import("express").NextFunction} next
-   */
-  // eslint-disable-next-line no-unused-vars
-  async destroy(req, res, next) {
-    const { event_slug, guest_slug } = req.params;
-    const event = await new EventRepository(req).findByGuestSlug(
-      event_slug,
-      guest_slug,
-    );
-
-    if (event === null) {
-      throw new NotFoundException("Event not found.");
-    }
-
-    await new GuestRepository().model.delete({
-      where: { slug: guest_slug },
-    });
-
-    createFlash(req, { color: "green", message: "Data berhasil dihapus." });
-
-    return res.redirect(`${getBaseUrl(req)}/event/${event_slug}/guest`);
   }
 }

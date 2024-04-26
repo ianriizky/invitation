@@ -40,6 +40,26 @@ router.post(
   ],
   asyncHandler(new EventGuestController().store),
 );
+router.get(
+  "/event/:event_slug/guest/:guest_slug/edit",
+  [
+    authenticateBasicMiddleware(["admin"]),
+    new EventGuestValidator().show,
+    csrf,
+    csrfMiddleware,
+  ],
+  asyncHandler(new EventGuestController().edit),
+);
+router.put(
+  "/event/:event_slug/guest/:guest_slug",
+  [
+    authenticateBasicMiddleware(["admin"]),
+    new EventGuestValidator().show,
+    new EventGuestValidator().update,
+    csrf,
+  ],
+  asyncHandler(new EventGuestController().update),
+);
 router.delete(
   "/event/:event_slug/guest/:guest_slug",
   [
