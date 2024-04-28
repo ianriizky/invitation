@@ -17,6 +17,7 @@ import { Validator } from "../Validator.js";
  *   "guest[slug]"?: string;
  *   "guest[domicile]"?: string;
  *   "guest[phone_number]"?: string;
+ *   "guest[instagram_url]"?: string;
  *   "guest[description]"?: string;
  * }} StoreRequestBody
  * @typedef {{
@@ -31,6 +32,7 @@ import { Validator } from "../Validator.js";
  *   "guest[slug]"?: string;
  *   "guest[domicile]"?: string;
  *   "guest[phone_number]"?: string;
+ *   "guest[instagram_url]"?: string;
  *   "guest[description]"?: string;
  * }} UpdateRequestBody
  * @typedef {{
@@ -63,6 +65,7 @@ export class EventGuestValidator extends Validator {
         "guest[slug]": this.joi.string().empty(""),
         "guest[domicile]": this.joi.string().empty(""),
         "guest[phone_number]": this.joi.string().empty(""),
+        "guest[instagram_url]": this.joi.string().uri().empty(""),
         "guest[description]": this.joi.string().empty(""),
         "event_guest[number_of_attendees]": this.joi.number().min(1),
       })

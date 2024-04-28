@@ -72,6 +72,10 @@
                       <a href="{{ event_guest.guest.whatsapp_phone_number_url }}" target="_blank">{{ event_guest.guest.phone_number }}</a>
                     {% else %} - {% endif %}
                   </p>
+                  <p>Instagram URL: {% if event_guest.guest.instagram_url %}
+                      <a href="{{ event_guest.guest.instagram_url }}" target="_blank">{{ event_guest.guest.instagram_url }}</a>
+                    {% else %} - {% endif %}
+                  </p>
                   <p>Keterangan: {% if event_guest.guest.description %}
                       {{ event_guest.guest.description }}
                     {% else %} - {% endif %}
