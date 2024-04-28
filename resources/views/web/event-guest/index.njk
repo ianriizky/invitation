@@ -57,12 +57,16 @@
                   </p>
                   <p>Lokasi: {{ event_guest.guest.domicile }}</p>
                   <p>Menggunakan Musik: {% if event_guest.use_music %}
-                    Iya
-                  {% else %} Tidak {% endif %}
+                      <span style="background-color: #159a00; color: #ffffff; border-radius: 5px; padding: 5px;">Iya</span>
+                    {% else %}
+                      <span style="background-color: #c80000; color: #ffffff; border-radius: 5px; padding: 5px;">Tidak</span>
+                    {% endif %}
                   </p>
                   <p>Tamu VIP: {% if event_guest.is_vip %}
-                    Iya
-                  {% else %} Tidak {% endif %}
+                      <span style="background-color: #159a00; color: #ffffff; border-radius: 5px; padding: 5px;">Iya</span>
+                    {% else %}
+                      <span style="background-color: #c80000; color: #ffffff; border-radius: 5px; padding: 5px;">Tidak</span>
+                    {% endif %}
                   </p>
                   <p>Nomor Telepon: {% if event_guest.guest.phone_number %}
                       <a href="{{ event_guest.guest.whatsapp_phone_number_url }}" target="_blank">{{ event_guest.guest.phone_number }}</a>
