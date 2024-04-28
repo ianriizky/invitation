@@ -6,6 +6,8 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [2.5.1](https://github.com/ianriizky/invitation/releases/tag/2.5.1) - 2024-04-28
 
+- fix: text message view is not showing properly by [@ianriizky](https://github.com/ianriizky) in [#6e4cc79](https://github.com/ianriizky/invitation/commit/6e4cc79713fe689648a05c755fd8cc884e37ba6b).
+
 ## [2.5.0](https://github.com/ianriizky/invitation/releases/tag/2.5.0) - 2024-04-28
 
 - style: add title on invitation and whatsapp message url by [@ianriizky](https://github.com/ianriizky) in [#33258b8](https://github.com/ianriizky/invitation/commit/33258b897f8a077093e3d2e3694a2cc2394fb986).
