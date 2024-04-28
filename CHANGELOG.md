@@ -2,7 +2,9 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.1...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.2...develop)
+
+## [2.5.2](https://github.com/ianriizky/invitation/releases/tag/2.5.2) - 2024-04-28
 
 ## [2.5.1](https://github.com/ianriizky/invitation/releases/tag/2.5.1) - 2024-04-28
 
