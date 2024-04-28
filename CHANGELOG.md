@@ -6,6 +6,8 @@ All notable changes to `Invitation Web Page` will be documented in this file.
 
 ## [2.5.4](https://github.com/ianriizky/invitation/releases/tag/2.5.4) - 2024-04-28
 
+- fix: guest instagram url field is not allowed when update by [@ianriizky](https://github.com/ianriizky) in [#249e98f](https://github.com/ianriizky/invitation/commit/249e98f8f550ef0edc5ea39b22bcab8b6af86dc9).
+
 ## [2.5.3](https://github.com/ianriizky/invitation/releases/tag/2.5.3) - 2024-04-28
 
 - fix: change background music for resepsi using mp3 format by [@ianriizky](https://github.com/ianriizky) in [#1c07c06](https://github.com/ianriizky/invitation/commit/1c07c066efd481c6a8e99e67248505c9652aa46f).
