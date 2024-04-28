@@ -271,12 +271,12 @@ export class EventGuestController extends Controller {
     }
 
     return res.send(
-      EventRepository.getWhatsappMessage(
+      `<pre>${EventRepository.getWhatsappMessage(
         req.app.get("nunjucks"),
         event,
         event.event_guests[0].guest,
         req,
-      ),
+      )}<pre/>`,
     );
   }
 
