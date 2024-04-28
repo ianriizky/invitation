@@ -2,7 +2,14 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.4.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.0...develop)
+
+## [2.5.0](https://github.com/ianriizky/invitation/releases/tag/2.5.0) - 2024-04-28
+
+- style: add title on invitation and whatsapp message url by [@ianriizky](https://github.com/ianriizky) in [#33258b8](https://github.com/ianriizky/invitation/commit/33258b897f8a077093e3d2e3694a2cc2394fb986).
+- style: use coloring style on vip and music status by [@ianriizky](https://github.com/ianriizky) in [#c757b80](https://github.com/ianriizky/invitation/commit/c757b80580342fd44116d9d50184c9e35c3a4f3d).
+- feat: change background music for resepsi by [@ianriizky](https://github.com/ianriizky) in [#d9c5851](https://github.com/ianriizky/invitation/commit/d9c5851019a4a0c5908f01f85f54fb900b53fb6a).
+- feat: add "instagram_url" field on guest data by [@ianriizky](https://github.com/ianriizky) in [#cc7640d](https://github.com/ianriizky/invitation/commit/cc7640d50529acc80c851241e69fa217e8a073a2).
 
 ## [2.4.0](https://github.com/ianriizky/invitation/releases/tag/2.4.0) - 2024-04-26
 

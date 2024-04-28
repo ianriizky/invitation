@@ -120,6 +120,17 @@
                     </div>
                   </div>
                   <div class="form-wrap mt-2">
+                    <label for="guest_instagram_url" class="label text-transform-uppercase">Instagram URL</label>
+                    <div class="input-form">
+                      <input
+                        type="tel"
+                        class="w-100 input-t"
+                        id="guest_instagram_url"
+                        name="guest[instagram_url]"
+                        value="{{ flash.value["guest[instagram_url]"] if flash.value["guest[instagram_url]"] else event_guest.guest.instagram_url }}" />
+                    </div>
+                  </div>
+                  <div class="form-wrap mt-2">
                     <label for="guest_description" class="label text-transform-uppercase">Keterangan</label>
                     <div class="input-form">
                       <textarea

@@ -88,6 +88,7 @@ export class GuestRepository {
         slug: body["guest[slug]"],
         domicile: body["guest[domicile]"],
         phone_number: body["guest[phone_number]"],
+        instagram_url: body["guest[instagram_url]"],
         description: body["guest[description]"],
         event_guests: {
           create: {

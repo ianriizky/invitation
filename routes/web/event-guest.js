@@ -76,8 +76,19 @@ router.get(
 );
 router.get(
   "/event/:event_slug/:guest_slug/whatsapp-message",
-  [authenticateBasicMiddleware(["default"]), new EventGuestValidator().show],
+  [
+    authenticateBasicMiddleware(["admin", "default"]),
+    new EventGuestValidator().show,
+  ],
   asyncHandler(new EventGuestController().showWhatsappMessage),
+);
+router.get(
+  "/event/:event_slug/:guest_slug/text-message",
+  [
+    authenticateBasicMiddleware(["admin", "default"]),
+    new EventGuestValidator().show,
+  ],
+  asyncHandler(new EventGuestController().showTextMessage),
 );
 router.get(
   "/event/:event_slug/:guest_slug/message",
