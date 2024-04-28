@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.0...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.1...develop)
+
+## [2.5.1](https://github.com/ianriizky/invitation/releases/tag/2.5.1) - 2024-04-28
+
+- fix: text message view is not showing properly by [@ianriizky](https://github.com/ianriizky) in [#6e4cc79](https://github.com/ianriizky/invitation/commit/6e4cc79713fe689648a05c755fd8cc884e37ba6b).
 
 ## [2.5.0](https://github.com/ianriizky/invitation/releases/tag/2.5.0) - 2024-04-28
 
