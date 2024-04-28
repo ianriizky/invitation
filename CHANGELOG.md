@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.3...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.4...develop)
+
+## [2.5.4](https://github.com/ianriizky/invitation/releases/tag/2.5.4) - 2024-04-28
+
+- fix: guest instagram url field is not allowed when update by [@ianriizky](https://github.com/ianriizky) in [#249e98f](https://github.com/ianriizky/invitation/commit/249e98f8f550ef0edc5ea39b22bcab8b6af86dc9).
 
 ## [2.5.3](https://github.com/ianriizky/invitation/releases/tag/2.5.3) - 2024-04-28
 
