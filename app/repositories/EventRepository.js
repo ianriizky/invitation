@@ -160,6 +160,15 @@ export class EventRepository {
   }
 
   /**
+   * @param {Event} event
+   * @param {import("./GuestRepository.js").Guest} guest
+   * @param {import("express").Request} req
+   */
+  static getTextMessageShortUrl(event, guest, req) {
+    return `${getBaseUrl(req)}/event/${event.slug}/${guest.slug}/text-message`;
+  }
+
+  /**
    * @param {Event["slug"]} slug
    */
   findBySlug(slug) {

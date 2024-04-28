@@ -47,10 +47,13 @@
                 <div class="name-message mt-1">
                   <p class="dancing-font" style="font-size: 22px;">{{ event_guest.guest.name }}</p>
                   <p>
-                    <a href="{{ event_guest.url }}" target="_blank">{{ event_guest.url }}</a>
+                    Link Undangan: <a href="{{ event_guest.url }}" target="_blank">{{ event_guest.url }}</a>
                   </p>
                   <p>
-                    <a href="{{ event_guest.whatsapp_message_url }}" target="_blank">{{ event_guest.whatsapp_message_url }}</a>
+                    Link Whatsapp: <a href="{{ event_guest.whatsapp_message_url }}" target="_blank">{{ event_guest.whatsapp_message_url }}</a>
+                  </p>
+                  <p>
+                    Isi Pesan: <a href="{{ event_guest.text_message_url }}" target="_blank">{{ event_guest.text_message_url }}</a>
                   </p>
                   <p>Lokasi: {{ event_guest.guest.domicile }}</p>
                   <p>Menggunakan Musik: {% if event_guest.use_music %}
@@ -62,7 +65,7 @@
                   {% else %} Tidak {% endif %}
                   </p>
                   <p>Nomor Telepon: {% if event_guest.guest.phone_number %}
-                      {{ event_guest.guest.phone_number }}
+                      <a href="{{ event_guest.guest.whatsapp_phone_number_url }}" target="_blank">{{ event_guest.guest.phone_number }}</a>
                     {% else %} - {% endif %}
                   </p>
                   <p>Keterangan: {% if event_guest.guest.description %}

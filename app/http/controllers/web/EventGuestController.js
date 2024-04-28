@@ -259,6 +259,34 @@ export class EventGuestController extends Controller {
    * @param {import("express").NextFunction} next
    */
   // eslint-disable-next-line no-unused-vars
+  async showTextMessage(req, res, next) {
+    const { event_slug, guest_slug } = req.params;
+    const event = await new EventRepository(req).findByGuestSlug(
+      event_slug,
+      guest_slug,
+    );
+
+    if (event === null) {
+      throw new NotFoundException("Event not found.");
+    }
+
+    return res.send(
+      EventRepository.getWhatsappMessage(
+        req.app.get("nunjucks"),
+        event,
+        event.event_guests[0].guest,
+        req,
+      ),
+    );
+  }
+
+  /**
+   * @template {import("../../validators/web/EventGuestValidator.js").ShowRequestParam} RequestParam
+   * @param {import("express").Request<RequestParam>} req
+   * @param {import("express").Response} res
+   * @param {import("express").NextFunction} next
+   */
+  // eslint-disable-next-line no-unused-vars
   async getMessages(req, res, next) {
     const { event_slug } = req.params;
     const event = await new EventRepository(req).findBySlug(event_slug);

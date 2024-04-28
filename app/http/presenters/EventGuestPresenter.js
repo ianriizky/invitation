@@ -34,6 +34,12 @@ export class EventGuestPresenter {
             event_guest.guest,
             req,
           );
+        event_guest.text_message_url = EventRepository.getTextMessageShortUrl(
+          event,
+          event_guest.guest,
+          req,
+        );
+        event_guest.guest.whatsapp_phone_number_url = `https://api.whatsapp.com/send?phone=${event_guest.guest.phone_number}`;
         event_guest.use_music = EventGuestRepository.isUseMusic(
           event_guest,
           event,
