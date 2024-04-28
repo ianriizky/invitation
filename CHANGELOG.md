@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.1...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.2...develop)
+
+## [2.5.2](https://github.com/ianriizky/invitation/releases/tag/2.5.2) - 2024-04-28
+
+- fix: use autoescaping on text message guest name to prevent not showing properly by [@ianriizky](https://github.com/ianriizky) in [#473f729](https://github.com/ianriizky/invitation/commit/473f729cf67c1406a4332b794e494a71b6e05c87).
 
 ## [2.5.1](https://github.com/ianriizky/invitation/releases/tag/2.5.1) - 2024-04-28
 
