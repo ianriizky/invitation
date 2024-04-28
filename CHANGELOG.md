@@ -2,7 +2,11 @@
 
 All notable changes to `Invitation Web Page` will be documented in this file.
 
-## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.2...develop)
+## [Unreleased](https://github.com/ianriizky/invitation/compare/2.5.3...develop)
+
+## [2.5.3](https://github.com/ianriizky/invitation/releases/tag/2.5.3) - 2024-04-28
+
+- fix: change background music for resepsi using mp3 format by [@ianriizky](https://github.com/ianriizky) in [#1c07c06](https://github.com/ianriizky/invitation/commit/1c07c066efd481c6a8e99e67248505c9652aa46f).
 
 ## [2.5.2](https://github.com/ianriizky/invitation/releases/tag/2.5.2) - 2024-04-28
 
